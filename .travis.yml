@@ -1,0 +1,32 @@
+language: python
+python:
+    - "2.7"
+# command to install dependencies
+install:
+    - pip install pytest pytest-cov
+    - pip install mockito
+    - pip install coveralls
+    - pip install radon
+    - pip install pylint
+    - pip install pep8
+# command to run tests
+script:
+    - py.test --cov . --cov-report term-missing
+after_success:
+    - coveralls
+    - radon raw ./src/.
+    - radon cc ./src/.
+    - radon mi ./src/.
+    - radon raw ./tests/.
+    - radon cc ./tests/.
+    - radon mi ./tests/.
+    - pep8 --statistics -qq ./src
+    - pep8 --statistics -qq ./tests
+    - pylint ./src/.
+    - pylint ./tests/.
+notifications:
+  email:
+    - pablolmedorado@gmail.com
+    - mbenitezsan@gmail.com
+    - mamisho@hotmail.es
+    - pacolopezbaena@gmail.com
