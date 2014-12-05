@@ -1,16 +1,16 @@
 class Circuito():
-    def __init__(self, nombre, ubicacion = None, longitud = None, numVueltas = None):
+    def __init__(self, nombre, ubicacion=None, longitud=None, num_vueltas=None):
         self.nombre = nombre
         self.ubicacion = ubicacion
         self.longitud = longitud
-        self.numVueltas = numVueltas
+        self.num_vueltas = num_vueltas
 
     def __str__(self):
         tostring = "Datos del circuito: \nNombre del circuito: " + self.nombre
-        if(self.ubicacion != None):
+        if self.ubicacion is None:
             tostring += "\nUbicacion: " + self.ubicacion
-        if(self.longitud != None):
+        if self.longitud is None:
             tostring += "\nLongitud: " + str(self.longitud) + "km"
-        if(self.numVueltas != None):
-            tostring += "\nNumero de Vueltas: " + str(self.numVueltas)
+        if self.num_vueltas is None:
+            tostring += "\nNumero de Vueltas: " + str(self.num_vueltas)
         return tostring + "\n"
