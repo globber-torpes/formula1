@@ -1,8 +1,10 @@
 import re
 import Error
 
+
 class Piloto():
-    def __init__(self, idpiloto, nombre = None, apellidos = None, equipo = None, equipoAnterior = None, nacionalidad = None, fechanac = None):
+    def __init__(self, idpiloto, nombre=None, apellidos=None, equipo=None, equipoanterior=None,
+                 nacionalidad=None, fechanac=None):
         """
         Contructor de pilotos
 
@@ -14,7 +16,7 @@ class Piloto():
             self.nombre = nombre
             self.apellidos = apellidos
             self.equipo = equipo
-            self.equipoAnterior = equipoAnterior
+            self.equipoAnterior = equipoanterior
             self.nacionalidad = nacionalidad
             self.fechanac = fechanac
         else:
@@ -31,17 +33,17 @@ class Piloto():
         """
         tostring = "Datos del piloto: \nIdentificador del piloto: " + str(self.idPiloto)
 
-        if(self.nombre != None):
+        if self.nombre is not None:
             tostring += "\nNombre completo: " + self.nombre
-        if(self.apellidos != None):
+        if self.apellidos is not None:
             tostring += " " + self.apellidos
-        if(self.equipo != None):
+        if self.equipo is not None:
             tostring += "\nEquipo: " + self.equipo
-        if(self.equipoAnterior != None):
+        if self.equipoAnterior is not None:
             tostring += "\nEquipo Anterior: " + self.equipoAnterior
-        if(self.nacionalidad != None):
+        if self.nacionalidad is not None:
             tostring += "\nNacionalidad: " + self.nacionalidad
-        if(self.fechanac != None):
+        if self.fechanac is not None:
             tostring += "\nFecha de Nacimiento: " + self.fechanac
 
         return tostring + "\n"
