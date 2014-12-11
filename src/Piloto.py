@@ -3,6 +3,10 @@ import Error
 
 class Piloto():
     def __init__(self, idpiloto, nombre = None, apellidos = None, equipo = None, equipoAnterior = None, nacionalidad = None, fechanac = None):
+        """
+        Contructor de pilotos
+
+        """
         regex = re.compile("([A-Z][A-Z][A-Z])")
         r = regex.search(idpiloto)
         if r is not None:
@@ -17,6 +21,14 @@ class Piloto():
             raise Error.FormatoException("idpiloto")
 
     def __str__(self):
+        """
+        Metodo ToString
+        Devuelve todos los datos del piloto, identificador, nombre, apellidos, equipo,equipo anterior,
+        nacionalidad, fecha de nacimiento.
+
+        :return: cadena con la informacion de un piloto
+        :rtype: string
+        """
         tostring = "Datos del piloto: \nIdentificador del piloto: " + str(self.idPiloto)
 
         if(self.nombre != None):
