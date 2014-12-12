@@ -59,7 +59,7 @@ class Formula1():
                 (campeonato_mundial.edicion not in self.campeonatos_mundiales):
             self.campeonatos_mundiales[campeonato_mundial.edicion] = campeonato_mundial
         else:
-            print "Error al agregar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + "."
+            print ("Error al agregar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + ".")
 
     def eliminar_campeonato_mundial(self, campeonato_mundial):
         """
@@ -74,7 +74,7 @@ class Formula1():
                 (campeonato_mundial.edicion in self.campeonatos_mundiales):
             del self.campeonatos_mundiales[campeonato_mundial.edicion]
         else:
-            print "Error al eliminar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + "."
+            print ("Error al eliminar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + ".")
 
     def crear_escuderia(self, nombre, sede=None, chasis=None, motor=None, neumaticos=None,
                         primera_temp=True, fecha_crea=date.today()):
@@ -108,7 +108,7 @@ class Formula1():
         if isinstance(escuderia, Escuderia) and (escuderia.nombre not in self.escuderias):
             self.escuderias[escuderia.nombre] = escuderia
         else:
-            print "Error al agregar la escuderia " + escuderia.nombre + "."
+            print ("Error al agregar la escuderia " + escuderia.nombre + ".")
 
     def eliminar_escuderia(self, escuderia):
         """
@@ -122,7 +122,7 @@ class Formula1():
         if isinstance(escuderia, Escuderia) and (escuderia.edicion in self.escuderias):
             del self.escuderias[escuderia.nombre]
         else:
-            print "Error al eliminar la escuderia " + escuderia.nombre + "."
+            print ("Error al eliminar la escuderia " + escuderia.nombre + ".")
 
     def crear_piloto(self, id_pil, nombre=None, apellidos=None, equipo=None,
                      equipo_anterior=None, nacionalidad=None, fecha_nac=None):
@@ -158,7 +158,7 @@ class Formula1():
         if isinstance(piloto, Piloto) and (piloto.id_piloto not in self.pilotos):
             self.pilotos[piloto.id_piloto] = piloto
         else:
-            print "Error al agregar al piloto " + piloto.nombre + " " + piloto.apellidos + "."
+            print ("Error al agregar al piloto " + piloto.nombre + " " + piloto.apellidos + ".")
 
     def eliminar_piloto(self, piloto):
         """
@@ -172,7 +172,7 @@ class Formula1():
         if isinstance(piloto, Piloto) and (piloto.id_piloto in self.pilotos):
             del self.pilotos[piloto.id_piloto]
         else:
-            print "Error al eliminar al piloto " + piloto.nombre + " " + piloto.apellidos + "."
+            print ("Error al eliminar al piloto " + piloto.nombre + " " + piloto.apellidos + ".")
 
     def crear_circuito(self, nombre, ubicacion=None, longitud=None, num_vueltas=None):
         """
@@ -202,7 +202,7 @@ class Formula1():
         if isinstance(circuito, Circuito) and (circuito.nombre not in self.circuitos):
             self.circuitos[circuito.nombre] = circuito
         else:
-            print "Error al agregar el circuito " + circuito.nombre + "."
+            print ("Error al agregar el circuito " + circuito.nombre + ".")
 
     def eliminar_circuito(self, circuito):
         """
@@ -216,7 +216,7 @@ class Formula1():
         if isinstance(circuito, Circuito) and (circuito.nombre in self.circuitos):
             del self.circuitos[circuito.nombre]
         else:
-            print "Error al eliminar el circuito " + circuito.nombre + "."
+            print ("Error al eliminar el circuito " + circuito.nombre + ".")
 
     def print_pilotos(self):
         """
@@ -300,8 +300,8 @@ class Formula1():
         cm1.simular_gran_premio(gp2)
 
         p6 = self.crear_piloto("AUX", "Piloto", "Auxiliar de Prueba")
-        print "El piloto " + p2.nombre + " " + p2.apellidos + \
-              " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n"
+        print ("El piloto " + p2.nombre + " " + p2.apellidos + \
+              " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n")
         e1.sustituir_piloto(p2, p6)
 
         gp3 = cm1.crear_gran_premio("Gran Premio de Corea del Sur", c3)

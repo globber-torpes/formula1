@@ -49,7 +49,7 @@ class Escuderia():
             if len(self.pilotos_activos) < 2 and piloto.id_piloto not in self.pilotos_activos:
                 self.pilotos_activos[piloto.id_piloto] = piloto
         else:
-            print "Error al agregar piloto a la escuderia " + self.nombre + "."
+            print ("Error al agregar piloto a la escuderia " + self.nombre + ".")
 
     def eliminar_piloto(self, piloto):
         """
@@ -67,9 +67,9 @@ class Escuderia():
             if piloto.id_piloto in self.pilotos_activos:
                 del self.pilotos_activos[piloto.id_piloto]
                 if len(self.pilotos_activos) < 2:
-                    print "Atencion, el piloto eliminado estaba marcado como activo. Redefina los pilotos activos."
+                    print ("Atencion, el piloto eliminado estaba marcado como activo. Redefina los pilotos activos.")
         else:
-            print "Error al eliminar piloto de la escuderia " + self.nombre + "."
+            print ("Error al eliminar piloto de la escuderia " + self.nombre + ".")
 
     def definir_pilotos_activos(self, piloto1, piloto2):
         """
@@ -86,7 +86,7 @@ class Escuderia():
             self.pilotos_activos[piloto1.id_piloto] = piloto1
             self.pilotos_activos[piloto2.id_piloto] = piloto2
         else:
-            print "Error al definir pilotos activos de la escuderia " + self.nombre + "."
+            print ("Error al definir pilotos activos de la escuderia " + self.nombre + ".")
 
     def sustituir_piloto(self, piloto1, piloto2):
         """
@@ -105,7 +105,7 @@ class Escuderia():
             self.eliminar_piloto(piloto1)
             self.agregar_piloto(piloto2)
         else:
-            print "Error al sustituir pilotos en la escuderia " + self.nombre + "."
+            print ("Error al sustituir pilotos en la escuderia " + self.nombre + ".")
 
     def __str__(self):
         """
