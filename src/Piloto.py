@@ -2,6 +2,7 @@ import re
 import Error
 
 class Piloto():
+
     def __init__(self, idpiloto, nombre = None, apellidos = None, equipo = None, equipoAnterior = None, nacionalidad = None, fechanac = None):
         regex = re.compile("([A-Z][A-Z][A-Z])")
         r = regex.search(idpiloto)
@@ -33,3 +34,6 @@ class Piloto():
             tostring += "\nFecha de Nacimiento: " + self.fechanac
 
         return tostring + "\n"
+        
+    def get_id_piloto(self):
+        return str(self.idPiloto)
