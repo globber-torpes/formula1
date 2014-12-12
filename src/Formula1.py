@@ -4,309 +4,144 @@ from Circuito import Circuito
 from CampeonatoMundial import CampeonatoMundial
 from datetime import date
 
-
 class Formula1():
-    """
-    Modela una liga de formula 1
-
-    :author: Francisco Lopez Baena
-    :version: 1
-    """
-    campeonatos_mundiales = {}
+    campeonatosMundiales = {}
     circuitos = {}
     escuderias = {}
     pilotos = {}
 
     def __init__(self):
-        """
-        descripcion breve: constructor
-
-        descripcion detallada: inicializador de la clase formula1
-
-        :return: no devuelve nada
-        """
-        self.campeonatos_mundiales = {}
+        self.campeonatosMundiales = {}
         self.circuitos = {}
         self.escuderias = {}
         self.pilotos = {}
 
-    def crear_campeonato_mundial(self, edicion, escuderias=None):
-        """
-        descripcion breve: crear campeonato
-
-        descripcion detallada: metodo para crear un campeonato mundial
-
-        :param edicion: año del mundial
-        :param escuderias: escuderias que participan en el mundial
-        :return: campeonato_mundial
-        """
+    def crearCampeonatoMundial(self, edicion, escuderias = None):
         if escuderias is None:
             escuderias = self.escuderias
-        campeonato_mundial = CampeonatoMundial(edicion, escuderias)
-        self.agregar_campeonato_mundial(campeonato_mundial)
-        return campeonato_mundial
+        campeonatoMundial = CampeonatoMundial(edicion, escuderias)
+        self.agregarCampeonatoMundial(campeonatoMundial)
+        return campeonatoMundial
 
-    def agregar_campeonato_mundial(self, campeonato_mundial):
-        """
-        descripcion breve: agregar campeonato
-
-        descripcion detallada: metodo para agregar un campeonato mundial
-
-        :param campeonato_mundial: lista de campeonatos en un mundial
-        :return: no devuelve nada
-        """
-        if isinstance(campeonato_mundial, CampeonatoMundial) and \
-                (campeonato_mundial.edicion not in self.campeonatos_mundiales):
-            self.campeonatos_mundiales[campeonato_mundial.edicion] = campeonato_mundial
+    def agregarCampeonatoMundial(self, campeonatoMundial):
+        if (isinstance(campeonatoMundial, CampeonatoMundial) and (campeonatoMundial.edicion not in self.campeonatosMundiales)):
+            self.campeonatosMundiales[campeonatoMundial.edicion] = campeonatoMundial
         else:
-            print "Error al agregar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + "."
+            print "Error al agregar el Campeonato Mundial edicion " + str(campeonatoMundial.edicion) + "."
 
-    def eliminar_campeonato_mundial(self, campeonato_mundial):
-        """
-        descripcion breve: eliminar campeonato
-
-        descripcion detallada: metodo para eliminar un campeonato mundial
-
-        :param campeonato_mundial: lista de campeonatos en un mundial
-        :return: no devuelva nada
-        """
-        if isinstance(campeonato_mundial, CampeonatoMundial) and \
-                (campeonato_mundial.edicion in self.campeonatos_mundiales):
-            del self.campeonatos_mundiales[campeonato_mundial.edicion]
+    def eliminarCampeonatoMundial(self, campeonatoMundial):
+        if (isinstance(campeonatoMundial, CampeonatoMundial) and (campeonatoMundial.edicion in self.campeonatosMundiales)):
+            del self.campeonatosMundiales[campeonatoMundial.edicion]
         else:
-            print "Error al eliminar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + "."
+            print "Error al eliminar el Campeonato Mundial edicion " + str(campeonatoMundial.edicion) + "."
 
-    def crear_escuderia(self, nombre, sede=None, chasis=None, motor=None, neumaticos=None,
-                        primera_temp=True, fecha_crea=date.today()):
-        """
-        descripcion breve: crear escuderia
-
-        descripcion detallada: metodo para crear una escuderia
-
-        :param nombre: nombre escuderia
-        :param sede: sede de la escuderia
-        :param chasis: chasis de la escuderia
-        :param motor: motor de la escuderia
-        :param neumaticos: neumaticos de la escuderia
-        :param primera_temp: primera temporada de la escuderia
-        :param fecha_crea: fecha de creacion de la escuderia
-        :return: escuderia
-        """
-        escuderia = Escuderia(nombre, sede, chasis, motor, neumaticos, primera_temp, fecha_crea)
-        self.agregar_escuderia(escuderia)
+    def crearEscuderia(self, nombre, sede = None, chasis = None, motor = None, neumaticos = None, primeratemp = True, fechacrea = date.today()):
+        escuderia = Escuderia(nombre, sede, chasis, motor, neumaticos, primeratemp, fechacrea)
+        self.agregarEscuderia(escuderia)
         return escuderia
 
-    def agregar_escuderia(self, escuderia):
-        """
-        descripcion breve: agregar escuderia
-
-        descripcion detallada: metodo para agregar escuderias
-
-        :param escuderia: escuderia
-        :return: no devuelve nada
-        """
-        if isinstance(escuderia, Escuderia) and (escuderia.nombre not in self.escuderias):
+    def agregarEscuderia(self, escuderia):
+        if (isinstance(escuderia, Escuderia) and (escuderia.nombre not in self.escuderias)):
             self.escuderias[escuderia.nombre] = escuderia
         else:
             print "Error al agregar la escuderia " + escuderia.nombre + "."
 
-    def eliminar_escuderia(self, escuderia):
-        """
-        descripcion breve: eliminar escuderia
-
-        descripcion detallada: metodo para eliminar escuderias
-
-        :param escuderia: escuderia
-        :return: no devuelve nada
-        """
-        if isinstance(escuderia, Escuderia) and (escuderia.edicion in self.escuderias):
+    def eliminarEscuderia(self, escuderia):
+        if (isinstance(escuderia, Escuderia) and (escuderia.edicion in self.escuderias)):
             del self.escuderias[escuderia.nombre]
         else:
             print "Error al eliminar la escuderia " + escuderia.nombre + "."
 
-    def crear_piloto(self, id_pil, nombre=None, apellidos=None, equipo=None,
-                     equipo_anterior=None, nacionalidad=None, fecha_nac=None):
-        """
-        descripcion breve: crear piloto
-
-        descripcion detallada: metodo para crear pilotos
-
-        :param id_pil: identificacion del piloto
-        :param nombre: nombre del piloto
-        :param apellidos: apellidos del piloto
-        :param equipo: equipo al que pertenece el piloto
-        :param equipo_anterior: equipo al que pertenecio el piloto anteriormente
-        :param nacionalidad: nacionalidad del piloto
-        :param fecha_nac: fecha de nacimiento del  piloto
-        :return: piloto
-        """
-        piloto = Piloto(id_pil, nombre, apellidos, equipo, equipo_anterior, nacionalidad, fecha_nac)
-        self.agregar_piloto(piloto)
+    def crearPiloto(self, idpiloto, nombre = None, apellidos = None, equipo = None, equipoAnterior = None, nacionalidad = None, fechanac = None):
+        piloto = Piloto(idpiloto,nombre,apellidos,equipo,equipoAnterior,nacionalidad,fechanac)
+        self.agregarPiloto(piloto)
         if equipo and self.escuderias[equipo]:
-            self.escuderias[equipo].agregar_piloto(piloto)
+            self.escuderias[equipo].agregarPiloto(piloto)
         return piloto
 
-    def agregar_piloto(self, piloto):
-        """
-        descripcion breve: agregar piloto
-
-        descripcion detallada: metodo para agregar pilotos
-
-        :param piloto: piloto
-        :return: no devuelve nada
-        """
-        if isinstance(piloto, Piloto) and (piloto.id_piloto not in self.pilotos):
-            self.pilotos[piloto.id_piloto] = piloto
+    def agregarPiloto(self, piloto):
+        if (isinstance(piloto, Piloto) and (piloto.idPiloto not in self.pilotos)):
+            self.pilotos[piloto.idPiloto] = piloto
         else:
-            print "Error al agregar al piloto " + piloto.nombre + " " + piloto.apellidos + "."
+            print "Error al agregar al piloto " + piloto.nombre + " " + piloto.apellidos +"."
 
-    def eliminar_piloto(self, piloto):
-        """
-        descripcion breve: eliminar piloto
-
-        descripcion detallada: metodo para eliminar piloto
-
-        :param piloto: piloto
-        :return: no devuelve nada
-        """
-        if isinstance(piloto, Piloto) and (piloto.id_piloto in self.pilotos):
-            del self.pilotos[piloto.id_piloto]
+    def eliminarPiloto(self, piloto):
+        if (isinstance(piloto, Piloto) and (piloto.idPiloto in self.pilotos)):
+            del self.pilotos[piloto.idPiloto]
         else:
-            print "Error al eliminar al piloto " + piloto.nombre + " " + piloto.apellidos + "."
+            print "Error al eliminar al piloto " + piloto.nombre + " " + piloto.apellidos +"."
 
-    def crear_circuito(self, nombre, ubicacion=None, longitud=None, num_vueltas=None):
-        """
-        descripcion breve: crear circuito
-
-        descripcion detallada: metodo para crear circuito
-
-        :param nombre: nombre del circuito
-        :param ubicacion: pais donde se ubica el circuito
-        :param longitud: longitud del circuito
-        :param num_vueltas: numeros de vueltas que se dan al circuito
-        :return:
-        """
-        circuito = Circuito(nombre, ubicacion, longitud, num_vueltas)
-        self.agregar_circuito(circuito)
+    def crearCircuito(self, nombre, ubicacion = None, longitud = None, numVueltas = None):
+        circuito = Circuito(nombre,ubicacion,longitud,numVueltas)
+        self.agregarCircuito(circuito)
         return circuito
 
-    def agregar_circuito(self, circuito):
-        """
-        descripcion breve: agregar circuito
-
-        descripcion detallada: metodo para agregar circuitos
-
-        :param circuito: circuito
-        :return: no devuelve nada
-        """
-        if isinstance(circuito, Circuito) and (circuito.nombre not in self.circuitos):
+    def agregarCircuito(self, circuito):
+        if (isinstance(circuito, Circuito) and (circuito.nombre not in self.circuitos)):
             self.circuitos[circuito.nombre] = circuito
         else:
             print "Error al agregar el circuito " + circuito.nombre + "."
 
-    def eliminar_circuito(self, circuito):
-        """
-        descripcion breve: eliminar circuito
-
-        descripcion detallada: metodo para eliminar circuitos
-
-        :param circuito: circuito
-        :return: no devuelve nada
-        """
-        if isinstance(circuito, Circuito) and (circuito.nombre in self.circuitos):
+    def eliminarCircuito(self, circuito):
+        if (isinstance(circuito, Circuito) and (circuito.nombre in self.circuitos)):
             del self.circuitos[circuito.nombre]
         else:
             print "Error al eliminar el circuito " + circuito.nombre + "."
 
-    def print_pilotos(self):
-        """
-        descripcion breve: imprimir pilotos
-
-        descripcion detallada: metodo para imprimir los pilotos
-
-        :return: no devuelve nada
-        """
+    def printPilotos(self):
         for piloto in self.pilotos.values():
             print piloto
 
-    def print_escuderias(self):
-        """
-        descripcion breve: imprimir escuderia
-
-        descripcion detallada: metodo para imprimir escuderias
-
-        :return: no devuelve nada
-        """
+    def printEscuderias(self):
         for escuderia in self.escuderias.values():
             print escuderia
 
-    def print_circuitos(self):
-        """
-        descripcion breve: imprimir circuitos
-
-        descripcion detallada: metodo para imprimir circuitos
-
-        :return: no devuelve nada
-        """
+    def printCircuitos(self):
         for circuito in self.circuitos.values():
             print circuito
 
-    def print_campeonatos_mundiales(self):
-        """
-        descripcion breve: imprimir campeonatos
-
-        descripcion detallada: metodo para imprimir campeonatos mundiales
-
-        :return: no devuelve nada
-        """
-        for gp in self.campeonatos_mundiales.values():
+    def printCampeonatosMundiales(self):
+        for gp in self.campeonatosMundiales.values():
             print gp
 
     def demo(self):
-        """
-        descripcion breve: probar
 
-        descripcion detallada: metodo para probar los metodos anteriores
+        e1 = self.crearEscuderia("Ferrari","Maranello")
+        e2 = self.crearEscuderia("Red Bull")
 
-        :return: no devuelve nada
-        """
-        e1 = self.crear_escuderia("Ferrari", "Maranello")
-        e2 = self.crear_escuderia("Red Bull")
+        p1 = self.crearPiloto("ALO","Fernando","Alonso","Ferrari")
+        p2 = self.crearPiloto("MAS","Felipe","Massa","Ferrari")
+        p3 = self.crearPiloto("WEB","Mark", "Webber", "Red Bull")
+        p4 = self.crearPiloto("VET","Sebastien", "Vettel", "Red Bull")
+        p5 = self.crearPiloto("SCH","Michael", "Schumacher", "Ferrari")
 
-        p1 = self.crear_piloto("ALO", "Fernando", "Alonso", "Ferrari")
-        p2 = self.crear_piloto("MAS", "Felipe", "Massa", "Ferrari")
-        p3 = self.crear_piloto("WEB", "Mark", "Webber", "Red Bull")
-        p4 = self.crear_piloto("VET", "Sebastien", "Vettel", "Red Bull")
-        p5 = self.crear_piloto("SCH", "Michael", "Schumacher", "Ferrari")
+        self.printPilotos()
 
-        self.print_pilotos()
+        self.printEscuderias()
 
-        self.print_escuderias()
+        c1 = self.crearCircuito("Red Bull Ring","Spielberg",4326)
+        c2 = self.crearCircuito("Circuito de Sochi", "Sochi")
+        c3 = self.crearCircuito("Internacional de Corea", "Yeongam")
 
-        c1 = self.crear_circuito("Red Bull Ring", "Spielberg", 4326)
-        c2 = self.crear_circuito("Circuito de Sochi", "Sochi")
-        c3 = self.crear_circuito("Internacional de Corea", "Yeongam")
+        self.printCircuitos()
 
-        self.print_circuitos()
+        cm1 = self.crearCampeonatoMundial(2014)
 
-        cm1 = self.crear_campeonato_mundial(2014)
+        self.printCampeonatosMundiales()
 
-        self.print_campeonatos_mundiales()
+        gp1 = cm1.crearGranPremio("Gran Premio de Austria",c1)
+        gp2 = cm1.crearGranPremio("Gran Premio de Rusia", c2)
 
-        gp1 = cm1.crear_gran_premio("Gran Premio de Austria", c1)
-        gp2 = cm1.crear_gran_premio("Gran Premio de Rusia", c2)
+        cm1.simularGranPremio(gp1)
+        cm1.simularGranPremio(gp2)
 
-        cm1.simular_gran_premio(gp1)
-        cm1.simular_gran_premio(gp2)
+        p6 = self.crearPiloto("AUX", "Piloto", "Auxiliar de Prueba")
+        print "El piloto " + p2.nombre + " " + p2.apellidos + " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n"
+        e1.sustituirPiloto(p2, p6)
 
-        p6 = self.crear_piloto("AUX", "Piloto", "Auxiliar de Prueba")
-        print "El piloto " + p2.nombre + " " + p2.apellidos + \
-              " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n"
-        e1.sustituir_piloto(p2, p6)
+        gp3 = cm1.crearGranPremio("Gran Premio de Corea del Sur", c3)
+        cm1.simularGranPremio(gp3)
 
-        gp3 = cm1.crear_gran_premio("Gran Premio de Corea del Sur", c3)
-        cm1.simular_gran_premio(gp3)
-
-        cm1.print_grandes_premios()
-        self.print_campeonatos_mundiales()
+        cm1.printGrandesPremios()
+        self.printCampeonatosMundiales()
 
