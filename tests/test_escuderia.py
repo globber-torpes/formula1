@@ -17,14 +17,11 @@ class TestEscuderia(TestCase):
 
         piloto1 = mock(Piloto)
         escuderia1 = mock(Escuderia)
-        when(escuderia1).agregar_piloto(piloto1.id_piloto(1))
+
         piloto2 = mock(Piloto)
 
-        piloto2.id_piloto(2)
-        print piloto2.id_piloto()
-        print piloto1.id_piloto()
-        print escuderia1.eliminar_piloto(piloto2.id_piloto(2))
-        self.assertTrue(escuderia1.eliminar_piloto(piloto2.id_piloto(1)), escuderia1.eliminar_piloto(piloto1.id_piloto(2)))
+        print escuderia1.agregar_piloto("hola")
+
 
 
     def test_sustituir_piloto(self):
