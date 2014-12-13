@@ -58,8 +58,10 @@ class Formula1():
         if isinstance(campeonato_mundial, CampeonatoMundial) and \
                 (campeonato_mundial.edicion not in self.campeonatos_mundiales):
             self.campeonatos_mundiales[campeonato_mundial.edicion] = campeonato_mundial
+            return True
         else:
             print ("Error al agregar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + ".")
+            return False
 
     def eliminar_campeonato_mundial(self, campeonato_mundial):
         """
@@ -73,8 +75,10 @@ class Formula1():
         if isinstance(campeonato_mundial, CampeonatoMundial) and \
                 (campeonato_mundial.edicion in self.campeonatos_mundiales):
             del self.campeonatos_mundiales[campeonato_mundial.edicion]
+            return True
         else:
             print ("Error al eliminar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + ".")
+            return False
 
     def crear_escuderia(self, nombre, sede=None, chasis=None, motor=None, neumaticos=None,
                         primera_temp=True, fecha_crea=date.today()):
