@@ -20,7 +20,7 @@ class CampeonatoMundial():
         else:
             Error.TipoException("edicion/escuderia")
 
-    def agregargranpremio(self, granpremio):
+    def agregar_gran_premio(self, granpremio):
         """
         Comprueba que granpremio es una instancia de gran premio y si lo es la anade
 
@@ -31,7 +31,7 @@ class CampeonatoMundial():
         else:
             print "Error al agregar el Gran Premio al Campeonato Mundial edicion " + str(self.edicion) + "."
 
-    def eliminargranpremio(self, granpremio):
+    def eliminar_gran_premio(self, granpremio):
         """
         Comprueba que granpremio es una instancia de gran premio y si lo es la elimina
 
@@ -42,7 +42,7 @@ class CampeonatoMundial():
         else:
             print "Error al eliminar el Gran Premio del Campeonato Mundial edicion " + str(self.edicion) + "."
 
-    def creargranpremio(self, nombre, circuito, pais=None, fecha=None):
+    def crear_gran_premio(self, nombre, circuito, pais=None, fecha=None):
         """
         Crea un gran premio con los parametros pasados
 
@@ -50,10 +50,10 @@ class CampeonatoMundial():
         :rtype Gran premio
         """
         gp = GranPremio(nombre, circuito, self.escuderias, pais, fecha)
-        self.agregargranpremio(gp)
+        self.agregar_gran_premio(gp)
         return gp
 
-    def printgrandesgremios(self):
+    def print_grandes_premios(self):
         """
         imprime todos los grandes premios existentes
 
@@ -61,7 +61,7 @@ class CampeonatoMundial():
         for gp in self.grandesPremios.values():
             print gp
 
-    def actualizarrankings(self, granpremio):
+    def actualizar_rankings(self, granpremio):
         """
         Comprueba que gran premio es una instancia de gran premio, si lo es suma la puntuaciones de pilotos y
         escuderias para actualizar las listas
@@ -82,7 +82,7 @@ class CampeonatoMundial():
         else:
             print "Error al actualizar ranking."
 
-    def simulargranpremio(self, granpremio):
+    def simular_gran_premio(self, granpremio):
         """
         Comprueba si el gran premio existe, si existe anade clasificacion la imprime y actualiza los rankings
 
@@ -91,11 +91,11 @@ class CampeonatoMundial():
         if granpremio.nombre in self.grandesPremios:
             granpremio.setClasificacion()
             granpremio.printClasificacion()
-            self.actualizarrankings(granpremio)
+            self.actualizar_rankings(granpremio)
         else:
             print "Error. El gran premio no se encuentra registrado dentro de este Campeonato Mundial"
 
-    def printrankingpilotos(self, imprimir=True):
+    def print_ranking_pilotos(self, imprimir=True):
         """
         Imprime la tabla e ranking de pilotos con sus puntuaciones
 
@@ -110,7 +110,7 @@ class CampeonatoMundial():
             print tostring + "\n"
         return tostring
 
-    def printrankingescuderias(self, imprimir=True):
+    def print_ranking_escuderias(self, imprimir=True):
         """
         Imprime el ranking de escuderias
 
@@ -138,7 +138,7 @@ class CampeonatoMundial():
         tostring += "\nEscuderias inscritas: " + str(self.escuderias.keys())
         tostring += "\nGrandes Premios: " + str(self.grandesPremios.keys())
         if self.rankingPilotos:
-            tostring += "\n" + self.printrankingpilotos(False)
+            tostring += "\n" + self.print_ranking_pilotos(False)
         if self.rankingEscuderias:
-            tostring += "\n" + self.printrankingescuderias(False)
+            tostring += "\n" + self.print_ranking_escuderias(False)
         return tostring + "\n"
