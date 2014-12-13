@@ -155,8 +155,8 @@ class Formula1():
         :param piloto: piloto
         :return: no devuelve nada
         """
-        if isinstance(piloto, Piloto) and (piloto.id_piloto not in self.pilotos):
-            self.pilotos[piloto.id_piloto] = piloto
+        if isinstance(piloto, Piloto) and (piloto.idPiloto not in self.pilotos):
+            self.pilotos[piloto.idPiloto] = piloto
         else:
             print ("Error al agregar al piloto " + piloto.nombre + " " + piloto.apellidos + ".")
 
@@ -169,8 +169,8 @@ class Formula1():
         :param piloto: piloto
         :return: no devuelve nada
         """
-        if isinstance(piloto, Piloto) and (piloto.id_piloto in self.pilotos):
-            del self.pilotos[piloto.id_piloto]
+        if isinstance(piloto, Piloto) and (piloto.idPiloto in self.pilotos):
+            del self.pilotos[piloto.idPiloto]
         else:
             print ("Error al eliminar al piloto " + piloto.nombre + " " + piloto.apellidos + ".")
 
@@ -300,8 +300,8 @@ class Formula1():
         cm1.simular_gran_premio(gp2)
 
         p6 = self.crear_piloto("AUX", "Piloto", "Auxiliar de Prueba")
-        print ("El piloto " + p2.nombre + " " + p2.apellidos + \
-              " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n")
+        print ("El piloto " + p2.nombre + " " + p2.apellidos +
+               " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n")
         e1.sustituir_piloto(p2, p6)
 
         gp3 = cm1.crear_gran_premio("Gran Premio de Corea del Sur", c3)
