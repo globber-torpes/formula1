@@ -29,10 +29,10 @@ class Escuderia():
         self.chasis = chasis
         self.motor = motor
         self.neumaticos = neumaticos
-        self.primera_temp = p_temp
-        self.fecha_crea = f_crea
+        self.primeraTemp = p_temp
+        self.fechaCrea = f_crea
         self.pilotos = {}
-        self.pilotos_activos = {}
+        self.pilotosActivos = {}
 
     def agregar_piloto(self, piloto):
         """
@@ -43,13 +43,15 @@ class Escuderia():
         :param piloto: piloto
         :return: no devuelve nada
         """
-        if isinstance(piloto, Piloto) and (piloto.id_piloto not in self.pilotos):
+        if isinstance(piloto, Piloto) and (piloto.idPiloto not in self.pilotos):
             piloto.equipo = self.nombre
-            self.pilotos[piloto.id_piloto] = piloto
-            if len(self.pilotos_activos) < 2 and piloto.id_piloto not in self.pilotos_activos:
-                self.pilotos_activos[piloto.id_piloto] = piloto
+            self.pilotos[piloto.idPiloto] = piloto
+            if len(self.pilotosActivos) < 2 and piloto.idPiloto not in self.pilotosActivos:
+                self.pilotosActivos[piloto.idPiloto] = piloto
+            return True
         else:
             print ("Error al agregar piloto a la escuderia " + self.nombre + ".")
+            return False
 
     def eliminar_piloto(self, piloto):
         """
@@ -60,18 +62,21 @@ class Escuderia():
         :param piloto: piloto
         :return: no devuelve nada
         """
-        if isinstance(piloto, Piloto) and (piloto.id_piloto in self.pilotos):
+        if isinstance(piloto, Piloto) and (piloto.idPiloto in self.pilotos):
             piloto.equipo = None
             piloto.equipo_anterior = self.nombre
-            del self.pilotos[piloto.id_piloto]
-            if piloto.id_piloto in self.pilotos_activos:
-                del self.pilotos_activos[piloto.id_piloto]
-                if len(self.pilotos_activos) < 2:
+            del self.pilotos[piloto.idPiloto]
+            if piloto.idPiloto in self.pilotosActivos:
+                del self.pilotosActivos[piloto.idPiloto]
+                if len(self.pilotosActivos) < 2:
                     print ("Atencion, el piloto eliminado estaba marcado como activo. Redefina los pilotos activos.")
+                return True
+            return True
         else:
             print ("Error al eliminar piloto de la escuderia " + self.nombre + ".")
+            return False
 
-    def definir_pilotos_activos(self, piloto1, piloto2):
+    def definir_pilotosActivos(self, piloto1, piloto2):
         """
         descripcion breve: deifinir piloto
 
@@ -82,11 +87,13 @@ class Escuderia():
         :return: no devuelve nada
         """
         if isinstance(piloto1, Piloto) and isinstance(piloto2, Piloto):
-            self.pilotos_activos.clear()
-            self.pilotos_activos[piloto1.id_piloto] = piloto1
-            self.pilotos_activos[piloto2.id_piloto] = piloto2
+            self.pilotosActivos.clear()
+            self.pilotosActivos[piloto1.idPiloto] = piloto1
+            self.pilotosActivos[piloto2.idPiloto] = piloto2
+            return True
         else:
             print ("Error al definir pilotos activos de la escuderia " + self.nombre + ".")
+            return False
 
     def sustituir_piloto(self, piloto1, piloto2):
         """
@@ -99,13 +106,15 @@ class Escuderia():
         :return: no devuelve nada
         """
         if isinstance(piloto1, Piloto) and isinstance(piloto2, Piloto):
-            if piloto1.id_piloto in self.pilotos_activos.keys():
-                del self.pilotos_activos[piloto1.id_piloto]
-                self.pilotos_activos[piloto2.id_piloto] = piloto2
+            if piloto1.idPiloto in self.pilotosActivos.keys():
+                del self.pilotosActivos[piloto1.idPiloto]
+                self.pilotosActivos[piloto2.idPiloto] = piloto2
             self.eliminar_piloto(piloto1)
             self.agregar_piloto(piloto2)
+            return True
         else:
             print ("Error al sustituir pilotos en la escuderia " + self.nombre + ".")
+            return False
 
     def __str__(self):
         """
@@ -124,12 +133,12 @@ class Escuderia():
             tostring += "\nMotor montado: " + self.motor
         if self.neumaticos:
             tostring += "\nMarca de neumaticos: " + self.neumaticos
-        if self.primera_temp:
-            tostring += "\nPrimera temporada?: " + str(self.primera_temp)
-        if self.fecha_crea:
-            tostring += "\nFecha de creacion de la Escuderia: " + str(self.fecha_crea)
+        if self.primeraTemp:
+            tostring += "\nPrimera temporada?: " + str(self.primeraTemp)
+        if self.fechaCrea:
+            tostring += "\nFecha de creacion de la Escuderia: " + str(self.fechaCrea)
         if self.pilotos:
             tostring += "\nPilotos en plantilla: \n\t" + str(self.pilotos.keys())
-        if self.pilotos_activos:
-            tostring += "\nPilotos activos: \n\t" + str(self.pilotos_activos.keys())
+        if self.pilotosActivos:
+            tostring += "\nPilotos activos: \n\t" + str(self.pilotosActivos.keys())
         return tostring + "\n"
