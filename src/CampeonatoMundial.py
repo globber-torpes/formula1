@@ -93,8 +93,8 @@ class CampeonatoMundial():
         :param granpremio: instancia de gran premio
         """
         if granpremio.nombre in self.grandesPremios:
-            granpremio.setClasificacion()
-            granpremio.printClasificacion()
+            granpremio.set_clasificacion()
+            granpremio.print_clasificacion()
             self.actualizar_rankings(granpremio)
         else:
             print "Error. El gran premio no se encuentra registrado dentro de este Campeonato Mundial"
