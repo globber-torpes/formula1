@@ -16,7 +16,6 @@ class TestEscuderia(TestCase):
 
         :param p1: Piloto que se agrega a la escuderia.
         :param e1: Escuderia para realizar el test
-        :return:
         """
         p1 = Piloto("AAA", "Alni")
         e1 = Escuderia("Ferrari")
@@ -32,7 +31,6 @@ class TestEscuderia(TestCase):
         :param p1: Piloto que se agrega a la escuderia.
         :param p2: Piloto con id repetido para probar el test
         :param e1: Escuderia para realizar el test
-        :return:
         """
         p1 = Piloto("AAA", "Alni")
         p2 = Piloto("AAA", "Pepe")
@@ -46,11 +44,10 @@ class TestEscuderia(TestCase):
         Test Agregar Piloto a Escuderia Failure
 
         El test prueba que el objeto que se va a agregar a
-        la escuderia, sea un piloto.
+        la escuderia sea un piloto.
 
         :param m: Objeto tipo Mock que se agrega a la escuderia
         :param e1: Escuderia para realizar el test
-        :return:
         """
         p1 = mock(Piloto)
         e1 = Escuderia("Ferrari")
@@ -68,7 +65,6 @@ class TestEscuderia(TestCase):
         :param p1: Piloto existente en la escuderia
         :param p2: Piloto existente en la escuderia
         :param p3: Piloto existente en la escuderia y que sera eliminado
-        :return:
         """
         p1 = Piloto("AAA", "Piloto A")
         p2 = Piloto("BBB", "Piloto B")
@@ -92,7 +88,6 @@ class TestEscuderia(TestCase):
         :param p1: Piloto existente en la escuderia
         :param p2: Piloto existente en la escuderia
         :param p3: Piloto existente en la escuderia y que sera eliminado
-        :return:
         """
         p1 = Piloto("AAA", "Piloto A")
         p2 = Piloto("BBB", "Piloto B")
@@ -115,7 +110,6 @@ class TestEscuderia(TestCase):
         :param p1: Piloto Activo existente en la escuderia
         :param p2: Piloto Activo existente en la escuderia  y que sera eliminado
         :param p3: Piloto No Activo existente en la escuderia
-        :return:
         """
         p1 = Piloto("AAA", "Piloto A")
         p2 = Piloto("BBB", "Piloto B")
@@ -134,14 +128,13 @@ class TestEscuderia(TestCase):
         """
         Test definir Pilotos activos
 
-        El test prueba que se dos pilotos sean activos en la
+        El test prueba que dos pilotos sean activos en la
         escuderia.
 
         :param p1: Piloto no Activo Para hacer el test
         :param p2: Piloto no Activo Para hacer el test
         :param p3: Piloto no Activo Para hacer el test
         :param e1: Escuderia para el test
-        :return:
         """
         p1 = Piloto("AAA", "Piloto A")
         p2 = Piloto("BBB", "Piloto B")
@@ -158,14 +151,13 @@ class TestEscuderia(TestCase):
         """
         Test definir Pilotos activos Faulire
 
-        El test prueba que los dos objetos que se pasan
-        sean Pilotos para que sean activos
+        El test prueba que los dos objetos que se pasan,
+        sean Pilotos para que posteriormente sean activos
 
-        :param p1: Piloto no Activo Para hacer el test
-        :param p2: Piloto no Activo Para hacer el test
+        :param p1: Piloto no Activo para hacer el test
+        :param p2: Piloto no Activo para hacer el test
         :param p3: Mock de tipo Piloto para hacer el test
         :param e1: Escuderia para el test
-        :return:
         """
         p1 = Piloto("AAA", "Piloto A")
         p2 = Piloto("BBB", "Piloto B")
@@ -187,8 +179,7 @@ class TestEscuderia(TestCase):
 
         :param p1: Piloto de la escuderia
         :param p2: Piloto de la escuderia
-        :param p3: Piloto que va a sustituir a otro
-        :return:
+        :param p3: Piloto que sustituira a otro en la escuderia
         """
 
         p1 = Piloto("AAA", "Piloto A")
@@ -211,7 +202,6 @@ class TestEscuderia(TestCase):
         :param p1: Piloto de la escuderia
         :param p2: Piloto de la escuderia
         :param p3: Mock de tipo piloto que va a intentar sustituir a otro piloto
-        :return:
         """
 
         p1 = Piloto("AAA", "Piloto A")

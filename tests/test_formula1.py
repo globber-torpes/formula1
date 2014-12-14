@@ -12,11 +12,11 @@ __author__ = 'MAMISHO'
 
 class TestFormula1(TestCase):
     """
-    Test Fromula 1
+    Test Formula 1
 
-    Esta es la prueba de las funcionalidades del modulo de Formula1. Para
+    Este test prueba las funcionalidades del modulo de Formula1. Para
     realizar las mismas, es necesario tener una bateria de atributos
-    definidos para todoas las pruebas.
+    definidos para todas las pruebas.
 
     :param p1: Piloto de prueba
     :param p2: Piloto de prueba
@@ -49,15 +49,14 @@ class TestFormula1(TestCase):
         """
         Test Crear un campeonato mundial
 
-        El ests comprueba que formula 1 pueda crear un
+        El test comprueba que formula 1 pueda crear un
         campeonato mundial de forma correcta, para esto
         se comparan dos clases CampeonatoMundial, el primero lo creamos de
-        forma manual y el segundo es el que lo crea el modulo de formula1
-        luego comparamos las clases que tienen sus mismo atributos.
+        forma manual y el segundo es el que creara el modulo de formula1.
+        Luego comparamos las clases que tienen sus mismo atributos.
 
-
-        :param f1: Fromula 1 que va a crear el campeonato mundial
-        :param es: Diccionario de escuderias necesario para contruir un campeonato mundial
+        :param f1: Formula 1 que va a crear el campeonato mundial
+        :param es: Diccionario de escuderias necesario para construir un campeonato mundial
         :param cm1: Campeonato mundial creado de forma manual
         :param cm2: Campeonato mundial creado por formula 1
         """
@@ -75,7 +74,7 @@ class TestFormula1(TestCase):
         Test agregar campeonato mundial a Formula 1
 
         Este test comprueba que un campeonato mundial sea
-        agregado correctamente en la formula1 compliendo
+        agregado correctamente en la formula 1 cumpliendo
         con el esquema de datos requerido
 
         :param f1: Formula 1 al que se agrega el campeonat mundial
@@ -93,16 +92,16 @@ class TestFormula1(TestCase):
 
     def test_agregar_campeonato_mundial_2(self):
         """
-        Test afregar campeonato mundial repetido
+        Test agregar campeonato mundial repetido
 
         Este test comprueba que no pueda se agregado un
-        campeonato mundial que ya existe en la formula 1, la prueba se va a realizar con
+        campeonato mundial que ya existe en la formula 1. La prueba se va a realizar con
         un solo campeonato mundial en este caso cm. Se invoca dos veces a el metodo
         agregar_campeonato_mundial con el mismo parametro.
 
         :param f1: Formula1 al que se agrega el campeonato mundial
         :param es: Diccionario de escuderias que se requiere para crear un campeonato mundial
-        :param cm: campeonato mundial que se agrega a la formula 1
+        :param cm: Campeonato mundial que se agrega a la formula 1
         """
         print ("\ntest_agregar_campeonato_mundial_2")
         f1 = Formula1()
@@ -121,7 +120,7 @@ class TestFormula1(TestCase):
         Este metodo comprueba que el nuevo campeonato mundial
         sea correcto, es decir que cumpla con los requerimientos
         de un campeonato mundial. En esta prueba vamos a simular un
-        campeonato mundial, el cual no debe pasar la prueba porque aunque
+        campeonato mundial, el cual no debe pasar la prueba porque, aunque
         sea simulado, no es un campeonato mundial.
 
         :param f1: Formula1 al que se agrega el campeonato mundial
@@ -140,7 +139,7 @@ class TestFormula1(TestCase):
         con los requisitos sea eliminado de la formula 1.
 
         :param f1: formula 1 de donde se elimina el campeonato mundial
-        :param es: escuderia de prueba para crear campeonatos mundiales
+        :param es: Escuderia de prueba para crear campeonatos mundiales
         :param cm1: Campeoanto mundial de prueba
         :param cm2: Campeoanto mundial de prueba
         :param cm3: Campeoanto mundial de prueba
@@ -175,7 +174,7 @@ class TestFormula1(TestCase):
         la formula 1
 
         :param f1: formula 1 de donde se elimina el campeonato mundial
-        :param es: escuderia de prueba para crear campeonatos mundiales
+        :param es: Escuderia de prueba para crear campeonatos mundiales
         :param cm1: Campeoanto mundial No existente en la formula 1
         :param cm2: Campeoanto mundial existente en f1
         :param cm3: Campeoanto mundial existente en f1
@@ -206,8 +205,8 @@ class TestFormula1(TestCase):
 
         Este test comprueba que el campeonato mundial que
         va a ser eliminado, sea un campeonato mundial valido. Para este
-        test usaremos un mock de tipo campeonatoMundial y la formula1
-        no debe permitir agregarlo porque aunque sea simulado, no
+        test usaremos un mock de tipo campeonato Mundial y la formula 1
+        no debe permitir agregarlo porque, aunque sea simulado, no
         es un objeto propio de CampeonatoMundial
 
         :param f1: Formula 1 de donde se va a eliminar el campeonato mundial

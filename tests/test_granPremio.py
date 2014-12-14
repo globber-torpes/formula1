@@ -14,7 +14,7 @@ class TestGranPremio(TestCase):
         Test extraer participantes existentes
 
         Este test comprueba que los participantes fueron
-        agregado correctamente en el gran premio, y
+        agregados correctamente en el gran premio, y
         se comprueba la funcionalidad de extraer participantes
         que se usa en otros modulos.
 
@@ -27,10 +27,10 @@ class TestGranPremio(TestCase):
         :param e1: Escuderia para agregar al circuito
         :param e2: Escuderia para agregar al circuito
         :param e3: Escuderia para agregar al circuito
-        :param c1: circuito del gran premio
+        :param c1: Circuito del gran premio
         :param es: Diccionario de circuitos para crear el gran premio
-        :param gp: gran premio del test
-        :param participantes: objeto que se usa para comprobar la funcionalidad
+        :param gp: Gran premio para la prueba
+        :param participantes: Objeto que se usa para comprobar la funcionalidad
         """
         p1 = Piloto("AAA", "Piloto A")
         p2 = Piloto("BBB", "Piloto B")
@@ -74,7 +74,7 @@ class TestGranPremio(TestCase):
         Test extraer participantes no exitentes
 
         Este test comprueba que no se extraigan participantes
-        que no estan en el gran premio
+        que no se encuentran en el gran premio
 
         :param p1: Piloto de la escuderia e1
         :param p2: Piloto de la escuderia e1
@@ -82,13 +82,13 @@ class TestGranPremio(TestCase):
         :param p4: Piloto de la escuderia e2
         :param p5: Piloto de la escuderia e3
         :param p6: Piloto de la escuderia e4
-        :param p7: Participante que no esta en el gran premio y que no debe aparecer en el diccionario
+        :param p7: Participante que no pertenece en el gran premio, y que no debe aparecer en el diccionario
         :param e1: Escuderia para agregar al circuito
         :param e2: Escuderia para agregar al circuito
         :param e3: Escuderia para agregar al circuito
         :param c1: circuito del gran premio
         :param es: Diccionario de circuitos para crear el gran premio
-        :param gp: gran premio del test
+        :param gp: Gran premio para la prueba
         :param participantes: Diccionario que se usa para comprobar la funcionalidad
         """
         p1 = Piloto("AAA", "Piloto A")
@@ -126,8 +126,8 @@ class TestGranPremio(TestCase):
         """
         Test set_clasificacion
 
-        Este test comprueba que se pueda realizar introducir
-        parametros por teclado segun el programa solicita al usuario
+        Este test comprueba que se pueda  introducir
+        parametros por teclado segun el programa solicite al usuario.
         Se hace uso de patch desde la libreria de mock
 
         :param p1: Piloto de la escuderia e1
@@ -136,13 +136,12 @@ class TestGranPremio(TestCase):
         :param p4: Piloto de la escuderia e2
         :param p5: Piloto de la escuderia e3
         :param p6: Piloto de la escuderia e4
-        :param p7: Participante que no esta en el gran premio y que no debe aparecer en el diccionario
         :param e1: Escuderia para agregar al circuito
         :param e2: Escuderia para agregar al circuito
         :param e3: Escuderia para agregar al circuito
         :param c1: circuito del gran premio
         :param es: Diccionario de circuitos para crear el gran premio
-        :param gp: gran premio del test
+        :param gp: Gran premio para realizar el test
         :param participantes: Diccionario que se usa para comprobar la funcionalidad
         """
         p1 = Piloto("AAA", "Piloto A")
@@ -151,7 +150,6 @@ class TestGranPremio(TestCase):
         p4 = Piloto("DDD", "Piloto D")
         p5 = Piloto("EEE", "Piloto E")
         p6 = Piloto("FFF", "Piloto F")
-        p7 = Piloto("GGG", "Piloto G")
 
         e1 = Escuderia("Escuderia 1")
         e2 = Escuderia("Escuderia 2")
@@ -177,7 +175,7 @@ class TestGranPremio(TestCase):
         Test set vuelta rapida
 
         Este test comprueba que se pueda introducir una vuelta rapida
-        Se pasa lossiguientes parametros
+        Se pasan los siguientes parametros
 
         :param p1: Piloto de la escuderia e1
         :param p2: Piloto de la escuderia e1
@@ -190,7 +188,7 @@ class TestGranPremio(TestCase):
         :param e3: Escuderia para agregar al circuito
         :param c1: circuito del gran premio
         :param es: Diccionario de circuitos para crear el gran premio
-        :param gp: gran premio del test
+        :param gp: Gran premio para realizar la prueba
         """
         p1 = Piloto("AAA", "Piloto A")
         p2 = Piloto("BBB", "Piloto B")
