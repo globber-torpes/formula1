@@ -52,7 +52,7 @@ class TestGranPremio(TestCase):
         e3.agregar_piloto(p5)
         e3.agregar_piloto(p6)
 
-        es={e1.nombre: e1, e2.nombre: e2, e3.nombre: e3}
+        es = {e1.nombre: e1, e2.nombre: e2, e3.nombre: e3}
 
         gp = GranPremio("Gran Premio 1", c1, es, "USA", "2014")
 
@@ -61,7 +61,7 @@ class TestGranPremio(TestCase):
 
         print participantes
 
-        #self.assertDictContainsSubset(participantes, es, None)
+        # self.assertDictContainsSubset(participantes, es, None)
         self.assertIn(p1.idPiloto, participantes)
         self.assertIn(p2.idPiloto, participantes)
         self.assertIn(p3.idPiloto, participantes)
@@ -112,7 +112,7 @@ class TestGranPremio(TestCase):
         e3.agregar_piloto(p5)
         e3.agregar_piloto(p6)
 
-        es={e1.nombre: e1, e2.nombre: e2, e3.nombre: e3}
+        es = {e1.nombre: e1, e2.nombre: e2, e3.nombre: e3}
 
         gp = GranPremio("Gran Premio 1", c1, es, "USA", "2014")
 
@@ -166,7 +166,7 @@ class TestGranPremio(TestCase):
         e3.agregar_piloto(p5)
         e3.agregar_piloto(p6)
 
-        es={e1.nombre: e1, e2.nombre: e2, e3.nombre: e3}
+        es = {e1.nombre: e1, e2.nombre: e2, e3.nombre: e3}
 
         ng = GranPremio("Gran Premio 1", c1, es, "USA", "2014")
 
@@ -212,9 +212,9 @@ class TestGranPremio(TestCase):
         e3.agregar_piloto(p5)
         e3.agregar_piloto(p6)
 
-        es={e1.nombre: e1, e2.nombre: e2, e3.nombre: e3}
+        es = {e1.nombre: e1, e2.nombre: e2, e3.nombre: e3}
 
         gp = GranPremio("Gran Premio 1", c1, es, "USA", "2014")
 
-        self.assertEqual(gp.set_vuelta_rapida("1:14:123", "AAA"),True)
+        self.assertEqual(gp.set_vuelta_rapida("1:14:123", "AAA"), True)
 

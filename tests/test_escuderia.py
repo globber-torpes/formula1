@@ -18,10 +18,10 @@ class TestEscuderia(TestCase):
         :param e1: Escuderia para realizar el test
         :return:
         """
-        p1 = Piloto("AAA","Alni")
+        p1 = Piloto("AAA", "Alni")
         e1 = Escuderia("Ferrari")
 
-        self.assertEqual(e1.agregar_piloto(p1),True)
+        self.assertEqual(e1.agregar_piloto(p1), True)
 
     def test_agregar_piloto_2(self):
         """
@@ -34,12 +34,12 @@ class TestEscuderia(TestCase):
         :param e1: Escuderia para realizar el test
         :return:
         """
-        p1 = Piloto("AAA","Alni")
-        p2 = Piloto("AAA","Pepe")
+        p1 = Piloto("AAA", "Alni")
+        p2 = Piloto("AAA", "Pepe")
         e1 = Escuderia("Ferrari")
 
         e1.agregar_piloto(p1)
-        self.assertEqual(e1.agregar_piloto(p2),False)
+        self.assertEqual(e1.agregar_piloto(p2), False)
 
     def test_agregar_piloto_3(self):
         """
@@ -55,7 +55,7 @@ class TestEscuderia(TestCase):
         p1 = mock(Piloto)
         e1 = Escuderia("Ferrari")
 
-        self.assertEqual(e1.agregar_piloto(p1),False)
+        self.assertEqual(e1.agregar_piloto(p1), False)
 
     def test_eliminar_piloto_1(self):
         """
@@ -70,16 +70,16 @@ class TestEscuderia(TestCase):
         :param p3: Piloto existente en la escuderia y que sera eliminado
         :return:
         """
-        p1 = Piloto("AAA","Piloto A")
-        p2 = Piloto("BBB","Piloto B")
-        p3 = Piloto("CCC","Piloto C")
+        p1 = Piloto("AAA", "Piloto A")
+        p2 = Piloto("BBB", "Piloto B")
+        p3 = Piloto("CCC", "Piloto C")
         e1 = Escuderia("Ferrari")
 
         e1.agregar_piloto(p1)
         e1.agregar_piloto(p2)
         e1.agregar_piloto(p3)
 
-        self.assertEqual(e1.eliminar_piloto(p3),True)
+        self.assertEqual(e1.eliminar_piloto(p3), True)
 
     def test_eliminar_piloto_2(self):
         """
@@ -94,15 +94,15 @@ class TestEscuderia(TestCase):
         :param p3: Piloto existente en la escuderia y que sera eliminado
         :return:
         """
-        p1 = Piloto("AAA","Piloto A")
-        p2 = Piloto("BBB","Piloto B")
-        p3 = Piloto("CCC","Piloto C")
+        p1 = Piloto("AAA", "Piloto A")
+        p2 = Piloto("BBB", "Piloto B")
+        p3 = Piloto("CCC", "Piloto C")
         e1 = Escuderia("Ferrari")
 
         e1.agregar_piloto(p1)
         e1.agregar_piloto(p2)
 
-        self.assertEqual(e1.eliminar_piloto(p3),False)
+        self.assertEqual(e1.eliminar_piloto(p3), False)
 
     def test_eliminar_piloto_3(self):
         """
@@ -117,9 +117,9 @@ class TestEscuderia(TestCase):
         :param p3: Piloto No Activo existente en la escuderia
         :return:
         """
-        p1 = Piloto("AAA","Piloto A")
-        p2 = Piloto("BBB","Piloto B")
-        p3 = Piloto("CCC","Piloto C")
+        p1 = Piloto("AAA", "Piloto A")
+        p2 = Piloto("BBB", "Piloto B")
+        p3 = Piloto("CCC", "Piloto C")
         e1 = Escuderia("Ferrari")
 
         e1.agregar_piloto(p1)
@@ -128,9 +128,9 @@ class TestEscuderia(TestCase):
 
         e1.definir_pilotosActivos(p1, p2)
 
-        self.assertEqual(e1.eliminar_piloto(p2),True)
+        self.assertEqual(e1.eliminar_piloto(p2), True)
 
-    def test_definir_pilotosActivos_1(self):
+    def test_definir_pilotos_activos_1(self):
         """
         Test definir Pilotos activos
 
@@ -143,18 +143,18 @@ class TestEscuderia(TestCase):
         :param e1: Escuderia para el test
         :return:
         """
-        p1 = Piloto("AAA","Piloto A")
-        p2 = Piloto("BBB","Piloto B")
-        p3 = Piloto("CCC","Piloto C")
+        p1 = Piloto("AAA", "Piloto A")
+        p2 = Piloto("BBB", "Piloto B")
+        p3 = Piloto("CCC", "Piloto C")
         e1 = Escuderia("Ferrari")
 
         e1.agregar_piloto(p1)
         e1.agregar_piloto(p2)
         e1.agregar_piloto(p3)
 
-        self.assertEqual(e1.definir_pilotosActivos(p1, p2),True)
+        self.assertEqual(e1.definir_pilotosActivos(p1, p2), True)
 
-    def test_definir_pilotosActivos_2(self):
+    def test_definir_pilotos_activos_2(self):
         """
         Test definir Pilotos activos Faulire
 
@@ -167,16 +167,16 @@ class TestEscuderia(TestCase):
         :param e1: Escuderia para el test
         :return:
         """
-        p1 = Piloto("AAA","Piloto A")
-        p2 = Piloto("BBB","Piloto B")
-        p3 = mock(Piloto("CCC","Piloto C"))
+        p1 = Piloto("AAA", "Piloto A")
+        p2 = Piloto("BBB", "Piloto B")
+        p3 = mock(Piloto("CCC", "Piloto C"))
         e1 = Escuderia("Ferrari")
 
         e1.agregar_piloto(p1)
         e1.agregar_piloto(p2)
         e1.agregar_piloto(p3)
 
-        self.assertEqual(e1.definir_pilotosActivos(p1, p3),False)
+        self.assertEqual(e1.definir_pilotosActivos(p1, p3), False)
 
     def test_sustituir_piloto_1(self):
         """
@@ -191,15 +191,15 @@ class TestEscuderia(TestCase):
         :return:
         """
 
-        p1 = Piloto("AAA","Piloto A")
-        p2 = Piloto("BBB","Piloto B")
-        p3 = Piloto("CCC","Piloto C")
+        p1 = Piloto("AAA", "Piloto A")
+        p2 = Piloto("BBB", "Piloto B")
+        p3 = Piloto("CCC", "Piloto C")
         e1 = Escuderia("Ferrari")
 
         e1.agregar_piloto(p1)
         e1.agregar_piloto(p2)
 
-        self.assertEqual(e1.definir_pilotosActivos(p1, p3),True)
+        self.assertEqual(e1.definir_pilotosActivos(p1, p3), True)
 
     def test_sustituir_piloto_2(self):
         """
@@ -214,12 +214,12 @@ class TestEscuderia(TestCase):
         :return:
         """
 
-        p1 = Piloto("AAA","Piloto A")
-        p2 = Piloto("BBB","Piloto B")
-        p3 = mock(Piloto("CCC","Piloto C"))
+        p1 = Piloto("AAA", "Piloto A")
+        p2 = Piloto("BBB", "Piloto B")
+        p3 = mock(Piloto("CCC", "Piloto C"))
         e1 = Escuderia("Ferrari")
 
         e1.agregar_piloto(p1)
         e1.agregar_piloto(p2)
 
-        self.assertEqual(e1.definir_pilotosActivos(p1, p3),False)
+        self.assertEqual(e1.definir_pilotosActivos(p1, p3), False)

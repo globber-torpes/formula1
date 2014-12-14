@@ -76,7 +76,7 @@ class Escuderia():
             print ("Error al eliminar piloto de la escuderia " + self.nombre + ".")
             return False
 
-    def definir_pilotosActivos(self, piloto1, piloto2):
+    def definir_pilotos_activos(self, piloto1, piloto2):
         """
         descripcion breve: deifinir piloto
 

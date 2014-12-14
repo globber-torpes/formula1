@@ -6,11 +6,11 @@ from src.Circuito import *
 from src.GranPremio import *
 from src.Formula1 import *
 from mockito import *
+
 __author__ = 'MAMISHO'
 
 
 class TestFormula1(TestCase):
-
     p1 = Piloto("AAA", "Piloto A")
     p2 = Piloto("BBB", "Piloto B")
     p3 = Piloto("CCC", "Piloto C")
@@ -22,7 +22,7 @@ class TestFormula1(TestCase):
     e3 = Escuderia("Escuderia 3")
 
     # def test_crear_campeonato_mundial(self):
-    #     self.e1.agregar_piloto(self.p1)
+    # self.e1.agregar_piloto(self.p1)
     #     self.e1.agregar_piloto(self.p2)
     #     self.e2.agregar_piloto(self.p3)
     #     self.e2.agregar_piloto(self.p4)
@@ -35,7 +35,6 @@ class TestFormula1(TestCase):
     #         self.e3.nombre:self.e3,
     #         }
     #     print f1.crear_campeonato_mundial(1,es)
-
 
     def test_agregar_campeonato_mundial_1(self):
         """
@@ -57,12 +56,11 @@ class TestFormula1(TestCase):
         # self.e3.agregar_piloto(self.p6)
         print ("test_agregar_campeonato_mundial_1")
         f1 = Formula1()
-        es = {self.e1.nombre:self.e1,
-            self.e2.nombre:self.e2,
-            self.e3.nombre:self.e3,
-            }
+        es = {self.e1.nombre: self.e1,
+              self.e2.nombre: self.e2,
+              self.e3.nombre: self.e3}
 
-        cm = CampeonatoMundial(1,es)
+        cm = CampeonatoMundial(1, es)
         self.assertEqual(f1.agregar_campeonato_mundial(cm), True)
 
     def test_agregar_campeonato_mundial_2(self):
@@ -86,12 +84,11 @@ class TestFormula1(TestCase):
         # self.e3.agregar_piloto(self.p6)
         print ("\ntest_agregar_campeonato_mundial_2")
         f1 = Formula1()
-        es = {self.e1.nombre:self.e1,
-            self.e2.nombre:self.e2,
-            self.e3.nombre:self.e3,
-            }
+        es = {self.e1.nombre: self.e1,
+              self.e2.nombre: self.e2,
+              self.e3.nombre: self.e3}
 
-        cm = CampeonatoMundial(1,es)
+        cm = CampeonatoMundial(1, es)
         f1.agregar_campeonato_mundial(cm)
         self.assertEqual(f1.agregar_campeonato_mundial(cm), False)
 
@@ -129,10 +126,9 @@ class TestFormula1(TestCase):
         :param cm5: Campeoanto mundial de prueba
         """
         f1 = Formula1()
-        es = {self.e1.nombre:self.e1,
-            self.e2.nombre:self.e2,
-            self.e3.nombre:self.e3,
-            }
+        es = {self.e1.nombre: self.e1,
+              self.e2.nombre: self.e2,
+              self.e3.nombre: self.e3}
         cm1 = CampeonatoMundial(1, es)
         cm2 = CampeonatoMundial(2, es)
         cm3 = CampeonatoMundial(3, es)
@@ -145,7 +141,7 @@ class TestFormula1(TestCase):
         f1.agregar_campeonato_mundial(cm4)
         f1.agregar_campeonato_mundial(cm5)
 
-        self.assertEqual(f1.eliminar_campeonato_mundial(cm1),True)
+        self.assertEqual(f1.eliminar_campeonato_mundial(cm1), True)
 
     def test_eliminar_campeonato_mundial_2(self):
         """
@@ -164,23 +160,21 @@ class TestFormula1(TestCase):
         :param cm5: Campeoanto mundial existente en f1
         """
         f1 = Formula1()
-        es = {self.e1.nombre:self.e1,
-            self.e2.nombre:self.e2,
-            self.e3.nombre:self.e3,
-            }
+        es = {self.e1.nombre: self.e1,
+              self.e2.nombre: self.e2,
+              self.e3.nombre: self.e3}
         cm1 = CampeonatoMundial(1, es)
         cm2 = CampeonatoMundial(2, es)
         cm3 = CampeonatoMundial(3, es)
         cm4 = CampeonatoMundial(4, es)
         cm5 = CampeonatoMundial(5, es)
 
-
         f1.agregar_campeonato_mundial(cm2)
         f1.agregar_campeonato_mundial(cm3)
         f1.agregar_campeonato_mundial(cm4)
         f1.agregar_campeonato_mundial(cm5)
 
-        self.assertEqual(f1.eliminar_campeonato_mundial(cm1),False)
+        self.assertEqual(f1.eliminar_campeonato_mundial(cm1), False)
 
     def test_eliminar_campeonato_mundial_3(self):
         """
@@ -199,10 +193,9 @@ class TestFormula1(TestCase):
         :param cm3: mock que simula un campeonato mundial
         """
         f1 = Formula1()
-        es = {self.e1.nombre:self.e1,
-            self.e2.nombre:self.e2,
-            self.e3.nombre:self.e3,
-            }
+        es = {self.e1.nombre: self.e1,
+              self.e2.nombre: self.e2,
+              self.e3.nombre: self.e3}
         cm1 = CampeonatoMundial(1, es)
         cm2 = CampeonatoMundial(2, es)
         cm3 = mock(CampeonatoMundial)
@@ -210,4 +203,4 @@ class TestFormula1(TestCase):
         f1.agregar_campeonato_mundial(cm1)
         f1.agregar_campeonato_mundial(cm2)
 
-        self.assertEqual(f1.eliminar_campeonato_mundial(cm3),False)
+        self.assertEqual(f1.eliminar_campeonato_mundial(cm3), False)
