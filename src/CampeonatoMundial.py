@@ -28,8 +28,10 @@ class CampeonatoMundial():
         """
         if isinstance(granpremio, GranPremio) and (granpremio not in self.grandesPremios):
             self.grandesPremios[granpremio.nombre] = granpremio
+            return True
         else:
             print "Error al agregar el Gran Premio al Campeonato Mundial edicion " + str(self.edicion) + "."
+            return False
 
     def eliminar_gran_premio(self, granpremio):
         """
@@ -79,8 +81,10 @@ class CampeonatoMundial():
                     self.rankingEscuderias[escuderia] += granpremio.puntuacionFinal[1][escuderia]
                 else:
                     self.rankingEscuderias[escuderia] = granpremio.puntuacionFinal[1][escuderia]
+            return True
         else:
             print "Error al actualizar ranking."
+            return False
 
     def simular_gran_premio(self, granpremio):
         """

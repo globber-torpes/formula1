@@ -13,7 +13,7 @@ class TestPiloto(TestCase):
         :return: Resultado de la prueba
         :rtype: Boolean
         """
-        pil = Piloto("PRUEBA", "pilotoprueba","apellidoprueba","renault","ferrari","espana","21-04-88")
+        pil = Piloto("PRUEBA", "pilotoprueba", "apellidoprueba", "renault", "ferrari", "espana", "21-04-88")
         string = "Datos del piloto: \nIdentificador del piloto: " + "PRUEBA"
         string += "\nNombre completo: " + "pilotoprueba"
         string += " " + "apellidoprueba"
