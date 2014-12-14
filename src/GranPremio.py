@@ -37,7 +37,7 @@ class GranPremio():
         puntuaciones_pilotos = {}
         puntuaciones_escuderias = {}
 
-        print "Editor de clasificaciones."
+        print "Editor de clasificaciones. " + self.nombre + "."
         print "Se mostraran los participantes por pantalla. Introduzca la posicion para cada piloto:"
 
         for piloto in self.participantes.values():

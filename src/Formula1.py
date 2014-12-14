@@ -274,41 +274,56 @@ class Formula1():
 
         :return: no devuelve nada
         """
+
+        #Creacion de escuderias
         e1 = self.crear_escuderia("Ferrari", "Maranello")
         e2 = self.crear_escuderia("Red Bull")
+        e3 = self.crear_escuderia("Mercedes",chasis="Mercedes F1 W05", motor="Mercedes PU106A Hybrid V6", neumaticos="Pirelli")
 
-        p1 = self.crear_piloto("ALO", "Fernando", "Alonso", "Ferrari")
-        p2 = self.crear_piloto("MAS", "Felipe", "Massa", "Ferrari")
-        p3 = self.crear_piloto("WEB", "Mark", "Webber", "Red Bull")
-        p4 = self.crear_piloto("VET", "Sebastien", "Vettel", "Red Bull")
+        #Creacion de pilotos
+        p1 = self.crear_piloto("ALO", "Fernando", "Alonso", "Ferrari", "Mercedes", "Espaniola", "29/7/81")
+        p2 = self.crear_piloto("RAI", "Kimi", "Raikkonen", "Ferrari")
+        p3 = self.crear_piloto("RIC", "Daniel", "Ricciardo", "Red Bull")
+        p4 = self.crear_piloto("VET", "Sebastian", "Vettel", "Red Bull")
         p5 = self.crear_piloto("SCH", "Michael", "Schumacher", "Ferrari")
+        p7 = self.crear_piloto("HAM", "Lewis", "Hamilton", "Mercedes")
+        p8 = self.crear_piloto("ROS", "Nico", "Rosberg", "Mercedes")
 
+        #imprimiendo pilotos y escuderias
         self.print_pilotos()
-
         self.print_escuderias()
 
+        #Creando circuitos
         c1 = self.crear_circuito("Red Bull Ring", "Spielberg", 4326)
         c2 = self.crear_circuito("Circuito de Sochi", "Sochi")
         c3 = self.crear_circuito("Internacional de Corea", "Yeongam")
 
+        #imprimiendo circuitos
         self.print_circuitos()
 
+        #creando campeonato mundial
         cm1 = self.crear_campeonato_mundial(2014)
+
+        #imprimiendo campeonato mundial
+        self.print_campeonatos_mundiales()
+
+        #creando grandes premios del campeonato mundial
+        gp1 = cm1.crear_gran_premio("Gran Premio de Austria", c1)
+        gp2 = cm1.crear_gran_premio("Gran Premio de Rusia", c2)
+        gp3 = cm1.crear_gran_premio("Gran Premio de Corea del Sur", c3)
 
         self.print_campeonatos_mundiales()
 
-        gp1 = cm1.crear_gran_premio("Gran Premio de Austria", c1)
-        gp2 = cm1.crear_gran_premio("Gran Premio de Rusia", c2)
-
+        #Simulando grandes premios
         cm1.simular_gran_premio(gp1)
         cm1.simular_gran_premio(gp2)
 
+        #Simulando accidente y cambio de piloto
         p6 = self.crear_piloto("AUX", "Piloto", "Auxiliar de Prueba")
         print ("El piloto " + p2.nombre + " " + p2.apellidos +
                " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n")
         e1.sustituir_piloto(p2, p6)
 
-        gp3 = cm1.crear_gran_premio("Gran Premio de Corea del Sur", c3)
         cm1.simular_gran_premio(gp3)
 
         cm1.print_grandes_premios()
