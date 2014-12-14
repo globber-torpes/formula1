@@ -1,5 +1,5 @@
 Circuito
 ========
 
-.. automodule:: src.Circuito
+.. autoclass:: src.Circuito.Circuito
    :members:

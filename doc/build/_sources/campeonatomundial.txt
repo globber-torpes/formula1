@@ -1,5 +1,5 @@
 Campeonato Mundial
 ==================
 
-.. autoclass:: src.CampeonatoMundial
+.. autoclass:: src.CampeonatoMundial.CampeonatoMundial
    :members:

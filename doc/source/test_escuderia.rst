@@ -1,5 +1,5 @@
 Test Escuderia
 ==============
 
-.. automodule:: tests.test_escuderia
+.. autoclass:: tests.test_escuderia.TestEscuderia
    :members:

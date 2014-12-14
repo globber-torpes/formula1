@@ -1,5 +1,5 @@
 Escuderia
 =========
 
-.. automodule:: src.Escuderia
+.. autoclass:: src.Escuderia.Escuderia
    :members:

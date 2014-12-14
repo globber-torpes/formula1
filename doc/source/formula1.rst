@@ -1,5 +1,5 @@
 Formula 1
 =========
 
-.. automodule:: src.Formula1
+.. autoclass:: src.Formula1.Formula1
    :members:

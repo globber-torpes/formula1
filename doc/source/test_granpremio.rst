@@ -1,5 +1,5 @@
 Test Gran Premio
 ================
 
-.. automodule:: tests.test_granPremio
+.. autoclass:: tests.test_granPremio.TestGranPremio
    :members:

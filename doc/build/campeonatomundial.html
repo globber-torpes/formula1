@@ -61,6 +61,113 @@
             
   <div class="section" id="campeonato-mundial">
 <h1>Campeonato Mundial<a class="headerlink" href="#campeonato-mundial" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="src.CampeonatoMundial.CampeonatoMundial">
+<em class="property">class </em><tt class="descclassname">src.CampeonatoMundial.</tt><tt class="descname">CampeonatoMundial</tt><big>(</big><em>edicion</em>, <em>escuderias</em><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="src.CampeonatoMundial.CampeonatoMundial.actualizar_rankings">
+<tt class="descname">actualizar_rankings</tt><big>(</big><em>granpremio</em><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial.actualizar_rankings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial.actualizar_rankings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comprueba que gran premio es una instancia de gran premio, si lo es suma la puntuaciones de pilotos y
+escuderias para actualizar las listas</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>granpremio</strong> &#8211; instancia de gran premio</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.CampeonatoMundial.CampeonatoMundial.agregar_gran_premio">
+<tt class="descname">agregar_gran_premio</tt><big>(</big><em>granpremio</em><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial.agregar_gran_premio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial.agregar_gran_premio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comprueba que granpremio es una instancia de gran premio y si lo es la anade</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>granpremio</strong> &#8211; instancia de gran premio</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.CampeonatoMundial.CampeonatoMundial.crear_gran_premio">
+<tt class="descname">crear_gran_premio</tt><big>(</big><em>nombre</em>, <em>circuito</em>, <em>pais=None</em>, <em>fecha=None</em><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial.crear_gran_premio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial.crear_gran_premio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea un gran premio con los parametros pasados</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">devuelve instancia gran premio</td>
+</tr>
+</tbody>
+</table>
+<p>:rtype Gran premio</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.CampeonatoMundial.CampeonatoMundial.eliminar_gran_premio">
+<tt class="descname">eliminar_gran_premio</tt><big>(</big><em>granpremio</em><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial.eliminar_gran_premio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial.eliminar_gran_premio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comprueba que granpremio es una instancia de gran premio y si lo es la elimina</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>granpremio</strong> &#8211; instancia de gran premio</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.CampeonatoMundial.CampeonatoMundial.print_grandes_premios">
+<tt class="descname">print_grandes_premios</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial.print_grandes_premios"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial.print_grandes_premios" title="Permalink to this definition">¶</a></dt>
+<dd><p>imprime todos los grandes premios existentes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.CampeonatoMundial.CampeonatoMundial.print_ranking_escuderias">
+<tt class="descname">print_ranking_escuderias</tt><big>(</big><em>imprimir=True</em><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial.print_ranking_escuderias"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial.print_ranking_escuderias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imprime el ranking de escuderias</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">ranking escuderias</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.CampeonatoMundial.CampeonatoMundial.print_ranking_pilotos">
+<tt class="descname">print_ranking_pilotos</tt><big>(</big><em>imprimir=True</em><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial.print_ranking_pilotos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial.print_ranking_pilotos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imprime la tabla e ranking de pilotos con sus puntuaciones</p>
+<p>:return:ranking de pilotos
+:rtype: string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.CampeonatoMundial.CampeonatoMundial.simular_gran_premio">
+<tt class="descname">simular_gran_premio</tt><big>(</big><em>granpremio</em><big>)</big><a class="reference internal" href="_modules/src/CampeonatoMundial.html#CampeonatoMundial.simular_gran_premio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.CampeonatoMundial.CampeonatoMundial.simular_gran_premio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comprueba si el gran premio existe, si existe anade clasificacion la imprime y actualiza los rankings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>granpremio</strong> &#8211; instancia de gran premio</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

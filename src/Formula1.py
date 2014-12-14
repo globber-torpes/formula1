@@ -310,7 +310,6 @@ class Formula1(object):
         #creando grandes premios del campeonato mundial
         gp1 = cm1.crear_gran_premio("Gran Premio de Austria", c1)
         gp2 = cm1.crear_gran_premio("Gran Premio de Rusia", c2)
-        gp3 = cm1.crear_gran_premio("Gran Premio de Corea del Sur", c3)
 
         self.print_campeonatos_mundiales()
 
@@ -324,6 +323,7 @@ class Formula1(object):
                " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n")
         e1.sustituir_piloto(p2, p6)
 
+        gp3 = cm1.crear_gran_premio("Gran Premio de Corea del Sur", c3)
         cm1.simular_gran_premio(gp3)
 
         cm1.print_grandes_premios()

@@ -1,5 +1,5 @@
 Test Piloto
 ===========
 
-.. automodule:: tests.test_piloto
+.. autoclass:: tests.test_piloto.TestPiloto
    :members:

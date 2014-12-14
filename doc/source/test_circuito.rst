@@ -1,5 +1,5 @@
 Test Circuito
 =============
 
-.. automodule:: tests.test_circuito
+.. autoclass:: tests.test_circuito.TestCircuito
    :members:

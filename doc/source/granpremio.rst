@@ -1,5 +1,5 @@
 Gran Premio
 ===========
 
-.. automodule:: src.GranPremio
+.. autoclass:: src.GranPremio.GranPremio
    :members:

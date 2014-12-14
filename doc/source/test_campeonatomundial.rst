@@ -1,5 +1,5 @@
 Test Campeonato Mundial
 =======================
 
-.. automodule:: tests.test_campeonatoMundial
+.. autoclass:: tests.test_campeonatoMundial.TestCampeonatoMundial
    :members:

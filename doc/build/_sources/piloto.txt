@@ -1,5 +1,5 @@
 Piloto
 ======
 
-.. automodule:: src.Piloto
+.. autoclass:: src.Piloto.Piloto
    :members:
