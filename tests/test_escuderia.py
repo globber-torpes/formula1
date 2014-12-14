@@ -1,6 +1,6 @@
 from unittest import TestCase
-from src.Piloto import *
-from src.Escuderia import *
+from src.Piloto import Piloto
+from src.Escuderia import Escuderia
 from mockito import *
 
 __author__ = 'MAMISHO'

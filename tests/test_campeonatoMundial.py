@@ -1,9 +1,9 @@
 from unittest import TestCase
-from src.GranPremio import *
-from src.CampeonatoMundial import *
-from src.Circuito import *
-from src.Piloto import *
-from src.Escuderia import *
+from src.GranPremio import GranPremio
+from src.CampeonatoMundial import CampeonatoMundial
+from src.Circuito import Circuito
+from src.Piloto import Piloto
+from src.Escuderia import Escuderia
 
 
 __author__ = 'manolo'

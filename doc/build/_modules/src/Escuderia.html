@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>src.Escuderia &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for src.Escuderia</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">src.Piloto</span> <span class="kn">import</span> <span class="n">Piloto</span>
+
+
+<div class="viewcode-block" id="Escuderia"><a class="viewcode-back" href="../../escuderia.html#src.Escuderia.Escuderia">[docs]</a><span class="k">class</span> <span class="nc">Escuderia</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Modela una escuderia</span>
+
+<span class="sd">    :author: Francisco Lopez Baena</span>
+<span class="sd">    :version: 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">sede</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">chasis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">motor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">neumaticos</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">p_temp</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">f_crea</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: constructor</span>
+
+<span class="sd">        descripcion detallada: inicializador de la clase escuderia</span>
+
+<span class="sd">        :param nombre: nombre de la escuderia</span>
+<span class="sd">        :param sede: sede de la escuderia</span>
+<span class="sd">        :param chasis: chasis de la escuderia</span>
+<span class="sd">        :param motor: motor de la escuderia</span>
+<span class="sd">        :param neumaticos: neumaticos que usa la escuderia</span>
+<span class="sd">        :param p_temp: primera temporada de la escuderia</span>
+<span class="sd">        :param f_crea: fecha de creacion de la escuderia</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sede</span> <span class="o">=</span> <span class="n">sede</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chasis</span> <span class="o">=</span> <span class="n">chasis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">motor</span> <span class="o">=</span> <span class="n">motor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neumaticos</span> <span class="o">=</span> <span class="n">neumaticos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">primeraTemp</span> <span class="o">=</span> <span class="n">p_temp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fechaCrea</span> <span class="o">=</span> <span class="n">f_crea</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="Escuderia.agregar_piloto"><a class="viewcode-back" href="../../escuderia.html#src.Escuderia.Escuderia.agregar_piloto">[docs]</a>    <span class="k">def</span> <span class="nf">agregar_piloto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">piloto</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: agregar piloto</span>
+
+<span class="sd">        descripcion detallada: metodo para agregar piloto a la escuderia</span>
+
+<span class="sd">        :param piloto: piloto</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piloto</span><span class="p">,</span> <span class="n">Piloto</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">):</span>
+            <span class="n">piloto</span><span class="o">.</span><span class="n">equipo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span> <span class="o">=</span> <span class="n">piloto</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span> <span class="o">=</span> <span class="n">piloto</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al agregar piloto a la escuderia &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="Escuderia.eliminar_piloto"><a class="viewcode-back" href="../../escuderia.html#src.Escuderia.Escuderia.eliminar_piloto">[docs]</a>    <span class="k">def</span> <span class="nf">eliminar_piloto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">piloto</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: eliminar piloto</span>
+
+<span class="sd">        descripcion detallada: metodo para eliminar piloto de la escuderia</span>
+
+<span class="sd">        :param piloto: piloto</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piloto</span><span class="p">,</span> <span class="n">Piloto</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">):</span>
+            <span class="n">piloto</span><span class="o">.</span><span class="n">equipo</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="n">piloto</span><span class="o">.</span><span class="n">equipo_anterior</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">:</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Atencion, el piloto eliminado estaba marcado como activo. Redefina los pilotos activos.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al eliminar piloto de la escuderia &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="Escuderia.definir_pilotos_activos"><a class="viewcode-back" href="../../escuderia.html#src.Escuderia.Escuderia.definir_pilotos_activos">[docs]</a>    <span class="k">def</span> <span class="nf">definir_pilotos_activos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">piloto1</span><span class="p">,</span> <span class="n">piloto2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: deifinir piloto</span>
+
+<span class="sd">        descripcion detallada: metodo para definir los pilotos a la escuderia</span>
+
+<span class="sd">        :param piloto1: piloto1</span>
+<span class="sd">        :param piloto2: piloto2</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piloto1</span><span class="p">,</span> <span class="n">Piloto</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piloto2</span><span class="p">,</span> <span class="n">Piloto</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">[</span><span class="n">piloto1</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span> <span class="o">=</span> <span class="n">piloto1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">[</span><span class="n">piloto2</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span> <span class="o">=</span> <span class="n">piloto2</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al definir pilotos activos de la escuderia &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="Escuderia.sustituir_piloto"><a class="viewcode-back" href="../../escuderia.html#src.Escuderia.Escuderia.sustituir_piloto">[docs]</a>    <span class="k">def</span> <span class="nf">sustituir_piloto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">piloto1</span><span class="p">,</span> <span class="n">piloto2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: sustituir piloto</span>
+
+<span class="sd">        descripcion detallada: metodo para sustituir piloto en la escuderia</span>
+
+<span class="sd">        :param piloto1: piloto1</span>
+<span class="sd">        :param piloto2: piloto2</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piloto1</span><span class="p">,</span> <span class="n">Piloto</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piloto2</span><span class="p">,</span> <span class="n">Piloto</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">piloto1</span><span class="o">.</span><span class="n">idPiloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">[</span><span class="n">piloto1</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">[</span><span class="n">piloto2</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span> <span class="o">=</span> <span class="n">piloto2</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">eliminar_piloto</span><span class="p">(</span><span class="n">piloto1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">piloto2</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al sustituir pilotos en la escuderia &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: imprimir</span>
+
+<span class="sd">        descripcion detallada: metodo para mostrar(imprimir) los datos de escuderia</span>
+
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tostring</span> <span class="o">=</span> <span class="s">&quot;Datos de la Escuderia: </span><span class="se">\n</span><span class="s">Nombre de la escuderia: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sede</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Ubicacion de la sede: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">sede</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chasis</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Chasis utilizado: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">chasis</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">motor</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Motor montado: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">motor</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">neumaticos</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Marca de neumaticos: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">neumaticos</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">primeraTemp</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Primera temporada?: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">primeraTemp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fechaCrea</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Fecha de creacion de la Escuderia: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fechaCrea</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Pilotos en plantilla: </span><span class="se">\n\t</span><span class="s">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Pilotos activos: </span><span class="se">\n\t</span><span class="s">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">tostring</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

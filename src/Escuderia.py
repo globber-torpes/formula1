@@ -1,7 +1,7 @@
-from Piloto import Piloto
+from src.Piloto import Piloto
 
 
-class Escuderia():
+class Escuderia(object):
     """
     Modela una escuderia
 
@@ -50,7 +50,7 @@ class Escuderia():
                 self.pilotosActivos[piloto.idPiloto] = piloto
             return True
         else:
-            print ("Error al agregar piloto a la escuderia " + self.nombre + ".")
+            print("Error al agregar piloto a la escuderia " + self.nombre + ".")
             return False
 
     def eliminar_piloto(self, piloto):
@@ -69,11 +69,11 @@ class Escuderia():
             if piloto.idPiloto in self.pilotosActivos:
                 del self.pilotosActivos[piloto.idPiloto]
                 if len(self.pilotosActivos) < 2:
-                    print ("Atencion, el piloto eliminado estaba marcado como activo. Redefina los pilotos activos.")
+                    print("Atencion, el piloto eliminado estaba marcado como activo. Redefina los pilotos activos.")
                 return True
             return True
         else:
-            print ("Error al eliminar piloto de la escuderia " + self.nombre + ".")
+            print("Error al eliminar piloto de la escuderia " + self.nombre + ".")
             return False
 
     def definir_pilotos_activos(self, piloto1, piloto2):
@@ -92,7 +92,7 @@ class Escuderia():
             self.pilotosActivos[piloto2.idPiloto] = piloto2
             return True
         else:
-            print ("Error al definir pilotos activos de la escuderia " + self.nombre + ".")
+            print("Error al definir pilotos activos de la escuderia " + self.nombre + ".")
             return False
 
     def sustituir_piloto(self, piloto1, piloto2):
@@ -113,7 +113,7 @@ class Escuderia():
             self.agregar_piloto(piloto2)
             return True
         else:
-            print ("Error al sustituir pilotos en la escuderia " + self.nombre + ".")
+            print("Error al sustituir pilotos en la escuderia " + self.nombre + ".")
             return False
 
     def __str__(self):

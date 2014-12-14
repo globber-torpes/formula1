@@ -1,5 +1,5 @@
 from unittest import TestCase
-from src.Piloto import *
+from src.Piloto import Piloto
 
 __author__ = 'manolo'
 

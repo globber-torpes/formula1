@@ -1,9 +1,9 @@
 import Error
 import re
-from Circuito import Circuito
+from src.Circuito import Circuito
 
 
-class GranPremio():
+class GranPremio(object):
     puntuaciones = {1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4, 9: 2, 10: 1}
 
     def __init__(self, nombre, circuito, escuderias, pais, fecha):
@@ -37,17 +37,17 @@ class GranPremio():
         puntuaciones_pilotos = {}
         puntuaciones_escuderias = {}
 
-        print "Editor de clasificaciones. " + self.nombre + "."
-        print "Se mostraran los participantes por pantalla. Introduzca la posicion para cada piloto:"
+        print("Editor de clasificaciones.")
+        print("Se mostraran los participantes por pantalla. Introduzca la posicion para cada piloto:")
 
         for piloto in self.participantes.values():
-            print "Piloto: " + piloto["Piloto"] + ". Escuderia: " + piloto["Escuderia"]
+            print("Piloto: " + piloto["Piloto"] + ". Escuderia: " + piloto["Escuderia"])
             pos = input()
             while not isinstance(pos, int) or \
                             pos > len(self.participantes) or \
                             pos < 1 or \
                             pos in self.clasificacion.keys():
-                print "Error. Posicion repetida o no admitida."
+                print("Error. Posicion repetida o no admitida.")
                 pos = input()
             self.clasificacion[pos] = piloto
             if pos in self.puntuaciones:
@@ -60,30 +60,30 @@ class GranPremio():
                 puntuaciones_pilotos[piloto["Piloto"]] = 0
                 if piloto["Escuderia"] not in puntuaciones_escuderias:
                     puntuaciones_escuderias[piloto["Escuderia"]] = 0
-        print "Desea ahora definir la vuelta rapida? (s/n)."
+        print("Desea ahora definir la vuelta rapida? (s/n).")
 
         res = str(raw_input())
         res = res.strip('\n')
 
         while res != "s" and res != "n":
-            print "Error. Respuesta no valida."
+            print("Error. Respuesta no valida.")
             res = str(raw_input())
             res = res.strip('\n')
         if res == "s":
-            print ("Introduzca el codigo de piloto que ha realizado la vuelta rapida.")
+            print("Introduzca el codigo de piloto que ha realizado la vuelta rapida.")
             p = str(raw_input())
             p = p.strip('\n')
             while p not in self.participantes.keys():
-                print "Error. Piloto no encontrado."
+                print("Error. Piloto no encontrado.")
                 p = str(raw_input())
                 p = p.strip('\n')
-            print "Introduzca el tiempo de la vuelta rapida. Formato recomendado '1:16.182'."
+            print("Introduzca el tiempo de la vuelta rapida. Formato recomendado '1:16.182'.")
             t = str(raw_input())
             t = t.strip('\n')
             regex = re.compile("([0-9]+:[0-6][0-9].[0-9][0-9][0-9])")
             r = regex.search(t)
             while r is None:
-                print "Error. Formato de tiempo incorrecto"
+                print("Error. Formato de tiempo incorrecto")
                 t = str(raw_input())
                 t = t.strip('\n')
                 r = regex.search(t)
@@ -96,7 +96,7 @@ class GranPremio():
             strclasificacion += "\n\t" + str(piloto) + " -> " + self.clasificacion[piloto]["Piloto"] + " (" + \
                                 self.clasificacion[piloto]["Escuderia"] + ")"
         if imprimir:
-            print strclasificacion + "\n"
+            print(strclasificacion + "\n")
         return strclasificacion
 
     def print_participantes(self, imprimir=True):
@@ -105,7 +105,7 @@ class GranPremio():
             strparticipantes += "\n\tPiloto: " + self.participantes[piloto]["Piloto"] + ". Escuderia: " + \
                                 self.participantes[piloto]["Escuderia"]
         if imprimir:
-            print strparticipantes
+            print(strparticipantes)
         return strparticipantes
 
     def set_vuelta_rapida(self, tiempo, piloto=None):
@@ -121,7 +121,7 @@ class GranPremio():
         if self.vueltaRapida["Piloto"]:
             vuelta_rapida_string += "\n\tPiloto: " + self.vueltaRapida["Piloto"]
         if imprimir:
-            print vuelta_rapida_string
+            print(vuelta_rapida_string)
         return vuelta_rapida_string
 
     def __str__(self):

@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>src.Formula1 &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for src.Formula1</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">src.Piloto</span> <span class="kn">import</span> <span class="n">Piloto</span>
+<span class="kn">from</span> <span class="nn">src.Escuderia</span> <span class="kn">import</span> <span class="n">Escuderia</span>
+<span class="kn">from</span> <span class="nn">src.Circuito</span> <span class="kn">import</span> <span class="n">Circuito</span>
+<span class="kn">from</span> <span class="nn">src.CampeonatoMundial</span> <span class="kn">import</span> <span class="n">CampeonatoMundial</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+
+<div class="viewcode-block" id="Formula1"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1">[docs]</a><span class="k">class</span> <span class="nc">Formula1</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Modela una liga de formula 1</span>
+
+<span class="sd">    :author: Francisco Lopez Baena</span>
+<span class="sd">    :version: 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">campeonatos_mundiales</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">circuitos</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">escuderias</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">pilotos</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: constructor</span>
+
+<span class="sd">        descripcion detallada: inicializador de la clase formula1</span>
+
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">campeonatos_mundiales</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circuitos</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="Formula1.crear_campeonato_mundial"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.crear_campeonato_mundial">[docs]</a>    <span class="k">def</span> <span class="nf">crear_campeonato_mundial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edicion</span><span class="p">,</span> <span class="n">escuderias</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: crear campeonato</span>
+
+<span class="sd">        descripcion detallada: metodo para crear un campeonato mundial</span>
+
+<span class="sd">        :param edicion: anno del mundial</span>
+<span class="sd">        :param escuderias: escuderias que participan en el mundial</span>
+<span class="sd">        :return: campeonato_mundial</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">escuderias</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">escuderias</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span>
+        <span class="n">campeonato_mundial</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="n">edicion</span><span class="p">,</span> <span class="n">escuderias</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">campeonato_mundial</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">campeonato_mundial</span>
+</div>
+<div class="viewcode-block" id="Formula1.agregar_campeonato_mundial"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.agregar_campeonato_mundial">[docs]</a>    <span class="k">def</span> <span class="nf">agregar_campeonato_mundial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">campeonato_mundial</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: agregar campeonato</span>
+
+<span class="sd">        descripcion detallada: metodo para agregar un campeonato mundial</span>
+
+<span class="sd">        :param campeonato_mundial: lista de campeonatos en un mundial</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">campeonato_mundial</span><span class="p">,</span> <span class="n">CampeonatoMundial</span><span class="p">)</span> <span class="ow">and</span> \
+                <span class="p">(</span><span class="n">campeonato_mundial</span><span class="o">.</span><span class="n">edicion</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">campeonatos_mundiales</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">campeonatos_mundiales</span><span class="p">[</span><span class="n">campeonato_mundial</span><span class="o">.</span><span class="n">edicion</span><span class="p">]</span> <span class="o">=</span> <span class="n">campeonato_mundial</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al agregar el Campeonato Mundial edicion &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">campeonato_mundial</span><span class="o">.</span><span class="n">edicion</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="Formula1.eliminar_campeonato_mundial"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.eliminar_campeonato_mundial">[docs]</a>    <span class="k">def</span> <span class="nf">eliminar_campeonato_mundial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">campeonato_mundial</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: eliminar campeonato</span>
+
+<span class="sd">        descripcion detallada: metodo para eliminar un campeonato mundial</span>
+
+<span class="sd">        :param campeonato_mundial: lista de campeonatos en un mundial</span>
+<span class="sd">        :return: no devuelva nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">campeonato_mundial</span><span class="p">,</span> <span class="n">CampeonatoMundial</span><span class="p">)</span> <span class="ow">and</span> \
+                <span class="p">(</span><span class="n">campeonato_mundial</span><span class="o">.</span><span class="n">edicion</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">campeonatos_mundiales</span><span class="p">):</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">campeonatos_mundiales</span><span class="p">[</span><span class="n">campeonato_mundial</span><span class="o">.</span><span class="n">edicion</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al eliminar el Campeonato Mundial edicion &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">campeonato_mundial</span><span class="o">.</span><span class="n">edicion</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="Formula1.crear_escuderia"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.crear_escuderia">[docs]</a>    <span class="k">def</span> <span class="nf">crear_escuderia</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">sede</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">chasis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">motor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">neumaticos</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">primera_temp</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fecha_crea</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: crear escuderia</span>
+
+<span class="sd">        descripcion detallada: metodo para crear una escuderia</span>
+
+<span class="sd">        :param nombre: nombre escuderia</span>
+<span class="sd">        :param sede: sede de la escuderia</span>
+<span class="sd">        :param chasis: chasis de la escuderia</span>
+<span class="sd">        :param motor: motor de la escuderia</span>
+<span class="sd">        :param neumaticos: neumaticos de la escuderia</span>
+<span class="sd">        :param primera_temp: primera temporada de la escuderia</span>
+<span class="sd">        :param fecha_crea: fecha de creacion de la escuderia</span>
+<span class="sd">        :return: escuderia</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">escuderia</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">sede</span><span class="p">,</span> <span class="n">chasis</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">neumaticos</span><span class="p">,</span> <span class="n">primera_temp</span><span class="p">,</span> <span class="n">fecha_crea</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agregar_escuderia</span><span class="p">(</span><span class="n">escuderia</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">escuderia</span>
+</div>
+<div class="viewcode-block" id="Formula1.agregar_escuderia"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.agregar_escuderia">[docs]</a>    <span class="k">def</span> <span class="nf">agregar_escuderia</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">escuderia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: agregar escuderia</span>
+
+<span class="sd">        descripcion detallada: metodo para agregar escuderias</span>
+
+<span class="sd">        :param escuderia: escuderia</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">escuderia</span><span class="p">,</span> <span class="n">Escuderia</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">escuderia</span><span class="o">.</span><span class="n">nombre</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="p">[</span><span class="n">escuderia</span><span class="o">.</span><span class="n">nombre</span><span class="p">]</span> <span class="o">=</span> <span class="n">escuderia</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al agregar la escuderia &quot;</span> <span class="o">+</span> <span class="n">escuderia</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.eliminar_escuderia"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.eliminar_escuderia">[docs]</a>    <span class="k">def</span> <span class="nf">eliminar_escuderia</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">escuderia</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: eliminar escuderia</span>
+
+<span class="sd">        descripcion detallada: metodo para eliminar escuderias</span>
+
+<span class="sd">        :param escuderia: escuderia</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">escuderia</span><span class="p">,</span> <span class="n">Escuderia</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">escuderia</span><span class="o">.</span><span class="n">edicion</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="p">):</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="p">[</span><span class="n">escuderia</span><span class="o">.</span><span class="n">nombre</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al eliminar la escuderia &quot;</span> <span class="o">+</span> <span class="n">escuderia</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.crear_piloto"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.crear_piloto">[docs]</a>    <span class="k">def</span> <span class="nf">crear_piloto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_pil</span><span class="p">,</span> <span class="n">nombre</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">apellidos</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">equipo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                     <span class="n">equipo_anterior</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">nacionalidad</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fecha_nac</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: crear piloto</span>
+
+<span class="sd">        descripcion detallada: metodo para crear pilotos</span>
+
+<span class="sd">        :param id_pil: identificacion del piloto</span>
+<span class="sd">        :param nombre: nombre del piloto</span>
+<span class="sd">        :param apellidos: apellidos del piloto</span>
+<span class="sd">        :param equipo: equipo al que pertenece el piloto</span>
+<span class="sd">        :param equipo_anterior: equipo al que pertenecio el piloto anteriormente</span>
+<span class="sd">        :param nacionalidad: nacionalidad del piloto</span>
+<span class="sd">        :param fecha_nac: fecha de nacimiento del  piloto</span>
+<span class="sd">        :return: piloto</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">piloto</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="n">id_pil</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellidos</span><span class="p">,</span> <span class="n">equipo</span><span class="p">,</span> <span class="n">equipo_anterior</span><span class="p">,</span> <span class="n">nacionalidad</span><span class="p">,</span> <span class="n">fecha_nac</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">piloto</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">equipo</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="p">[</span><span class="n">equipo</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="p">[</span><span class="n">equipo</span><span class="p">]</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">piloto</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">piloto</span>
+</div>
+<div class="viewcode-block" id="Formula1.agregar_piloto"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.agregar_piloto">[docs]</a>    <span class="k">def</span> <span class="nf">agregar_piloto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">piloto</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: agregar piloto</span>
+
+<span class="sd">        descripcion detallada: metodo para agregar pilotos</span>
+
+<span class="sd">        :param piloto: piloto</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piloto</span><span class="p">,</span> <span class="n">Piloto</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span> <span class="o">=</span> <span class="n">piloto</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al agregar al piloto &quot;</span> <span class="o">+</span> <span class="n">piloto</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">piloto</span><span class="o">.</span><span class="n">apellidos</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.eliminar_piloto"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.eliminar_piloto">[docs]</a>    <span class="k">def</span> <span class="nf">eliminar_piloto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">piloto</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: eliminar piloto</span>
+
+<span class="sd">        descripcion detallada: metodo para eliminar piloto</span>
+
+<span class="sd">        :param piloto: piloto</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piloto</span><span class="p">,</span> <span class="n">Piloto</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">):</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al eliminar al piloto &quot;</span> <span class="o">+</span> <span class="n">piloto</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">piloto</span><span class="o">.</span><span class="n">apellidos</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.crear_circuito"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.crear_circuito">[docs]</a>    <span class="k">def</span> <span class="nf">crear_circuito</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">ubicacion</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">longitud</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">num_vueltas</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: crear circuito</span>
+
+<span class="sd">        descripcion detallada: metodo para crear circuito</span>
+
+<span class="sd">        :param nombre: nombre del circuito</span>
+<span class="sd">        :param ubicacion: pais donde se ubica el circuito</span>
+<span class="sd">        :param longitud: longitud del circuito</span>
+<span class="sd">        :param num_vueltas: numeros de vueltas que se dan al circuito</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">circuito</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">ubicacion</span><span class="p">,</span> <span class="n">longitud</span><span class="p">,</span> <span class="n">num_vueltas</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agregar_circuito</span><span class="p">(</span><span class="n">circuito</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">circuito</span>
+</div>
+<div class="viewcode-block" id="Formula1.agregar_circuito"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.agregar_circuito">[docs]</a>    <span class="k">def</span> <span class="nf">agregar_circuito</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circuito</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: agregar circuito</span>
+
+<span class="sd">        descripcion detallada: metodo para agregar circuitos</span>
+
+<span class="sd">        :param circuito: circuito</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">circuito</span><span class="p">,</span> <span class="n">Circuito</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">circuito</span><span class="o">.</span><span class="n">nombre</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitos</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">circuitos</span><span class="p">[</span><span class="n">circuito</span><span class="o">.</span><span class="n">nombre</span><span class="p">]</span> <span class="o">=</span> <span class="n">circuito</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al agregar el circuito &quot;</span> <span class="o">+</span> <span class="n">circuito</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.eliminar_circuito"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.eliminar_circuito">[docs]</a>    <span class="k">def</span> <span class="nf">eliminar_circuito</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circuito</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: eliminar circuito</span>
+
+<span class="sd">        descripcion detallada: metodo para eliminar circuitos</span>
+
+<span class="sd">        :param circuito: circuito</span>
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">circuito</span><span class="p">,</span> <span class="n">Circuito</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">circuito</span><span class="o">.</span><span class="n">nombre</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitos</span><span class="p">):</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitos</span><span class="p">[</span><span class="n">circuito</span><span class="o">.</span><span class="n">nombre</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error al eliminar el circuito &quot;</span> <span class="o">+</span> <span class="n">circuito</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.print_pilotos"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.print_pilotos">[docs]</a>    <span class="k">def</span> <span class="nf">print_pilotos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: imprimir pilotos</span>
+
+<span class="sd">        descripcion detallada: metodo para imprimir los pilotos</span>
+
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pilotos</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">piloto</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.print_escuderias"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.print_escuderias">[docs]</a>    <span class="k">def</span> <span class="nf">print_escuderias</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: imprimir escuderia</span>
+
+<span class="sd">        descripcion detallada: metodo para imprimir escuderias</span>
+
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">escuderia</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">escuderia</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.print_circuitos"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.print_circuitos">[docs]</a>    <span class="k">def</span> <span class="nf">print_circuitos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: imprimir circuitos</span>
+
+<span class="sd">        descripcion detallada: metodo para imprimir circuitos</span>
+
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">circuito</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitos</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">circuito</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.print_campeonatos_mundiales"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.print_campeonatos_mundiales">[docs]</a>    <span class="k">def</span> <span class="nf">print_campeonatos_mundiales</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: imprimir campeonatos</span>
+
+<span class="sd">        descripcion detallada: metodo para imprimir campeonatos mundiales</span>
+
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">gp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">campeonatos_mundiales</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">gp</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Formula1.demo"><a class="viewcode-back" href="../../formula1.html#src.Formula1.Formula1.demo">[docs]</a>    <span class="k">def</span> <span class="nf">demo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        descripcion breve: probar</span>
+
+<span class="sd">        descripcion detallada: metodo para probar los metodos anteriores</span>
+
+<span class="sd">        :return: no devuelve nada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c">#Creacion de escuderias</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">,</span> <span class="s">&quot;Maranello&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_escuderia</span><span class="p">(</span><span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+        <span class="n">e3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_escuderia</span><span class="p">(</span><span class="s">&quot;Mercedes&quot;</span><span class="p">,</span><span class="n">chasis</span><span class="o">=</span><span class="s">&quot;Mercedes F1 W05&quot;</span><span class="p">,</span> <span class="n">motor</span><span class="o">=</span><span class="s">&quot;Mercedes PU106A Hybrid V6&quot;</span><span class="p">,</span> <span class="n">neumaticos</span><span class="o">=</span><span class="s">&quot;Pirelli&quot;</span><span class="p">)</span>
+
+        <span class="c">#Creacion de pilotos</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_piloto</span><span class="p">(</span><span class="s">&quot;ALO&quot;</span><span class="p">,</span> <span class="s">&quot;Fernando&quot;</span><span class="p">,</span> <span class="s">&quot;Alonso&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">,</span> <span class="s">&quot;Mercedes&quot;</span><span class="p">,</span> <span class="s">&quot;Espaniola&quot;</span><span class="p">,</span> <span class="s">&quot;29/7/81&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_piloto</span><span class="p">(</span><span class="s">&quot;RAI&quot;</span><span class="p">,</span> <span class="s">&quot;Kimi&quot;</span><span class="p">,</span> <span class="s">&quot;Raikkonen&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_piloto</span><span class="p">(</span><span class="s">&quot;RIC&quot;</span><span class="p">,</span> <span class="s">&quot;Daniel&quot;</span><span class="p">,</span> <span class="s">&quot;Ricciardo&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_piloto</span><span class="p">(</span><span class="s">&quot;VET&quot;</span><span class="p">,</span> <span class="s">&quot;Sebastian&quot;</span><span class="p">,</span> <span class="s">&quot;Vettel&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+        <span class="n">p5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_piloto</span><span class="p">(</span><span class="s">&quot;SCH&quot;</span><span class="p">,</span> <span class="s">&quot;Michael&quot;</span><span class="p">,</span> <span class="s">&quot;Schumacher&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p7</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_piloto</span><span class="p">(</span><span class="s">&quot;HAM&quot;</span><span class="p">,</span> <span class="s">&quot;Lewis&quot;</span><span class="p">,</span> <span class="s">&quot;Hamilton&quot;</span><span class="p">,</span> <span class="s">&quot;Mercedes&quot;</span><span class="p">)</span>
+        <span class="n">p8</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_piloto</span><span class="p">(</span><span class="s">&quot;ROS&quot;</span><span class="p">,</span> <span class="s">&quot;Nico&quot;</span><span class="p">,</span> <span class="s">&quot;Rosberg&quot;</span><span class="p">,</span> <span class="s">&quot;Mercedes&quot;</span><span class="p">)</span>
+
+        <span class="c">#imprimiendo pilotos y escuderias</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_pilotos</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_escuderias</span><span class="p">()</span>
+
+        <span class="c">#Creando circuitos</span>
+        <span class="n">c1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_circuito</span><span class="p">(</span><span class="s">&quot;Red Bull Ring&quot;</span><span class="p">,</span> <span class="s">&quot;Spielberg&quot;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">)</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_circuito</span><span class="p">(</span><span class="s">&quot;Circuito de Sochi&quot;</span><span class="p">,</span> <span class="s">&quot;Sochi&quot;</span><span class="p">)</span>
+        <span class="n">c3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_circuito</span><span class="p">(</span><span class="s">&quot;Internacional de Corea&quot;</span><span class="p">,</span> <span class="s">&quot;Yeongam&quot;</span><span class="p">)</span>
+
+        <span class="c">#imprimiendo circuitos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_circuitos</span><span class="p">()</span>
+
+        <span class="c">#creando campeonato mundial</span>
+        <span class="n">cm1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_campeonato_mundial</span><span class="p">(</span><span class="mi">2014</span><span class="p">)</span>
+
+        <span class="c">#imprimiendo campeonato mundial</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_campeonatos_mundiales</span><span class="p">()</span>
+
+        <span class="c">#creando grandes premios del campeonato mundial</span>
+        <span class="n">gp1</span> <span class="o">=</span> <span class="n">cm1</span><span class="o">.</span><span class="n">crear_gran_premio</span><span class="p">(</span><span class="s">&quot;Gran Premio de Austria&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">)</span>
+        <span class="n">gp2</span> <span class="o">=</span> <span class="n">cm1</span><span class="o">.</span><span class="n">crear_gran_premio</span><span class="p">(</span><span class="s">&quot;Gran Premio de Rusia&quot;</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+        <span class="n">gp3</span> <span class="o">=</span> <span class="n">cm1</span><span class="o">.</span><span class="n">crear_gran_premio</span><span class="p">(</span><span class="s">&quot;Gran Premio de Corea del Sur&quot;</span><span class="p">,</span> <span class="n">c3</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_campeonatos_mundiales</span><span class="p">()</span>
+
+        <span class="c">#Simulando grandes premios</span>
+        <span class="n">cm1</span><span class="o">.</span><span class="n">simular_gran_premio</span><span class="p">(</span><span class="n">gp1</span><span class="p">)</span>
+        <span class="n">cm1</span><span class="o">.</span><span class="n">simular_gran_premio</span><span class="p">(</span><span class="n">gp2</span><span class="p">)</span>
+
+        <span class="c">#Simulando accidente y cambio de piloto</span>
+        <span class="n">p6</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crear_piloto</span><span class="p">(</span><span class="s">&quot;AUX&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto&quot;</span><span class="p">,</span> <span class="s">&quot;Auxiliar de Prueba&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;El piloto &quot;</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="n">apellidos</span> <span class="o">+</span>
+               <span class="s">&quot; ha sufrido un accidente. Se sustituira por el piloto &quot;</span> <span class="o">+</span> <span class="n">p6</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">p6</span><span class="o">.</span><span class="n">apellidos</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">sustituir_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">p6</span><span class="p">)</span>
+
+        <span class="n">cm1</span><span class="o">.</span><span class="n">simular_gran_premio</span><span class="p">(</span><span class="n">gp3</span><span class="p">)</span>
+
+        <span class="n">cm1</span><span class="o">.</span><span class="n">print_grandes_premios</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_campeonatos_mundiales</span><span class="p">()</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

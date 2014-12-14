@@ -1,10 +1,10 @@
 from unittest import TestCase
-from src.Piloto import *
-from src.Escuderia import *
-from src.CampeonatoMundial import *
-from src.Circuito import *
-from src.GranPremio import *
-from src.Formula1 import *
+from src.Piloto import Piloto
+from src.Escuderia import Escuderia
+from src.CampeonatoMundial import CampeonatoMundial
+from src.Circuito import Circuito
+from src.GranPremio import GranPremio
+from src.Formula1 import Formula1
 from mockito import *
 
 __author__ = 'MAMISHO'

@@ -1,9 +1,9 @@
 import operator
-import Error
-from GranPremio import GranPremio
+import src.Error
+from src.GranPremio import GranPremio
 
 
-class CampeonatoMundial():
+class CampeonatoMundial(object):
 
     def __init__(self, edicion, escuderias):
         """

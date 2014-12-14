@@ -1,8 +1,8 @@
 from unittest import TestCase
-from src.Escuderia import *
-from src.Piloto import *
-from src.Circuito import *
-from src.GranPremio import *
+from src.Escuderia import Escuderia
+from src.Piloto import Piloto
+from src.Circuito import Circuito
+from src.GranPremio import GranPremio
 from mock import patch
 
 __author__ = 'MAMISHO'
@@ -217,4 +217,3 @@ class TestGranPremio(TestCase):
         gp = GranPremio("Gran Premio 1", c1, es, "USA", "2014")
 
         self.assertEqual(gp.set_vuelta_rapida("1:14:123", "AAA"), True)
-

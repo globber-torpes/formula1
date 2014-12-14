@@ -1,8 +1,8 @@
 import re
-import Error
+import src.Error
 
 
-class Piloto():
+class Piloto(object):
     def __init__(self, idpiloto, nombre=None, apellidos=None, equipo=None, equipoanterior=None,
                  nacionalidad=None, fechanac=None):
         """

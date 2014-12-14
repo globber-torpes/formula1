@@ -1,11 +1,11 @@
-from Piloto import Piloto
-from Escuderia import Escuderia
-from Circuito import Circuito
-from CampeonatoMundial import CampeonatoMundial
+from src.Piloto import Piloto
+from src.Escuderia import Escuderia
+from src.Circuito import Circuito
+from src.CampeonatoMundial import CampeonatoMundial
 from datetime import date
 
 
-class Formula1():
+class Formula1(object):
     """
     Modela una liga de formula 1
 
@@ -60,7 +60,7 @@ class Formula1():
             self.campeonatos_mundiales[campeonato_mundial.edicion] = campeonato_mundial
             return True
         else:
-            print ("Error al agregar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + ".")
+            print("Error al agregar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + ".")
             return False
 
     def eliminar_campeonato_mundial(self, campeonato_mundial):
@@ -77,7 +77,7 @@ class Formula1():
             del self.campeonatos_mundiales[campeonato_mundial.edicion]
             return True
         else:
-            print ("Error al eliminar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + ".")
+            print("Error al eliminar el Campeonato Mundial edicion " + str(campeonato_mundial.edicion) + ".")
             return False
 
     def crear_escuderia(self, nombre, sede=None, chasis=None, motor=None, neumaticos=None,
@@ -112,7 +112,7 @@ class Formula1():
         if isinstance(escuderia, Escuderia) and (escuderia.nombre not in self.escuderias):
             self.escuderias[escuderia.nombre] = escuderia
         else:
-            print ("Error al agregar la escuderia " + escuderia.nombre + ".")
+            print("Error al agregar la escuderia " + escuderia.nombre + ".")
 
     def eliminar_escuderia(self, escuderia):
         """
@@ -126,7 +126,7 @@ class Formula1():
         if isinstance(escuderia, Escuderia) and (escuderia.edicion in self.escuderias):
             del self.escuderias[escuderia.nombre]
         else:
-            print ("Error al eliminar la escuderia " + escuderia.nombre + ".")
+            print("Error al eliminar la escuderia " + escuderia.nombre + ".")
 
     def crear_piloto(self, id_pil, nombre=None, apellidos=None, equipo=None,
                      equipo_anterior=None, nacionalidad=None, fecha_nac=None):
@@ -162,7 +162,7 @@ class Formula1():
         if isinstance(piloto, Piloto) and (piloto.idPiloto not in self.pilotos):
             self.pilotos[piloto.idPiloto] = piloto
         else:
-            print ("Error al agregar al piloto " + piloto.nombre + " " + piloto.apellidos + ".")
+            print("Error al agregar al piloto " + piloto.nombre + " " + piloto.apellidos + ".")
 
     def eliminar_piloto(self, piloto):
         """
@@ -176,7 +176,7 @@ class Formula1():
         if isinstance(piloto, Piloto) and (piloto.idPiloto in self.pilotos):
             del self.pilotos[piloto.idPiloto]
         else:
-            print ("Error al eliminar al piloto " + piloto.nombre + " " + piloto.apellidos + ".")
+            print("Error al eliminar al piloto " + piloto.nombre + " " + piloto.apellidos + ".")
 
     def crear_circuito(self, nombre, ubicacion=None, longitud=None, num_vueltas=None):
         """
@@ -206,7 +206,7 @@ class Formula1():
         if isinstance(circuito, Circuito) and (circuito.nombre not in self.circuitos):
             self.circuitos[circuito.nombre] = circuito
         else:
-            print ("Error al agregar el circuito " + circuito.nombre + ".")
+            print("Error al agregar el circuito " + circuito.nombre + ".")
 
     def eliminar_circuito(self, circuito):
         """
@@ -220,7 +220,7 @@ class Formula1():
         if isinstance(circuito, Circuito) and (circuito.nombre in self.circuitos):
             del self.circuitos[circuito.nombre]
         else:
-            print ("Error al eliminar el circuito " + circuito.nombre + ".")
+            print("Error al eliminar el circuito " + circuito.nombre + ".")
 
     def print_pilotos(self):
         """
@@ -231,7 +231,7 @@ class Formula1():
         :return: no devuelve nada
         """
         for piloto in self.pilotos.values():
-            print piloto
+            print(piloto)
 
     def print_escuderias(self):
         """
@@ -242,7 +242,7 @@ class Formula1():
         :return: no devuelve nada
         """
         for escuderia in self.escuderias.values():
-            print escuderia
+            print(escuderia)
 
     def print_circuitos(self):
         """
@@ -253,7 +253,7 @@ class Formula1():
         :return: no devuelve nada
         """
         for circuito in self.circuitos.values():
-            print circuito
+            print(circuito)
 
     def print_campeonatos_mundiales(self):
         """
@@ -264,7 +264,7 @@ class Formula1():
         :return: no devuelve nada
         """
         for gp in self.campeonatos_mundiales.values():
-            print gp
+            print(gp)
 
     def demo(self):
         """
@@ -320,7 +320,7 @@ class Formula1():
 
         #Simulando accidente y cambio de piloto
         p6 = self.crear_piloto("AUX", "Piloto", "Auxiliar de Prueba")
-        print ("El piloto " + p2.nombre + " " + p2.apellidos +
+        print("El piloto " + p2.nombre + " " + p2.apellidos +
                " ha sufrido un accidente. Se sustituira por el piloto " + p6.nombre + " " + p6.apellidos + "\n")
         e1.sustituir_piloto(p2, p6)
 
@@ -328,4 +328,3 @@ class Formula1():
 
         cm1.print_grandes_premios()
         self.print_campeonatos_mundiales()
-
