@@ -7,8 +7,7 @@ class GranPremio():
     puntuaciones = {1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4, 9: 2, 10: 1}
 
     def __init__(self, nombre, circuito, escuderias, pais, fecha):
-        pais = None
-        fecha = None
+
         if isinstance(circuito, Circuito):
             self.nombre = nombre
             self.pais = pais
@@ -23,12 +22,6 @@ class GranPremio():
             raise Error.TipoException("circuito")
 
     def extraer_participantes(self, escuderias):
-        """
-            participantes = [
-                            "ALO":{"Piloto":"Alonso","Escuderia":"Ferrari"},
-                            "VET":{"Piloto":"Vettel", "Escuderia":"Red Bull"}
-                            ]
-        """
 
         for escuderia in escuderias.values():
             if len(escuderia.pilotosActivos) == 2:
@@ -37,13 +30,9 @@ class GranPremio():
                         "Piloto": escuderia.pilotosActivos[piloto].idPiloto, "Escuderia": escuderia.nombre}
             else:
                 raise Error.ActivosException(escuderia.nombre)
+        return self.participantes
 
     def set_clasificacion(self):
-        """
-        clasificacion = {1:{"Piloto":"Alonso", "Escuderia":"Ferrari"},2:{"Piloto":"Vettel", "Escuderia":"Red Bull"}}
-        puntuaciones_pilotos = {"Alonso":25, "Vettel":18}
-        puntuaciones_escuderias = {"Ferrari":25, "Red Bull": 18}
-        """
 
         puntuaciones_pilotos = {}
         puntuaciones_escuderias = {}
@@ -71,26 +60,32 @@ class GranPremio():
                 puntuaciones_pilotos[piloto["Piloto"]] = 0
                 if piloto["Escuderia"] not in puntuaciones_escuderias:
                     puntuaciones_escuderias[piloto["Escuderia"]] = 0
-        print "Desea ahora definir la vuelta rapida? (s/n). Recuerde introducir la respuesta entre comillas:"
-        res = str(input())
-        while not isinstance(res, str) or res is not "s" and res is not "n":
+        print "Desea ahora definir la vuelta rapida? (s/n)."
+
+        res = str(raw_input())
+        res = res.strip('\n')
+
+        while res != "s" and res != "n":
             print "Error. Respuesta no valida."
-            res = str(input())
+            res = str(raw_input())
+            res = res.strip('\n')
         if res == "s":
-            print "Introduzca el codigo de piloto que ha realizado la vuelta rapida." \
-                  "Recuerde introducir la respuesta entre comillas:"
-            p = str(input())
+            print ("Introduzca el codigo de piloto que ha realizado la vuelta rapida.")
+            p = str(raw_input())
+            p = p.strip('\n')
             while p not in self.participantes.keys():
                 print "Error. Piloto no encontrado."
-                p = str(input())
-            print "Introduzca el tiempo de la vuelta rapida. Formato recomendado '1:16.182'." \
-                  "Recuerde introducir la respuesta entre comillas:"
-            t = str(input())
+                p = str(raw_input())
+                p = p.strip('\n')
+            print "Introduzca el tiempo de la vuelta rapida. Formato recomendado '1:16.182'."
+            t = str(raw_input())
+            t = t.strip('\n')
             regex = re.compile("([0-9]+:[0-6][0-9].[0-9][0-9][0-9])")
             r = regex.search(t)
             while r is None:
                 print "Error. Formato de tiempo incorrecto"
-                t = str(input())
+                t = str(raw_input())
+                t = t.strip('\n')
                 r = regex.search(t)
             self.set_vuelta_rapida(t, p)
         self.puntuacionFinal = [puntuaciones_pilotos, puntuaciones_escuderias]
@@ -116,8 +111,10 @@ class GranPremio():
     def set_vuelta_rapida(self, tiempo, piloto=None):
         if piloto in self.participantes.keys():
             self.vueltaRapida = {"Tiempo": tiempo, "Piloto": piloto}
+            return True
         else:
             self.vueltaRapida = {"Tiempo": tiempo}
+            return False
 
     def print_vuelta_rapida(self, imprimir=True):
         vuelta_rapida_string = "Vuelta rapida " + self.nombre + ":\n\tTiempo: " + self.vueltaRapida["Tiempo"]
