@@ -9,6 +9,7 @@ install:
     - pip install radon
     - pip install pylint
     - pip install pep8
+    - pip install mock
 # command to run tests
 script:
     - py.test --cov . --cov-report term-missing

@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Test Escuderia &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="index.html" />
+    <link rel="next" title="Test Circuito" href="test_circuito.html" />
+    <link rel="prev" title="Test Piloto" href="test_piloto.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="test_circuito.html" title="Test Circuito"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="test_piloto.html" title="Test Piloto"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Formula1 0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="test-escuderia">
+<h1>Test Escuderia<a class="headerlink" href="#test-escuderia" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="tests.test_escuderia.TestEscuderia">
+<em class="property">class </em><tt class="descclassname">tests.test_escuderia.</tt><tt class="descname">TestEscuderia</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_agregar_piloto_1">
+<tt class="descname">test_agregar_piloto_1</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_agregar_piloto_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_agregar_piloto_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test Agregar Piloto a Escuderia Success</p>
+<p>El test prueba la funcionalidad de agregar un Piloto a
+la escuderia. Los datos del piloto deben seguir el formato requerido.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto que se agrega a la escuderia.</li>
+<li><strong>e1</strong> &#8211; Escuderia para realizar el test</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_agregar_piloto_2">
+<tt class="descname">test_agregar_piloto_2</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_agregar_piloto_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_agregar_piloto_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test Agregar Piloto a Escuderia Failure</p>
+<p>El test prueba que el piloto no exista en la Escuderia</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto que se agrega a la escuderia.</li>
+<li><strong>p2</strong> &#8211; Piloto con id repetido para probar el test</li>
+<li><strong>e1</strong> &#8211; Escuderia para realizar el test</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_agregar_piloto_3">
+<tt class="descname">test_agregar_piloto_3</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_agregar_piloto_3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_agregar_piloto_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test Agregar Piloto a Escuderia Failure</p>
+<p>El test prueba que el objeto que se va a agregar a
+la escuderia, sea un piloto.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>m</strong> &#8211; Objeto tipo Mock que se agrega a la escuderia</li>
+<li><strong>e1</strong> &#8211; Escuderia para realizar el test</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_definir_pilotos_activos_1">
+<tt class="descname">test_definir_pilotos_activos_1</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_definir_pilotos_activos_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_definir_pilotos_activos_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test definir Pilotos activos</p>
+<p>El test prueba que se dos pilotos sean activos en la
+escuderia.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto no Activo Para hacer el test</li>
+<li><strong>p2</strong> &#8211; Piloto no Activo Para hacer el test</li>
+<li><strong>p3</strong> &#8211; Piloto no Activo Para hacer el test</li>
+<li><strong>e1</strong> &#8211; Escuderia para el test</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_definir_pilotos_activos_2">
+<tt class="descname">test_definir_pilotos_activos_2</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_definir_pilotos_activos_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_definir_pilotos_activos_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test definir Pilotos activos Faulire</p>
+<p>El test prueba que los dos objetos que se pasan
+sean Pilotos para que sean activos</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto no Activo Para hacer el test</li>
+<li><strong>p2</strong> &#8211; Piloto no Activo Para hacer el test</li>
+<li><strong>p3</strong> &#8211; Mock de tipo Piloto para hacer el test</li>
+<li><strong>e1</strong> &#8211; Escuderia para el test</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_eliminar_piloto_1">
+<tt class="descname">test_eliminar_piloto_1</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_eliminar_piloto_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_eliminar_piloto_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test Eliminar piloto existente no activo de Escuderia</p>
+<p>El test prueba que se elimine un piloto existente
+de la escuderia y que el piloto eliminado no sea un
+piloto activo</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto existente en la escuderia</li>
+<li><strong>p2</strong> &#8211; Piloto existente en la escuderia</li>
+<li><strong>p3</strong> &#8211; Piloto existente en la escuderia y que sera eliminado</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_eliminar_piloto_2">
+<tt class="descname">test_eliminar_piloto_2</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_eliminar_piloto_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_eliminar_piloto_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test Eliminar piloto no existente de Escuderia</p>
+<p>El test  prueba que no se puede eliminar un
+piloto que no existe en la escuderia, es decir
+comprueba los parametros de entrada antes de eliminar</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto existente en la escuderia</li>
+<li><strong>p2</strong> &#8211; Piloto existente en la escuderia</li>
+<li><strong>p3</strong> &#8211; Piloto existente en la escuderia y que sera eliminado</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_eliminar_piloto_3">
+<tt class="descname">test_eliminar_piloto_3</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_eliminar_piloto_3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_eliminar_piloto_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test Eliminar piloto existente activo de Escuderia</p>
+<p>El test prueba que se elimine un piloto existente
+de la escuderia y que el piloto eliminado no sea un
+piloto activo</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto Activo existente en la escuderia</li>
+<li><strong>p2</strong> &#8211; Piloto Activo existente en la escuderia  y que sera eliminado</li>
+<li><strong>p3</strong> &#8211; Piloto No Activo existente en la escuderia</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_sustituir_piloto_1">
+<tt class="descname">test_sustituir_piloto_1</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_sustituir_piloto_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_sustituir_piloto_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test sustituir piloto de escuderia</p>
+<p>El test comprueba que la sustitucion de un piloto
+en la escuderia sea correcta</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto de la escuderia</li>
+<li><strong>p2</strong> &#8211; Piloto de la escuderia</li>
+<li><strong>p3</strong> &#8211; Piloto que va a sustituir a otro</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_escuderia.TestEscuderia.test_sustituir_piloto_2">
+<tt class="descname">test_sustituir_piloto_2</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_escuderia.html#TestEscuderia.test_sustituir_piloto_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_escuderia.TestEscuderia.test_sustituir_piloto_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test sustituir piloto de escuderia failure</p>
+<p>El test comprueba que la sustitucion de un piloto
+en la escuderia reciba los objetos correctos</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> &#8211; Piloto de la escuderia</li>
+<li><strong>p2</strong> &#8211; Piloto de la escuderia</li>
+<li><strong>p3</strong> &#8211; Mock de tipo piloto que va a intentar sustituir a otro piloto</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="test_piloto.html"
+                        title="previous chapter">Test Piloto</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="test_circuito.html"
+                        title="next chapter">Test Circuito</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="test_circuito.html" title="Test Circuito"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="test_piloto.html" title="Test Piloto"
+             >previous</a> |</li>
+        <li><a href="index.html">Formula1 0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

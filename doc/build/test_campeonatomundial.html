@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Test Campeonato Mundial &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="index.html" />
+    <link rel="next" title="Test Formula 1" href="test_formula1.html" />
+    <link rel="prev" title="Test Gran Premio" href="test_granpremio.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="test_formula1.html" title="Test Formula 1"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="test_granpremio.html" title="Test Gran Premio"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Formula1 0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="test-campeonato-mundial">
+<h1>Test Campeonato Mundial<a class="headerlink" href="#test-campeonato-mundial" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="tests.test_campeonatoMundial.TestCampeonatoMundial">
+<em class="property">class </em><tt class="descclassname">tests.test_campeonatoMundial.</tt><tt class="descname">TestCampeonatoMundial</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/tests/test_campeonatoMundial.html#TestCampeonatoMundial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_campeonatoMundial.TestCampeonatoMundial" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="tests.test_campeonatoMundial.TestCampeonatoMundial.test_actualizar_rankings">
+<tt class="descname">test_actualizar_rankings</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_campeonatoMundial.html#TestCampeonatoMundial.test_actualizar_rankings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_campeonatoMundial.TestCampeonatoMundial.test_actualizar_rankings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test de actualizar rankings
+Comprobamos que al pasarle la puntuacion equivalente a una clasificacion, este suma dichos puntos
+a sus correspondientes pilotos y escuderias
+Comprobamos caso de exito</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_campeonatoMundial.TestCampeonatoMundial.test_actualizar_rankings_failure">
+<tt class="descname">test_actualizar_rankings_failure</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_campeonatoMundial.html#TestCampeonatoMundial.test_actualizar_rankings_failure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_campeonatoMundial.TestCampeonatoMundial.test_actualizar_rankings_failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test de actualizar ranking
+Comprobamos que al pasarle una puntuacion final vacia , da fallo el recalcular los puntos de
+los pilotos y escuderias
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_campeonatoMundial.TestCampeonatoMundial.test_agregar_gran_premio">
+<tt class="descname">test_agregar_gran_premio</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_campeonatoMundial.html#TestCampeonatoMundial.test_agregar_gran_premio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_campeonatoMundial.TestCampeonatoMundial.test_agregar_gran_premio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test agregar gran premio
+Este test coprueba que se agrega correctamente un gran premio a un campeonato mundial
+Vemos el caso de exito</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_campeonatoMundial.TestCampeonatoMundial.test_agregargranpremio_failure">
+<tt class="descname">test_agregargranpremio_failure</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_campeonatoMundial.html#TestCampeonatoMundial.test_agregargranpremio_failure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_campeonatoMundial.TestCampeonatoMundial.test_agregargranpremio_failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test agregar gran premio
+Este test coprueba que solo permite agregar gandes premios de tipo grandes premios
+Vemos el caso de falla</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="test_granpremio.html"
+                        title="previous chapter">Test Gran Premio</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="test_formula1.html"
+                        title="next chapter">Test Formula 1</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="test_formula1.html" title="Test Formula 1"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="test_granpremio.html" title="Test Gran Premio"
+             >previous</a> |</li>
+        <li><a href="index.html">Formula1 0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

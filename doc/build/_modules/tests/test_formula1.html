@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.test_formula1 &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for tests.test_formula1</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">src.Piloto</span> <span class="kn">import</span> <span class="n">Piloto</span>
+<span class="kn">from</span> <span class="nn">src.Escuderia</span> <span class="kn">import</span> <span class="n">Escuderia</span>
+<span class="kn">from</span> <span class="nn">src.CampeonatoMundial</span> <span class="kn">import</span> <span class="n">CampeonatoMundial</span>
+<span class="kn">from</span> <span class="nn">src.Circuito</span> <span class="kn">import</span> <span class="n">Circuito</span>
+<span class="kn">from</span> <span class="nn">src.GranPremio</span> <span class="kn">import</span> <span class="n">GranPremio</span>
+<span class="kn">from</span> <span class="nn">src.Formula1</span> <span class="kn">import</span> <span class="n">Formula1</span>
+<span class="kn">from</span> <span class="nn">mockito</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;MAMISHO&#39;</span>
+
+
+<div class="viewcode-block" id="TestFormula1"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1">[docs]</a><span class="k">class</span> <span class="nc">TestFormula1</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test Fromula 1</span>
+
+<span class="sd">    Esta es la prueba de las funcionalidades del modulo de Formula1. Para</span>
+<span class="sd">    realizar las mismas, es necesario tener una bateria de atributos</span>
+<span class="sd">    definidos para todoas las pruebas.</span>
+
+<span class="sd">    :param p1: Piloto de prueba</span>
+<span class="sd">    :param p2: Piloto de prueba</span>
+<span class="sd">    :param p3: Piloto de prueba</span>
+<span class="sd">    :param p4: Piloto de prueba</span>
+<span class="sd">    :param p5: Piloto de prueba</span>
+<span class="sd">    :param p6: Piloto de prueba</span>
+<span class="sd">    :param e1: Escuderia de prueba</span>
+<span class="sd">    :param e2: Escuderia de prueba</span>
+<span class="sd">    :param e3: Escuderia de prueba</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+    <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+    <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;DDD&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto D&quot;</span><span class="p">)</span>
+    <span class="n">p5</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;EEE&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto E&quot;</span><span class="p">)</span>
+    <span class="n">p6</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;FFF&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto F&quot;</span><span class="p">)</span>
+    <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 1&quot;</span><span class="p">)</span>
+    <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 2&quot;</span><span class="p">)</span>
+    <span class="n">e3</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 3&quot;</span><span class="p">)</span>
+
+    <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+    <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+    <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+    <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+    <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p5</span><span class="p">)</span>
+    <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p6</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TestFormula1.test_crear_campeonato_mundial"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1.test_crear_campeonato_mundial">[docs]</a>    <span class="k">def</span> <span class="nf">test_crear_campeonato_mundial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test Crear un campeonato mundial</span>
+
+<span class="sd">        El ests comprueba que formula 1 pueda crear un</span>
+<span class="sd">        campeonato mundial de forma correcta, para esto</span>
+<span class="sd">        se comparan dos clases CampeonatoMundial, el primero lo creamos de</span>
+<span class="sd">        forma manual y el segundo es el que lo crea el modulo de formula1</span>
+<span class="sd">        luego comparamos las clases que tienen sus mismo atributos.</span>
+
+
+<span class="sd">        :param f1: Fromula 1 que va a crear el campeonato mundial</span>
+<span class="sd">        :param es: Diccionario de escuderias necesario para contruir un campeonato mundial</span>
+<span class="sd">        :param cm1: Campeonato mundial creado de forma manual</span>
+<span class="sd">        :param cm2: Campeonato mundial creado por formula 1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">test_crear_campeonato_mundial&quot;</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">Formula1</span><span class="p">()</span>
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="p">}</span>
+        <span class="n">cm1</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm2</span> <span class="o">=</span> <span class="n">f1</span><span class="o">.</span><span class="n">crear_campeonato_mundial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm1</span><span class="o">.</span><span class="n">__class__</span><span class="p">,</span> <span class="n">cm2</span><span class="o">.</span><span class="n">__class__</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestFormula1.test_agregar_campeonato_mundial_1"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1.test_agregar_campeonato_mundial_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregar_campeonato_mundial_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test agregar campeonato mundial a Formula 1</span>
+
+<span class="sd">        Este test comprueba que un campeonato mundial sea</span>
+<span class="sd">        agregado correctamente en la formula1 compliendo</span>
+<span class="sd">        con el esquema de datos requerido</span>
+
+<span class="sd">        :param f1: Formula 1 al que se agrega el campeonat mundial</span>
+<span class="sd">        :param es: Diccionario de escuderias que se requiere para crear un campeonato mundial</span>
+<span class="sd">        :param cm: campeonato mundial que se agrega a la formula 1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">test_agregar_campeonato_mundial_1&quot;</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">Formula1</span><span class="p">()</span>
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="p">}</span>
+
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestFormula1.test_agregar_campeonato_mundial_2"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1.test_agregar_campeonato_mundial_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregar_campeonato_mundial_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test afregar campeonato mundial repetido</span>
+
+<span class="sd">        Este test comprueba que no pueda se agregado un</span>
+<span class="sd">        campeonato mundial que ya existe en la formula 1, la prueba se va a realizar con</span>
+<span class="sd">        un solo campeonato mundial en este caso cm. Se invoca dos veces a el metodo</span>
+<span class="sd">        agregar_campeonato_mundial con el mismo parametro.</span>
+
+<span class="sd">        :param f1: Formula1 al que se agrega el campeonato mundial</span>
+<span class="sd">        :param es: Diccionario de escuderias que se requiere para crear un campeonato mundial</span>
+<span class="sd">        :param cm: campeonato mundial que se agrega a la formula 1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">test_agregar_campeonato_mundial_2&quot;</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">Formula1</span><span class="p">()</span>
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="p">}</span>
+
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestFormula1.test_agregar_campeonato_mundial_3"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1.test_agregar_campeonato_mundial_3">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregar_campeonato_mundial_3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test agregar campeonato mundial invalido</span>
+
+<span class="sd">        Este metodo comprueba que el nuevo campeonato mundial</span>
+<span class="sd">        sea correcto, es decir que cumpla con los requerimientos</span>
+<span class="sd">        de un campeonato mundial. En esta prueba vamos a simular un</span>
+<span class="sd">        campeonato mundial, el cual no debe pasar la prueba porque aunque</span>
+<span class="sd">        sea simulado, no es un campeonato mundial.</span>
+
+<span class="sd">        :param f1: Formula1 al que se agrega el campeonato mundial</span>
+<span class="sd">        :param cm: mock que simula un campeonato mundial.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">test_agregar_campeonato_mundial_3&quot;</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">Formula1</span><span class="p">()</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">mock</span><span class="p">(</span><span class="n">CampeonatoMundial</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestFormula1.test_eliminar_campeonato_mundial_1"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1.test_eliminar_campeonato_mundial_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_eliminar_campeonato_mundial_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test eliminar campeonato mundial existente</span>
+
+<span class="sd">        Este test comprueba que un campeonato mundial existente y que cumple</span>
+<span class="sd">        con los requisitos sea eliminado de la formula 1.</span>
+
+<span class="sd">        :param f1: formula 1 de donde se elimina el campeonato mundial</span>
+<span class="sd">        :param es: escuderia de prueba para crear campeonatos mundiales</span>
+<span class="sd">        :param cm1: Campeoanto mundial de prueba</span>
+<span class="sd">        :param cm2: Campeoanto mundial de prueba</span>
+<span class="sd">        :param cm3: Campeoanto mundial de prueba</span>
+<span class="sd">        :param cm4: Campeoanto mundial de prueba</span>
+<span class="sd">        :param cm5: Campeoanto mundial de prueba</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">test_eliminar_campeonato_mundial_1&quot;</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">Formula1</span><span class="p">()</span>
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="p">}</span>
+        <span class="n">cm1</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm2</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm3</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm4</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm5</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm1</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm2</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm3</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm4</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm5</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">eliminar_campeonato_mundial</span><span class="p">(</span><span class="n">cm1</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestFormula1.test_eliminar_campeonato_mundial_2"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1.test_eliminar_campeonato_mundial_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_eliminar_campeonato_mundial_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test eliminar campeonato mundial No existente</span>
+
+<span class="sd">        Este test comprueba que un campeonato mundial debe</span>
+<span class="sd">        existir para ser pasado como parametro y ser eliminado de</span>
+<span class="sd">        la formula 1</span>
+
+<span class="sd">        :param f1: formula 1 de donde se elimina el campeonato mundial</span>
+<span class="sd">        :param es: escuderia de prueba para crear campeonatos mundiales</span>
+<span class="sd">        :param cm1: Campeoanto mundial No existente en la formula 1</span>
+<span class="sd">        :param cm2: Campeoanto mundial existente en f1</span>
+<span class="sd">        :param cm3: Campeoanto mundial existente en f1</span>
+<span class="sd">        :param cm4: Campeoanto mundial existente en f1</span>
+<span class="sd">        :param cm5: Campeoanto mundial existente en f1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">test_eliminar_campeonato_mundial_2&quot;</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">Formula1</span><span class="p">()</span>
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="p">}</span>
+        <span class="n">cm1</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm2</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm3</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm4</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm5</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm2</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm3</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm4</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm5</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">eliminar_campeonato_mundial</span><span class="p">(</span><span class="n">cm1</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestFormula1.test_eliminar_campeonato_mundial_3"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1.test_eliminar_campeonato_mundial_3">[docs]</a>    <span class="k">def</span> <span class="nf">test_eliminar_campeonato_mundial_3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test eliminar campeonato mundial no valido</span>
+
+<span class="sd">        Este test comprueba que el campeonato mundial que</span>
+<span class="sd">        va a ser eliminado, sea un campeonato mundial valido. Para este</span>
+<span class="sd">        test usaremos un mock de tipo campeonatoMundial y la formula1</span>
+<span class="sd">        no debe permitir agregarlo porque aunque sea simulado, no</span>
+<span class="sd">        es un objeto propio de CampeonatoMundial</span>
+
+<span class="sd">        :param f1: Formula 1 de donde se va a eliminar el campeonato mundial</span>
+<span class="sd">        :param es: Diccionario de escuderias para crear los campeonatos mundiales</span>
+<span class="sd">        :param cm1: Campeonato mundial de f1</span>
+<span class="sd">        :param cm2: Campeonato mundial de f1</span>
+<span class="sd">        :param cm3: mock que simula un campeonato mundial</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">test_eliminar_campeonato_mundial_3&quot;</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">Formula1</span><span class="p">()</span>
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e1</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e2</span><span class="p">,</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">e3</span><span class="p">}</span>
+        <span class="n">cm1</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm2</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="n">cm3</span> <span class="o">=</span> <span class="n">mock</span><span class="p">(</span><span class="n">CampeonatoMundial</span><span class="p">)</span>
+
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm1</span><span class="p">)</span>
+        <span class="n">f1</span><span class="o">.</span><span class="n">agregar_campeonato_mundial</span><span class="p">(</span><span class="n">cm2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">eliminar_campeonato_mundial</span><span class="p">(</span><span class="n">cm3</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
