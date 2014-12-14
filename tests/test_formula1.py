@@ -11,6 +11,23 @@ __author__ = 'MAMISHO'
 
 
 class TestFormula1(TestCase):
+    """
+    Test Fromula 1
+
+    Esta es la prueba de las funcionalidades del modulo de Formula1. Para
+    realizar las mismas, es necesario tener una bateria de atributos
+    definidos para todoas las pruebas.
+
+    :param p1: Piloto de prueba
+    :param p2: Piloto de prueba
+    :param p3: Piloto de prueba
+    :param p4: Piloto de prueba
+    :param p5: Piloto de prueba
+    :param p6: Piloto de prueba
+    :param e1: Escuderia de prueba
+    :param e2: Escuderia de prueba
+    :param e3: Escuderia de prueba
+    """
     p1 = Piloto("AAA", "Piloto A")
     p2 = Piloto("BBB", "Piloto B")
     p3 = Piloto("CCC", "Piloto C")
@@ -21,20 +38,37 @@ class TestFormula1(TestCase):
     e2 = Escuderia("Escuderia 2")
     e3 = Escuderia("Escuderia 3")
 
-    # def test_crear_campeonato_mundial(self):
-    # self.e1.agregar_piloto(self.p1)
-    #     self.e1.agregar_piloto(self.p2)
-    #     self.e2.agregar_piloto(self.p3)
-    #     self.e2.agregar_piloto(self.p4)
-    #     self.e3.agregar_piloto(self.p5)
-    #     self.e3.agregar_piloto(self.p6)
+    e1.agregar_piloto(p1)
+    e1.agregar_piloto(p2)
+    e2.agregar_piloto(p3)
+    e2.agregar_piloto(p4)
+    e3.agregar_piloto(p5)
+    e3.agregar_piloto(p6)
 
-    #     f1=Formula1()
-    #     es={self.e1.nombre:self.e1,
-    #         self.e2.nombre:self.e2,
-    #         self.e3.nombre:self.e3,
-    #         }
-    #     print f1.crear_campeonato_mundial(1,es)
+    def test_crear_campeonato_mundial(self):
+        """
+        Test Crear un campeonato mundial
+
+        El ests comprueba que formula 1 pueda crear un
+        campeonato mundial de forma correcta, para esto
+        se comparan dos clases CampeonatoMundial, el primero lo creamos de
+        forma manual y el segundo es el que lo crea el modulo de formula1
+        luego comparamos las clases que tienen sus mismo atributos.
+
+
+        :param f1: Fromula 1 que va a crear el campeonato mundial
+        :param es: Diccionario de escuderias necesario para contruir un campeonato mundial
+        :param cm1: Campeonato mundial creado de forma manual
+        :param cm2: Campeonato mundial creado por formula 1
+        """
+        print("\ntest_crear_campeonato_mundial")
+        f1 = Formula1()
+        es = {self.e1.nombre: self.e1,
+              self.e2.nombre: self.e2,
+              self.e3.nombre: self.e3}
+        cm1 = CampeonatoMundial(1, es)
+        cm2 = f1.crear_campeonato_mundial(1, es)
+        self.assertEqual(cm1.__class__, cm2.__class__)
 
     def test_agregar_campeonato_mundial_1(self):
         """
@@ -48,13 +82,7 @@ class TestFormula1(TestCase):
         :param es: Diccionario de escuderias que se requiere para crear un campeonato mundial
         :param cm: campeonato mundial que se agrega a la formula 1
         """
-        # self.e1.agregar_piloto(self.p1)
-        # self.e1.agregar_piloto(self.p2)
-        # self.e2.agregar_piloto(self.p3)
-        # self.e2.agregar_piloto(self.p4)
-        # self.e3.agregar_piloto(self.p5)
-        # self.e3.agregar_piloto(self.p6)
-        print ("test_agregar_campeonato_mundial_1")
+        print ("\ntest_agregar_campeonato_mundial_1")
         f1 = Formula1()
         es = {self.e1.nombre: self.e1,
               self.e2.nombre: self.e2,
@@ -76,12 +104,6 @@ class TestFormula1(TestCase):
         :param es: Diccionario de escuderias que se requiere para crear un campeonato mundial
         :param cm: campeonato mundial que se agrega a la formula 1
         """
-        # self.e1.agregar_piloto(self.p1)
-        # self.e1.agregar_piloto(self.p2)
-        # self.e2.agregar_piloto(self.p3)
-        # self.e2.agregar_piloto(self.p4)
-        # self.e3.agregar_piloto(self.p5)
-        # self.e3.agregar_piloto(self.p6)
         print ("\ntest_agregar_campeonato_mundial_2")
         f1 = Formula1()
         es = {self.e1.nombre: self.e1,
@@ -125,6 +147,7 @@ class TestFormula1(TestCase):
         :param cm4: Campeoanto mundial de prueba
         :param cm5: Campeoanto mundial de prueba
         """
+        print("\ntest_eliminar_campeonato_mundial_1")
         f1 = Formula1()
         es = {self.e1.nombre: self.e1,
               self.e2.nombre: self.e2,
@@ -159,6 +182,7 @@ class TestFormula1(TestCase):
         :param cm4: Campeoanto mundial existente en f1
         :param cm5: Campeoanto mundial existente en f1
         """
+        print("\ntest_eliminar_campeonato_mundial_2")
         f1 = Formula1()
         es = {self.e1.nombre: self.e1,
               self.e2.nombre: self.e2,
@@ -192,6 +216,7 @@ class TestFormula1(TestCase):
         :param cm2: Campeonato mundial de f1
         :param cm3: mock que simula un campeonato mundial
         """
+        print("\ntest_eliminar_campeonato_mundial_3")
         f1 = Formula1()
         es = {self.e1.nombre: self.e1,
               self.e2.nombre: self.e2,
