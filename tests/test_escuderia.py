@@ -126,7 +126,7 @@ class TestEscuderia(TestCase):
         e1.agregar_piloto(p2)
         e1.agregar_piloto(p3)
 
-        e1.definir_pilotosActivos(p1, p2)
+        e1.definir_pilotos_activos(p1, p2)
 
         self.assertEqual(e1.eliminar_piloto(p2), True)
 
@@ -152,7 +152,7 @@ class TestEscuderia(TestCase):
         e1.agregar_piloto(p2)
         e1.agregar_piloto(p3)
 
-        self.assertEqual(e1.definir_pilotosActivos(p1, p2), True)
+        self.assertEqual(e1.definir_pilotos_activos(p1, p2), True)
 
     def test_definir_pilotos_activos_2(self):
         """
@@ -176,7 +176,7 @@ class TestEscuderia(TestCase):
         e1.agregar_piloto(p2)
         e1.agregar_piloto(p3)
 
-        self.assertEqual(e1.definir_pilotosActivos(p1, p3), False)
+        self.assertEqual(e1.definir_pilotos_activos(p1, p3), False)
 
     def test_sustituir_piloto_1(self):
         """
@@ -199,7 +199,7 @@ class TestEscuderia(TestCase):
         e1.agregar_piloto(p1)
         e1.agregar_piloto(p2)
 
-        self.assertEqual(e1.definir_pilotosActivos(p1, p3), True)
+        self.assertEqual(e1.definir_pilotos_activos(p1, p3), True)
 
     def test_sustituir_piloto_2(self):
         """
@@ -222,4 +222,4 @@ class TestEscuderia(TestCase):
         e1.agregar_piloto(p1)
         e1.agregar_piloto(p2)
 
-        self.assertEqual(e1.definir_pilotosActivos(p1, p3), False)
+        self.assertEqual(e1.definir_pilotos_activos(p1, p3), False)
