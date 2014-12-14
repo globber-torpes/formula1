@@ -57,10 +57,10 @@
 <dl class="class">
 <dt id="tests.test_formula1.TestFormula1">
 <em class="property">class </em><tt class="descclassname">tests.test_formula1.</tt><tt class="descname">TestFormula1</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/tests/test_formula1.html#TestFormula1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_formula1.TestFormula1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test Fromula 1</p>
-<p>Esta es la prueba de las funcionalidades del modulo de Formula1. Para
+<dd><p>Test Formula 1</p>
+<p>Este test prueba las funcionalidades del modulo de Formula1. Para
 realizar las mismas, es necesario tener una bateria de atributos
-definidos para todoas las pruebas.</p>
+definidos para todas las pruebas.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -85,7 +85,7 @@ definidos para todoas las pruebas.</p>
 <tt class="descname">test_agregar_campeonato_mundial_1</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_formula1.html#TestFormula1.test_agregar_campeonato_mundial_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_formula1.TestFormula1.test_agregar_campeonato_mundial_1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test agregar campeonato mundial a Formula 1</p>
 <p>Este test comprueba que un campeonato mundial sea
-agregado correctamente en la formula1 compliendo
+agregado correctamente en la formula 1 cumpliendo
 con el esquema de datos requerido</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -105,9 +105,9 @@ con el esquema de datos requerido</p>
 <dl class="method">
 <dt id="tests.test_formula1.TestFormula1.test_agregar_campeonato_mundial_2">
 <tt class="descname">test_agregar_campeonato_mundial_2</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_formula1.html#TestFormula1.test_agregar_campeonato_mundial_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_formula1.TestFormula1.test_agregar_campeonato_mundial_2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test afregar campeonato mundial repetido</p>
+<dd><p>Test agregar campeonato mundial repetido</p>
 <p>Este test comprueba que no pueda se agregado un
-campeonato mundial que ya existe en la formula 1, la prueba se va a realizar con
+campeonato mundial que ya existe en la formula 1. La prueba se va a realizar con
 un solo campeonato mundial en este caso cm. Se invoca dos veces a el metodo
 agregar_campeonato_mundial con el mismo parametro.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -117,7 +117,7 @@ agregar_campeonato_mundial con el mismo parametro.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>f1</strong> &#8211; Formula1 al que se agrega el campeonato mundial</li>
 <li><strong>es</strong> &#8211; Diccionario de escuderias que se requiere para crear un campeonato mundial</li>
-<li><strong>cm</strong> &#8211; campeonato mundial que se agrega a la formula 1</li>
+<li><strong>cm</strong> &#8211; Campeonato mundial que se agrega a la formula 1</li>
 </ul>
 </td>
 </tr>
@@ -132,7 +132,7 @@ agregar_campeonato_mundial con el mismo parametro.</p>
 <p>Este metodo comprueba que el nuevo campeonato mundial
 sea correcto, es decir que cumpla con los requerimientos
 de un campeonato mundial. En esta prueba vamos a simular un
-campeonato mundial, el cual no debe pasar la prueba porque aunque
+campeonato mundial, el cual no debe pasar la prueba porque, aunque
 sea simulado, no es un campeonato mundial.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -152,18 +152,18 @@ sea simulado, no es un campeonato mundial.</p>
 <dt id="tests.test_formula1.TestFormula1.test_crear_campeonato_mundial">
 <tt class="descname">test_crear_campeonato_mundial</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_formula1.html#TestFormula1.test_crear_campeonato_mundial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_formula1.TestFormula1.test_crear_campeonato_mundial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test Crear un campeonato mundial</p>
-<p>El ests comprueba que formula 1 pueda crear un
+<p>El test comprueba que formula 1 pueda crear un
 campeonato mundial de forma correcta, para esto
 se comparan dos clases CampeonatoMundial, el primero lo creamos de
-forma manual y el segundo es el que lo crea el modulo de formula1
-luego comparamos las clases que tienen sus mismo atributos.</p>
+forma manual y el segundo es el que creara el modulo de formula1.
+Luego comparamos las clases que tienen sus mismo atributos.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>f1</strong> &#8211; Fromula 1 que va a crear el campeonato mundial</li>
-<li><strong>es</strong> &#8211; Diccionario de escuderias necesario para contruir un campeonato mundial</li>
+<li><strong>f1</strong> &#8211; Formula 1 que va a crear el campeonato mundial</li>
+<li><strong>es</strong> &#8211; Diccionario de escuderias necesario para construir un campeonato mundial</li>
 <li><strong>cm1</strong> &#8211; Campeonato mundial creado de forma manual</li>
 <li><strong>cm2</strong> &#8211; Campeonato mundial creado por formula 1</li>
 </ul>
@@ -185,7 +185,7 @@ con los requisitos sea eliminado de la formula 1.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>f1</strong> &#8211; formula 1 de donde se elimina el campeonato mundial</li>
-<li><strong>es</strong> &#8211; escuderia de prueba para crear campeonatos mundiales</li>
+<li><strong>es</strong> &#8211; Escuderia de prueba para crear campeonatos mundiales</li>
 <li><strong>cm1</strong> &#8211; Campeoanto mundial de prueba</li>
 <li><strong>cm2</strong> &#8211; Campeoanto mundial de prueba</li>
 <li><strong>cm3</strong> &#8211; Campeoanto mundial de prueba</li>
@@ -211,7 +211,7 @@ la formula 1</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>f1</strong> &#8211; formula 1 de donde se elimina el campeonato mundial</li>
-<li><strong>es</strong> &#8211; escuderia de prueba para crear campeonatos mundiales</li>
+<li><strong>es</strong> &#8211; Escuderia de prueba para crear campeonatos mundiales</li>
 <li><strong>cm1</strong> &#8211; Campeoanto mundial No existente en la formula 1</li>
 <li><strong>cm2</strong> &#8211; Campeoanto mundial existente en f1</li>
 <li><strong>cm3</strong> &#8211; Campeoanto mundial existente en f1</li>
@@ -230,8 +230,8 @@ la formula 1</p>
 <dd><p>Test eliminar campeonato mundial no valido</p>
 <p>Este test comprueba que el campeonato mundial que
 va a ser eliminado, sea un campeonato mundial valido. Para este
-test usaremos un mock de tipo campeonatoMundial y la formula1
-no debe permitir agregarlo porque aunque sea simulado, no
+test usaremos un mock de tipo campeonato Mundial y la formula 1
+no debe permitir agregarlo porque, aunque sea simulado, no
 es un objeto propio de CampeonatoMundial</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

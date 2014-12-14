@@ -58,6 +58,138 @@
             
   <div class="section" id="test-gran-premio">
 <h1>Test Gran Premio<a class="headerlink" href="#test-gran-premio" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="tests.test_granPremio.TestGranPremio">
+<em class="property">class </em><tt class="descclassname">tests.test_granPremio.</tt><tt class="descname">TestGranPremio</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/tests/test_granPremio.html#TestGranPremio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_granPremio.TestGranPremio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="tests.test_granPremio.TestGranPremio.test_extraer_participantes_1">
+<tt class="descname">test_extraer_participantes_1</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_granPremio.html#TestGranPremio.test_extraer_participantes_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_granPremio.TestGranPremio.test_extraer_participantes_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test extraer participantes existentes</p>
+<p>Este test comprueba que los participantes fueron
+agregados correctamente en el gran premio, y
+se comprueba la funcionalidad de extraer participantes
+que se usa en otros modulos.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p1</strong> &#8211; Piloto de la escuderia e1</li>
+<li><strong>p2</strong> &#8211; Piloto de la escuderia e1</li>
+<li><strong>p3</strong> &#8211; Piloto de la escuderia e2</li>
+<li><strong>p4</strong> &#8211; Piloto de la escuderia e2</li>
+<li><strong>p5</strong> &#8211; Piloto de la escuderia e3</li>
+<li><strong>p6</strong> &#8211; Piloto de la escuderia e4</li>
+<li><strong>e1</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>e2</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>e3</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>c1</strong> &#8211; Circuito del gran premio</li>
+<li><strong>es</strong> &#8211; Diccionario de circuitos para crear el gran premio</li>
+<li><strong>gp</strong> &#8211; Gran premio para la prueba</li>
+<li><strong>participantes</strong> &#8211; Objeto que se usa para comprobar la funcionalidad</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_granPremio.TestGranPremio.test_extraer_participantes_2">
+<tt class="descname">test_extraer_participantes_2</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_granPremio.html#TestGranPremio.test_extraer_participantes_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_granPremio.TestGranPremio.test_extraer_participantes_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test extraer participantes no exitentes</p>
+<p>Este test comprueba que no se extraigan participantes
+que no se encuentran en el gran premio</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p1</strong> &#8211; Piloto de la escuderia e1</li>
+<li><strong>p2</strong> &#8211; Piloto de la escuderia e1</li>
+<li><strong>p3</strong> &#8211; Piloto de la escuderia e2</li>
+<li><strong>p4</strong> &#8211; Piloto de la escuderia e2</li>
+<li><strong>p5</strong> &#8211; Piloto de la escuderia e3</li>
+<li><strong>p6</strong> &#8211; Piloto de la escuderia e4</li>
+<li><strong>p7</strong> &#8211; Participante que no pertenece en el gran premio, y que no debe aparecer en el diccionario</li>
+<li><strong>e1</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>e2</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>e3</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>c1</strong> &#8211; circuito del gran premio</li>
+<li><strong>es</strong> &#8211; Diccionario de circuitos para crear el gran premio</li>
+<li><strong>gp</strong> &#8211; Gran premio para la prueba</li>
+<li><strong>participantes</strong> &#8211; Diccionario que se usa para comprobar la funcionalidad</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_granPremio.TestGranPremio.test_set_clasificacion">
+<tt class="descname">test_set_clasificacion</tt><big>(</big><em>*args</em>, <em>**keywargs</em><big>)</big><a class="reference internal" href="_modules/tests/test_granPremio.html#TestGranPremio.test_set_clasificacion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_granPremio.TestGranPremio.test_set_clasificacion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test set_clasificacion</p>
+<p>Este test comprueba que se pueda  introducir
+parametros por teclado segun el programa solicite al usuario.
+Se hace uso de patch desde la libreria de mock</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p1</strong> &#8211; Piloto de la escuderia e1</li>
+<li><strong>p2</strong> &#8211; Piloto de la escuderia e1</li>
+<li><strong>p3</strong> &#8211; Piloto de la escuderia e2</li>
+<li><strong>p4</strong> &#8211; Piloto de la escuderia e2</li>
+<li><strong>p5</strong> &#8211; Piloto de la escuderia e3</li>
+<li><strong>p6</strong> &#8211; Piloto de la escuderia e4</li>
+<li><strong>e1</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>e2</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>e3</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>c1</strong> &#8211; circuito del gran premio</li>
+<li><strong>es</strong> &#8211; Diccionario de circuitos para crear el gran premio</li>
+<li><strong>gp</strong> &#8211; Gran premio para realizar el test</li>
+<li><strong>participantes</strong> &#8211; Diccionario que se usa para comprobar la funcionalidad</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.test_granPremio.TestGranPremio.test_set_vuelta_rapida">
+<tt class="descname">test_set_vuelta_rapida</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/tests/test_granPremio.html#TestGranPremio.test_set_vuelta_rapida"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_granPremio.TestGranPremio.test_set_vuelta_rapida" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test set vuelta rapida</p>
+<p>Este test comprueba que se pueda introducir una vuelta rapida
+Se pasan los siguientes parametros</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p1</strong> &#8211; Piloto de la escuderia e1</li>
+<li><strong>p2</strong> &#8211; Piloto de la escuderia e1</li>
+<li><strong>p3</strong> &#8211; Piloto de la escuderia e2</li>
+<li><strong>p4</strong> &#8211; Piloto de la escuderia e2</li>
+<li><strong>p5</strong> &#8211; Piloto de la escuderia e3</li>
+<li><strong>p6</strong> &#8211; Piloto de la escuderia e4</li>
+<li><strong>e1</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>e2</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>e3</strong> &#8211; Escuderia para agregar al circuito</li>
+<li><strong>c1</strong> &#8211; circuito del gran premio</li>
+<li><strong>es</strong> &#8211; Diccionario de circuitos para crear el gran premio</li>
+<li><strong>gp</strong> &#8211; Gran premio para realizar la prueba</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

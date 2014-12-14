@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.test_campeonatoMundial &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for tests.test_campeonatoMundial</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">src.GranPremio</span> <span class="kn">import</span> <span class="n">GranPremio</span>
+<span class="kn">from</span> <span class="nn">src.CampeonatoMundial</span> <span class="kn">import</span> <span class="n">CampeonatoMundial</span>
+<span class="kn">from</span> <span class="nn">src.Circuito</span> <span class="kn">import</span> <span class="n">Circuito</span>
+<span class="kn">from</span> <span class="nn">src.Piloto</span> <span class="kn">import</span> <span class="n">Piloto</span>
+<span class="kn">from</span> <span class="nn">src.Escuderia</span> <span class="kn">import</span> <span class="n">Escuderia</span>
+
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;manolo&#39;</span>
+
+
+<div class="viewcode-block" id="TestCampeonatoMundial"><a class="viewcode-back" href="../../test_campeonatomundial.html#tests.test_campeonatoMundial.TestCampeonatoMundial">[docs]</a><span class="k">class</span> <span class="nc">TestCampeonatoMundial</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCampeonatoMundial.test_agregar_gran_premio"><a class="viewcode-back" href="../../test_campeonatomundial.html#tests.test_campeonatoMundial.TestCampeonatoMundial.test_agregar_gran_premio">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregar_gran_premio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test agregar gran premio</span>
+<span class="sd">        Este test coprueba que se agrega correctamente un gran premio a un campeonato mundial</span>
+<span class="sd">        Vemos el caso de exito</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">,</span> <span class="s">&quot;Maranello&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e2</span><span class="p">}</span>
+
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;ALO&quot;</span><span class="p">,</span> <span class="s">&quot;Fernando&quot;</span><span class="p">,</span> <span class="s">&quot;Alonso&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;MAS&quot;</span><span class="p">,</span> <span class="s">&quot;Felipe&quot;</span><span class="p">,</span> <span class="s">&quot;Massa&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;WEB&quot;</span><span class="p">,</span> <span class="s">&quot;Mark&quot;</span><span class="p">,</span> <span class="s">&quot;Webber&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;VET&quot;</span><span class="p">,</span> <span class="s">&quot;Sebastien&quot;</span><span class="p">,</span> <span class="s">&quot;Vettel&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Red Bull Ring&quot;</span><span class="p">,</span> <span class="s">&quot;Spielberg&quot;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">)</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Circuito de Sochi&quot;</span><span class="p">,</span> <span class="s">&quot;Sochi&quot;</span><span class="p">)</span>
+
+        <span class="n">gp1</span> <span class="o">=</span> <span class="n">GranPremio</span><span class="p">(</span><span class="s">&quot;Gran Premio 1&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;2014&quot;</span><span class="p">)</span>
+
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">agregar_gran_premio</span><span class="p">(</span><span class="n">gp1</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestCampeonatoMundial.test_agregargranpremio_failure"><a class="viewcode-back" href="../../test_campeonatomundial.html#tests.test_campeonatoMundial.TestCampeonatoMundial.test_agregargranpremio_failure">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregargranpremio_failure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test agregar gran premio</span>
+<span class="sd">        Este test coprueba que solo permite agregar gandes premios de tipo grandes premios</span>
+<span class="sd">        Vemos el caso de falla</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">,</span> <span class="s">&quot;Maranello&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e2</span><span class="p">}</span>
+
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;ALO&quot;</span><span class="p">,</span> <span class="s">&quot;Fernando&quot;</span><span class="p">,</span> <span class="s">&quot;Alonso&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;MAS&quot;</span><span class="p">,</span> <span class="s">&quot;Felipe&quot;</span><span class="p">,</span> <span class="s">&quot;Massa&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;WEB&quot;</span><span class="p">,</span> <span class="s">&quot;Mark&quot;</span><span class="p">,</span> <span class="s">&quot;Webber&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;VET&quot;</span><span class="p">,</span> <span class="s">&quot;Sebastien&quot;</span><span class="p">,</span> <span class="s">&quot;Vettel&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Red Bull Ring&quot;</span><span class="p">,</span> <span class="s">&quot;Spielberg&quot;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">)</span>
+
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">agregar_gran_premio</span><span class="p">(</span><span class="n">c1</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestCampeonatoMundial.test_actualizar_rankings"><a class="viewcode-back" href="../../test_campeonatomundial.html#tests.test_campeonatoMundial.TestCampeonatoMundial.test_actualizar_rankings">[docs]</a>    <span class="k">def</span> <span class="nf">test_actualizar_rankings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test de actualizar rankings</span>
+<span class="sd">        Comprobamos que al pasarle la puntuacion equivalente a una clasificacion, este suma dichos puntos</span>
+<span class="sd">        a sus correspondientes pilotos y escuderias</span>
+<span class="sd">        Comprobamos caso de exito</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">,</span> <span class="s">&quot;Maranello&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e2</span><span class="p">}</span>
+
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;ALO&quot;</span><span class="p">,</span> <span class="s">&quot;Fernando&quot;</span><span class="p">,</span> <span class="s">&quot;Alonso&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;MAS&quot;</span><span class="p">,</span> <span class="s">&quot;Felipe&quot;</span><span class="p">,</span> <span class="s">&quot;Massa&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;WEB&quot;</span><span class="p">,</span> <span class="s">&quot;Mark&quot;</span><span class="p">,</span> <span class="s">&quot;Webber&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;VET&quot;</span><span class="p">,</span> <span class="s">&quot;Sebastien&quot;</span><span class="p">,</span> <span class="s">&quot;Vettel&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Red Bull Ring&quot;</span><span class="p">,</span> <span class="s">&quot;Spielberg&quot;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">)</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Circuito de Sochi&quot;</span><span class="p">,</span> <span class="s">&quot;Sochi&quot;</span><span class="p">)</span>
+
+        <span class="n">gp1</span> <span class="o">=</span> <span class="n">GranPremio</span><span class="p">(</span><span class="s">&quot;Gran Premio 1&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;2014&quot;</span><span class="p">)</span>
+        <span class="n">gp1</span><span class="o">.</span><span class="n">puntuacionFinal</span> <span class="o">=</span> <span class="p">[{</span><span class="s">&#39;WEB&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s">&#39;VET&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s">&#39;MAS&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&#39;ALO&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;Red Bull&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s">&#39;Ferrari&#39;</span><span class="p">:</span> <span class="mi">37</span><span class="p">}]</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">actualizar_rankings</span><span class="p">(</span><span class="n">gp1</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestCampeonatoMundial.test_actualizar_rankings_failure"><a class="viewcode-back" href="../../test_campeonatomundial.html#tests.test_campeonatoMundial.TestCampeonatoMundial.test_actualizar_rankings_failure">[docs]</a>    <span class="k">def</span> <span class="nf">test_actualizar_rankings_failure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test de actualizar ranking</span>
+<span class="sd">        Comprobamos que al pasarle una puntuacion final vacia , da fallo el recalcular los puntos de</span>
+<span class="sd">        los pilotos y escuderias</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">,</span> <span class="s">&quot;Maranello&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e2</span><span class="p">}</span>
+
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;ALO&quot;</span><span class="p">,</span> <span class="s">&quot;Fernando&quot;</span><span class="p">,</span> <span class="s">&quot;Alonso&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;MAS&quot;</span><span class="p">,</span> <span class="s">&quot;Felipe&quot;</span><span class="p">,</span> <span class="s">&quot;Massa&quot;</span><span class="p">,</span> <span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;WEB&quot;</span><span class="p">,</span> <span class="s">&quot;Mark&quot;</span><span class="p">,</span> <span class="s">&quot;Webber&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;VET&quot;</span><span class="p">,</span> <span class="s">&quot;Sebastien&quot;</span><span class="p">,</span> <span class="s">&quot;Vettel&quot;</span><span class="p">,</span> <span class="s">&quot;Red Bull&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Red Bull Ring&quot;</span><span class="p">,</span> <span class="s">&quot;Spielberg&quot;</span><span class="p">,</span> <span class="mi">4326</span><span class="p">)</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Circuito de Sochi&quot;</span><span class="p">,</span> <span class="s">&quot;Sochi&quot;</span><span class="p">)</span>
+
+        <span class="n">gp1</span> <span class="o">=</span> <span class="n">GranPremio</span><span class="p">(</span><span class="s">&quot;Gran Premio 1&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;2014&quot;</span><span class="p">)</span>
+        <span class="n">gp1</span><span class="o">.</span><span class="n">puntuacionFinal</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CampeonatoMundial</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">actualizar_rankings</span><span class="p">(</span><span class="n">gp1</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

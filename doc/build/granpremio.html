@@ -61,7 +61,130 @@
 <dl class="class">
 <dt id="src.GranPremio.GranPremio">
 <em class="property">class </em><tt class="descclassname">src.GranPremio.</tt><tt class="descname">GranPremio</tt><big>(</big><em>nombre</em>, <em>circuito</em>, <em>escuderias</em>, <em>pais</em>, <em>fecha</em><big>)</big><a class="reference internal" href="_modules/src/GranPremio.html#GranPremio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.GranPremio.GranPremio" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="method">
+<dt id="src.GranPremio.GranPremio.extraer_participantes">
+<tt class="descname">extraer_participantes</tt><big>(</big><em>escuderias</em><big>)</big><a class="reference internal" href="_modules/src/GranPremio.html#GranPremio.extraer_participantes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.GranPremio.GranPremio.extraer_participantes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extraer Participantes</p>
+<p>Metodo que cumple la funcionalidad de devolver los participantes
+del diccionario de  escuderias que son pasadas por paramentro. Para
+su buen funcionamiento se comprueba la coherencia de los datos.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>escuderias</strong> &#8211; Diccionario de escuderias de donde se extraeran los participantes</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Return participantes:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Diccionario con los participantes de las escuderias</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.GranPremio.GranPremio.print_clasificacion">
+<tt class="descname">print_clasificacion</tt><big>(</big><em>imprimir=True</em><big>)</big><a class="reference internal" href="_modules/src/GranPremio.html#GranPremio.print_clasificacion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.GranPremio.GranPremio.print_clasificacion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print Clasificacion</p>
+<p>Muestra por pantalla la clasificiacion del gran premio.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>imprimir</strong> &#8211; Boolean que indica si imprimir o no el gran premio.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Return strcclasificacion:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">String que se mostrara por pantalla</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.GranPremio.GranPremio.print_participantes">
+<tt class="descname">print_participantes</tt><big>(</big><em>imprimir=True</em><big>)</big><a class="reference internal" href="_modules/src/GranPremio.html#GranPremio.print_participantes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.GranPremio.GranPremio.print_participantes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print Participantes</p>
+<p>Muestra por pantalla los participantes del gran premio, los datos solo seran
+el nombre y la escuderia a la que pertenece</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>imprimir</strong> &#8211; Boolean que indica si imprimir o no los datos</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.GranPremio.GranPremio.print_vuelta_rapida">
+<tt class="descname">print_vuelta_rapida</tt><big>(</big><em>imprimir=True</em><big>)</big><a class="reference internal" href="_modules/src/GranPremio.html#GranPremio.print_vuelta_rapida"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.GranPremio.GranPremio.print_vuelta_rapida" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print Vuelta Rapida</p>
+<dl class="docutils">
+<dt>El metodo permite la funcionalidad de mostras los datos de una vuelta</dt>
+<dd>rapida por pantalla devlviendo un String</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>imprimir</strong> &#8211; Boolean que indica si se debe imprimir</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">String con los datos que se van a mostrar por pantalla</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.GranPremio.GranPremio.set_clasificacion">
+<tt class="descname">set_clasificacion</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/src/GranPremio.html#GranPremio.set_clasificacion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.GranPremio.GranPremio.set_clasificacion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Clasificacion</p>
+<p>Este metodo permite recoger los datos introdicidos por un usuario
+y validarlos. los datos introducidos por el usuario son las posiciones
+de los participantes, tambien se pude introcudir el tiempo de la vuelta
+rapida de un participante. lso datos se gusrdaran en diccionarios de la clase.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>puntuaciones_pilotos</strong> &#8211; Diccionario donde se agregan los pilotos</li>
+<li><strong>puntuaciones_escuderias</strong> &#8211; Diccionario donde se agregan las escuerias.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.GranPremio.GranPremio.set_vuelta_rapida">
+<tt class="descname">set_vuelta_rapida</tt><big>(</big><em>tiempo</em>, <em>piloto=None</em><big>)</big><a class="reference internal" href="_modules/src/GranPremio.html#GranPremio.set_vuelta_rapida"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.GranPremio.GranPremio.set_vuelta_rapida" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Vuelta Rapida</p>
+<p>El metodo permite indicar la vuelta rapida de un piloto.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tiempo</strong> &#8211; String que indica el tiempo de la vuelta rapida</li>
+<li><strong>piloto</strong> &#8211; Piloto que realiza la vuelta rapida</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return True:</th><td class="field-body"><p class="first">si la vuelta rapida es agregada con exito</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return False:</th><td class="field-body"><p class="first last">si la vuelta rapida no es agregada</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 

@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.test_escuderia &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for tests.test_escuderia</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">src.Piloto</span> <span class="kn">import</span> <span class="n">Piloto</span>
+<span class="kn">from</span> <span class="nn">src.Escuderia</span> <span class="kn">import</span> <span class="n">Escuderia</span>
+<span class="kn">from</span> <span class="nn">mockito</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;MAMISHO&#39;</span>
+
+
+<div class="viewcode-block" id="TestEscuderia"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia">[docs]</a><span class="k">class</span> <span class="nc">TestEscuderia</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestEscuderia.test_agregar_piloto_1"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_agregar_piloto_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregar_piloto_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test Agregar Piloto a Escuderia Success</span>
+
+<span class="sd">        El test prueba la funcionalidad de agregar un Piloto a</span>
+<span class="sd">        la escuderia. Los datos del piloto deben seguir el formato requerido.</span>
+
+<span class="sd">        :param p1: Piloto que se agrega a la escuderia.</span>
+<span class="sd">        :param e1: Escuderia para realizar el test</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Alni&quot;</span><span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_agregar_piloto_2"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_agregar_piloto_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregar_piloto_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test Agregar Piloto a Escuderia Failure</span>
+
+<span class="sd">        El test prueba que el piloto no exista en la Escuderia</span>
+
+<span class="sd">        :param p1: Piloto que se agrega a la escuderia.</span>
+<span class="sd">        :param p2: Piloto con id repetido para probar el test</span>
+<span class="sd">        :param e1: Escuderia para realizar el test</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Alni&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Pepe&quot;</span><span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_agregar_piloto_3"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_agregar_piloto_3">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregar_piloto_3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test Agregar Piloto a Escuderia Failure</span>
+
+<span class="sd">        El test prueba que el objeto que se va a agregar a</span>
+<span class="sd">        la escuderia sea un piloto.</span>
+
+<span class="sd">        :param m: Objeto tipo Mock que se agrega a la escuderia</span>
+<span class="sd">        :param e1: Escuderia para realizar el test</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">mock</span><span class="p">(</span><span class="n">Piloto</span><span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_eliminar_piloto_1"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_eliminar_piloto_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_eliminar_piloto_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test Eliminar piloto existente no activo de Escuderia</span>
+
+<span class="sd">        El test prueba que se elimine un piloto existente</span>
+<span class="sd">        de la escuderia y que el piloto eliminado no sea un</span>
+<span class="sd">        piloto activo</span>
+
+<span class="sd">        :param p1: Piloto existente en la escuderia</span>
+<span class="sd">        :param p2: Piloto existente en la escuderia</span>
+<span class="sd">        :param p3: Piloto existente en la escuderia y que sera eliminado</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">eliminar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_eliminar_piloto_2"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_eliminar_piloto_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_eliminar_piloto_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test Eliminar piloto no existente de Escuderia</span>
+
+<span class="sd">        El test  prueba que no se puede eliminar un</span>
+<span class="sd">        piloto que no existe en la escuderia, es decir</span>
+<span class="sd">        comprueba los parametros de entrada antes de eliminar</span>
+
+<span class="sd">        :param p1: Piloto existente en la escuderia</span>
+<span class="sd">        :param p2: Piloto existente en la escuderia</span>
+<span class="sd">        :param p3: Piloto existente en la escuderia y que sera eliminado</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">eliminar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_eliminar_piloto_3"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_eliminar_piloto_3">[docs]</a>    <span class="k">def</span> <span class="nf">test_eliminar_piloto_3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test Eliminar piloto existente activo de Escuderia</span>
+
+<span class="sd">        El test prueba que se elimine un piloto existente</span>
+<span class="sd">        de la escuderia y que el piloto eliminado no sea un</span>
+<span class="sd">        piloto activo</span>
+
+<span class="sd">        :param p1: Piloto Activo existente en la escuderia</span>
+<span class="sd">        :param p2: Piloto Activo existente en la escuderia  y que sera eliminado</span>
+<span class="sd">        :param p3: Piloto No Activo existente en la escuderia</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">definir_pilotos_activos</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">eliminar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_definir_pilotos_activos_1"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_definir_pilotos_activos_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_definir_pilotos_activos_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test definir Pilotos activos</span>
+
+<span class="sd">        El test prueba que dos pilotos sean activos en la</span>
+<span class="sd">        escuderia.</span>
+
+<span class="sd">        :param p1: Piloto no Activo Para hacer el test</span>
+<span class="sd">        :param p2: Piloto no Activo Para hacer el test</span>
+<span class="sd">        :param p3: Piloto no Activo Para hacer el test</span>
+<span class="sd">        :param e1: Escuderia para el test</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">definir_pilotos_activos</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_definir_pilotos_activos_2"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_definir_pilotos_activos_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_definir_pilotos_activos_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test definir Pilotos activos Faulire</span>
+
+<span class="sd">        El test prueba que los dos objetos que se pasan,</span>
+<span class="sd">        sean Pilotos para que posteriormente sean activos</span>
+
+<span class="sd">        :param p1: Piloto no Activo para hacer el test</span>
+<span class="sd">        :param p2: Piloto no Activo para hacer el test</span>
+<span class="sd">        :param p3: Mock de tipo Piloto para hacer el test</span>
+<span class="sd">        :param e1: Escuderia para el test</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">mock</span><span class="p">(</span><span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">))</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">definir_pilotos_activos</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p3</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_sustituir_piloto_1"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_sustituir_piloto_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_sustituir_piloto_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test sustituir piloto de escuderia</span>
+
+<span class="sd">        El test comprueba que la sustitucion de un piloto</span>
+<span class="sd">        en la escuderia sea correcta</span>
+
+<span class="sd">        :param p1: Piloto de la escuderia</span>
+<span class="sd">        :param p2: Piloto de la escuderia</span>
+<span class="sd">        :param p3: Piloto que sustituira a otro en la escuderia</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">definir_pilotos_activos</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p3</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestEscuderia.test_sustituir_piloto_2"><a class="viewcode-back" href="../../test_escuderia.html#tests.test_escuderia.TestEscuderia.test_sustituir_piloto_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_sustituir_piloto_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test sustituir piloto de escuderia failure</span>
+
+<span class="sd">        El test comprueba que la sustitucion de un piloto</span>
+<span class="sd">        en la escuderia reciba los objetos correctos</span>
+
+<span class="sd">        :param p1: Piloto de la escuderia</span>
+<span class="sd">        :param p2: Piloto de la escuderia</span>
+<span class="sd">        :param p3: Mock de tipo piloto que va a intentar sustituir a otro piloto</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">mock</span><span class="p">(</span><span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">))</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Ferrari&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">definir_pilotos_activos</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p3</span><span class="p">),</span> <span class="bp">False</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

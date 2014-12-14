@@ -65,11 +65,11 @@
 
 <div class="viewcode-block" id="TestFormula1"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1">[docs]</a><span class="k">class</span> <span class="nc">TestFormula1</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Test Fromula 1</span>
+<span class="sd">    Test Formula 1</span>
 
-<span class="sd">    Esta es la prueba de las funcionalidades del modulo de Formula1. Para</span>
+<span class="sd">    Este test prueba las funcionalidades del modulo de Formula1. Para</span>
 <span class="sd">    realizar las mismas, es necesario tener una bateria de atributos</span>
-<span class="sd">    definidos para todoas las pruebas.</span>
+<span class="sd">    definidos para todas las pruebas.</span>
 
 <span class="sd">    :param p1: Piloto de prueba</span>
 <span class="sd">    :param p2: Piloto de prueba</span>
@@ -102,15 +102,14 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Test Crear un campeonato mundial</span>
 
-<span class="sd">        El ests comprueba que formula 1 pueda crear un</span>
+<span class="sd">        El test comprueba que formula 1 pueda crear un</span>
 <span class="sd">        campeonato mundial de forma correcta, para esto</span>
 <span class="sd">        se comparan dos clases CampeonatoMundial, el primero lo creamos de</span>
-<span class="sd">        forma manual y el segundo es el que lo crea el modulo de formula1</span>
-<span class="sd">        luego comparamos las clases que tienen sus mismo atributos.</span>
+<span class="sd">        forma manual y el segundo es el que creara el modulo de formula1.</span>
+<span class="sd">        Luego comparamos las clases que tienen sus mismo atributos.</span>
 
-
-<span class="sd">        :param f1: Fromula 1 que va a crear el campeonato mundial</span>
-<span class="sd">        :param es: Diccionario de escuderias necesario para contruir un campeonato mundial</span>
+<span class="sd">        :param f1: Formula 1 que va a crear el campeonato mundial</span>
+<span class="sd">        :param es: Diccionario de escuderias necesario para construir un campeonato mundial</span>
 <span class="sd">        :param cm1: Campeonato mundial creado de forma manual</span>
 <span class="sd">        :param cm2: Campeonato mundial creado por formula 1</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -128,7 +127,7 @@
 <span class="sd">        Test agregar campeonato mundial a Formula 1</span>
 
 <span class="sd">        Este test comprueba que un campeonato mundial sea</span>
-<span class="sd">        agregado correctamente en la formula1 compliendo</span>
+<span class="sd">        agregado correctamente en la formula 1 cumpliendo</span>
 <span class="sd">        con el esquema de datos requerido</span>
 
 <span class="sd">        :param f1: Formula 1 al que se agrega el campeonat mundial</span>
@@ -146,16 +145,16 @@
 </div>
 <div class="viewcode-block" id="TestFormula1.test_agregar_campeonato_mundial_2"><a class="viewcode-back" href="../../test_formula1.html#tests.test_formula1.TestFormula1.test_agregar_campeonato_mundial_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_agregar_campeonato_mundial_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Test afregar campeonato mundial repetido</span>
+<span class="sd">        Test agregar campeonato mundial repetido</span>
 
 <span class="sd">        Este test comprueba que no pueda se agregado un</span>
-<span class="sd">        campeonato mundial que ya existe en la formula 1, la prueba se va a realizar con</span>
+<span class="sd">        campeonato mundial que ya existe en la formula 1. La prueba se va a realizar con</span>
 <span class="sd">        un solo campeonato mundial en este caso cm. Se invoca dos veces a el metodo</span>
 <span class="sd">        agregar_campeonato_mundial con el mismo parametro.</span>
 
 <span class="sd">        :param f1: Formula1 al que se agrega el campeonato mundial</span>
 <span class="sd">        :param es: Diccionario de escuderias que se requiere para crear un campeonato mundial</span>
-<span class="sd">        :param cm: campeonato mundial que se agrega a la formula 1</span>
+<span class="sd">        :param cm: Campeonato mundial que se agrega a la formula 1</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">print</span> <span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">test_agregar_campeonato_mundial_2&quot;</span><span class="p">)</span>
         <span class="n">f1</span> <span class="o">=</span> <span class="n">Formula1</span><span class="p">()</span>
@@ -174,7 +173,7 @@
 <span class="sd">        Este metodo comprueba que el nuevo campeonato mundial</span>
 <span class="sd">        sea correcto, es decir que cumpla con los requerimientos</span>
 <span class="sd">        de un campeonato mundial. En esta prueba vamos a simular un</span>
-<span class="sd">        campeonato mundial, el cual no debe pasar la prueba porque aunque</span>
+<span class="sd">        campeonato mundial, el cual no debe pasar la prueba porque, aunque</span>
 <span class="sd">        sea simulado, no es un campeonato mundial.</span>
 
 <span class="sd">        :param f1: Formula1 al que se agrega el campeonato mundial</span>
@@ -193,7 +192,7 @@
 <span class="sd">        con los requisitos sea eliminado de la formula 1.</span>
 
 <span class="sd">        :param f1: formula 1 de donde se elimina el campeonato mundial</span>
-<span class="sd">        :param es: escuderia de prueba para crear campeonatos mundiales</span>
+<span class="sd">        :param es: Escuderia de prueba para crear campeonatos mundiales</span>
 <span class="sd">        :param cm1: Campeoanto mundial de prueba</span>
 <span class="sd">        :param cm2: Campeoanto mundial de prueba</span>
 <span class="sd">        :param cm3: Campeoanto mundial de prueba</span>
@@ -228,7 +227,7 @@
 <span class="sd">        la formula 1</span>
 
 <span class="sd">        :param f1: formula 1 de donde se elimina el campeonato mundial</span>
-<span class="sd">        :param es: escuderia de prueba para crear campeonatos mundiales</span>
+<span class="sd">        :param es: Escuderia de prueba para crear campeonatos mundiales</span>
 <span class="sd">        :param cm1: Campeoanto mundial No existente en la formula 1</span>
 <span class="sd">        :param cm2: Campeoanto mundial existente en f1</span>
 <span class="sd">        :param cm3: Campeoanto mundial existente en f1</span>
@@ -259,8 +258,8 @@
 
 <span class="sd">        Este test comprueba que el campeonato mundial que</span>
 <span class="sd">        va a ser eliminado, sea un campeonato mundial valido. Para este</span>
-<span class="sd">        test usaremos un mock de tipo campeonatoMundial y la formula1</span>
-<span class="sd">        no debe permitir agregarlo porque aunque sea simulado, no</span>
+<span class="sd">        test usaremos un mock de tipo campeonato Mundial y la formula 1</span>
+<span class="sd">        no debe permitir agregarlo porque, aunque sea simulado, no</span>
 <span class="sd">        es un objeto propio de CampeonatoMundial</span>
 
 <span class="sd">        :param f1: Formula 1 de donde se va a eliminar el campeonato mundial</span>

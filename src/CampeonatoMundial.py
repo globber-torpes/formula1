@@ -49,7 +49,7 @@ class CampeonatoMundial(object):
         Crea un gran premio con los parametros pasados
 
         :return: devuelve instancia gran premio
-        :rtype Gran premio
+        :rtype:  Gran premio
         """
         gp = GranPremio(nombre, circuito, self.escuderias, pais, fecha)
         self.agregar_gran_premio(gp)

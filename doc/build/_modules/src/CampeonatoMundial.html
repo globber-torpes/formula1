@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>src.CampeonatoMundial &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for src.CampeonatoMundial</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">import</span> <span class="nn">src.Error</span>
+<span class="kn">from</span> <span class="nn">src.GranPremio</span> <span class="kn">import</span> <span class="n">GranPremio</span>
+
+
+<div class="viewcode-block" id="CampeonatoMundial"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial">[docs]</a><span class="k">class</span> <span class="nc">CampeonatoMundial</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edicion</span><span class="p">,</span> <span class="n">escuderias</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor Campeonato Mundial comprobando que el parametro edicion es de tipo int y</span>
+<span class="sd">        escuderia de tipo diccionario</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">edicion</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">escuderias</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edicion</span> <span class="o">=</span> <span class="n">edicion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span> <span class="o">=</span> <span class="n">escuderias</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grandesPremios</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rankingPilotos</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rankingEscuderias</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Error</span><span class="o">.</span><span class="n">TipoException</span><span class="p">(</span><span class="s">&quot;edicion/escuderia&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CampeonatoMundial.agregar_gran_premio"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial.agregar_gran_premio">[docs]</a>    <span class="k">def</span> <span class="nf">agregar_gran_premio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">granpremio</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Comprueba que granpremio es una instancia de gran premio y si lo es la anade</span>
+
+<span class="sd">        :param granpremio: instancia de gran premio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">granpremio</span><span class="p">,</span> <span class="n">GranPremio</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">granpremio</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grandesPremios</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grandesPremios</span><span class="p">[</span><span class="n">granpremio</span><span class="o">.</span><span class="n">nombre</span><span class="p">]</span> <span class="o">=</span> <span class="n">granpremio</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Error al agregar el Gran Premio al Campeonato Mundial edicion &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edicion</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="CampeonatoMundial.eliminar_gran_premio"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial.eliminar_gran_premio">[docs]</a>    <span class="k">def</span> <span class="nf">eliminar_gran_premio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">granpremio</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Comprueba que granpremio es una instancia de gran premio y si lo es la elimina</span>
+
+<span class="sd">        :param granpremio: instancia de gran premio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">granpremio</span><span class="p">,</span> <span class="n">GranPremio</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">granpremio</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grandesPremios</span><span class="p">):</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">grandesPremios</span><span class="p">[</span><span class="n">granpremio</span><span class="o">.</span><span class="n">nombre</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Error al eliminar el Gran Premio del Campeonato Mundial edicion &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edicion</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span>
+</div>
+<div class="viewcode-block" id="CampeonatoMundial.crear_gran_premio"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial.crear_gran_premio">[docs]</a>    <span class="k">def</span> <span class="nf">crear_gran_premio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">circuito</span><span class="p">,</span> <span class="n">pais</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fecha</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Crea un gran premio con los parametros pasados</span>
+
+<span class="sd">        :return: devuelve instancia gran premio</span>
+<span class="sd">        :rtype:  Gran premio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gp</span> <span class="o">=</span> <span class="n">GranPremio</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">circuito</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="p">,</span> <span class="n">pais</span><span class="p">,</span> <span class="n">fecha</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agregar_gran_premio</span><span class="p">(</span><span class="n">gp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gp</span>
+</div>
+<div class="viewcode-block" id="CampeonatoMundial.print_grandes_premios"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial.print_grandes_premios">[docs]</a>    <span class="k">def</span> <span class="nf">print_grandes_premios</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        imprime todos los grandes premios existentes</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">gp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grandesPremios</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">print</span> <span class="n">gp</span>
+</div>
+<div class="viewcode-block" id="CampeonatoMundial.actualizar_rankings"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial.actualizar_rankings">[docs]</a>    <span class="k">def</span> <span class="nf">actualizar_rankings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">granpremio</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Comprueba que gran premio es una instancia de gran premio, si lo es suma la puntuaciones de pilotos y</span>
+<span class="sd">        escuderias para actualizar las listas</span>
+
+<span class="sd">        :param granpremio: instancia de gran premio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">granpremio</span><span class="p">,</span> <span class="n">GranPremio</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">granpremio</span><span class="o">.</span><span class="n">puntuacionFinal</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">for</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="n">granpremio</span><span class="o">.</span><span class="n">puntuacionFinal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rankingPilotos</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">rankingPilotos</span><span class="p">[</span><span class="n">piloto</span><span class="p">]</span> <span class="o">+=</span> <span class="n">granpremio</span><span class="o">.</span><span class="n">puntuacionFinal</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">piloto</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">rankingPilotos</span><span class="p">[</span><span class="n">piloto</span><span class="p">]</span> <span class="o">=</span> <span class="n">granpremio</span><span class="o">.</span><span class="n">puntuacionFinal</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">piloto</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">escuderia</span> <span class="ow">in</span> <span class="n">granpremio</span><span class="o">.</span><span class="n">puntuacionFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">escuderia</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rankingEscuderias</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">rankingEscuderias</span><span class="p">[</span><span class="n">escuderia</span><span class="p">]</span> <span class="o">+=</span> <span class="n">granpremio</span><span class="o">.</span><span class="n">puntuacionFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">escuderia</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">rankingEscuderias</span><span class="p">[</span><span class="n">escuderia</span><span class="p">]</span> <span class="o">=</span> <span class="n">granpremio</span><span class="o">.</span><span class="n">puntuacionFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">escuderia</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Error al actualizar ranking.&quot;</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="CampeonatoMundial.simular_gran_premio"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial.simular_gran_premio">[docs]</a>    <span class="k">def</span> <span class="nf">simular_gran_premio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">granpremio</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Comprueba si el gran premio existe, si existe anade clasificacion la imprime y actualiza los rankings</span>
+
+<span class="sd">        :param granpremio: instancia de gran premio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">granpremio</span><span class="o">.</span><span class="n">nombre</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grandesPremios</span><span class="p">:</span>
+            <span class="n">granpremio</span><span class="o">.</span><span class="n">set_clasificacion</span><span class="p">()</span>
+            <span class="n">granpremio</span><span class="o">.</span><span class="n">print_clasificacion</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">actualizar_rankings</span><span class="p">(</span><span class="n">granpremio</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Error. El gran premio no se encuentra registrado dentro de este Campeonato Mundial&quot;</span>
+</div>
+<div class="viewcode-block" id="CampeonatoMundial.print_ranking_pilotos"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial.print_ranking_pilotos">[docs]</a>    <span class="k">def</span> <span class="nf">print_ranking_pilotos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imprimir</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Imprime la tabla e ranking de pilotos con sus puntuaciones</span>
+
+<span class="sd">        :return:ranking de pilotos</span>
+<span class="sd">        :rtype: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tostring</span> <span class="o">=</span> <span class="s">&quot;Ranking de pilotos del Campeonato Mundial de F1 (Edicion &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edicion</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span>
+        <span class="n">sorted_rankingpilotos</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rankingPilotos</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="n">sorted_rankingpilotos</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\t</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">piloto</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot; -&gt; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">piloto</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">imprimir</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">tostring</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="k">return</span> <span class="n">tostring</span>
+</div>
+<div class="viewcode-block" id="CampeonatoMundial.print_ranking_escuderias"><a class="viewcode-back" href="../../campeonatomundial.html#src.CampeonatoMundial.CampeonatoMundial.print_ranking_escuderias">[docs]</a>    <span class="k">def</span> <span class="nf">print_ranking_escuderias</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imprimir</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Imprime el ranking de escuderias</span>
+
+<span class="sd">        :return: ranking escuderias</span>
+<span class="sd">        :rtype: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tostring</span> <span class="o">=</span> <span class="s">&quot;Ranking de escuderias del Campeonato Mundial de F1 (Edicion &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edicion</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span>
+        <span class="n">sorted_rankingescuderias</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rankingEscuderias</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">escuderia</span> <span class="ow">in</span> <span class="n">sorted_rankingescuderias</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\t</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">escuderia</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot; -&gt; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">escuderia</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">imprimir</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">tostring</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="k">return</span> <span class="n">tostring</span>
+</div>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo tostring</span>
+
+<span class="sd">        Devuelve los datos del campeontao mundial, escuderias, grandes premios, ranking de pilotos y escuderias</span>
+
+<span class="sd">        :return: cadena con todos los datos</span>
+<span class="sd">        :rtype: String</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tostring</span> <span class="o">=</span> <span class="s">&quot;Campeonato Mundial de F1 edicion &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edicion</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span>
+        <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Escuderias inscritas: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">escuderias</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Grandes Premios: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grandesPremios</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rankingPilotos</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_ranking_pilotos</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rankingEscuderias</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_ranking_escuderias</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tostring</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

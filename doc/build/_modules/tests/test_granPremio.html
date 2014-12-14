@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.test_granPremio &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for tests.test_granPremio</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">src.Escuderia</span> <span class="kn">import</span> <span class="n">Escuderia</span>
+<span class="kn">from</span> <span class="nn">src.Piloto</span> <span class="kn">import</span> <span class="n">Piloto</span>
+<span class="kn">from</span> <span class="nn">src.Circuito</span> <span class="kn">import</span> <span class="n">Circuito</span>
+<span class="kn">from</span> <span class="nn">src.GranPremio</span> <span class="kn">import</span> <span class="n">GranPremio</span>
+<span class="kn">from</span> <span class="nn">mock</span> <span class="kn">import</span> <span class="n">patch</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;MAMISHO&#39;</span>
+
+
+<div class="viewcode-block" id="TestGranPremio"><a class="viewcode-back" href="../../test_granpremio.html#tests.test_granPremio.TestGranPremio">[docs]</a><span class="k">class</span> <span class="nc">TestGranPremio</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestGranPremio.test_extraer_participantes_1"><a class="viewcode-back" href="../../test_granpremio.html#tests.test_granPremio.TestGranPremio.test_extraer_participantes_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_extraer_participantes_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test extraer participantes existentes</span>
+
+<span class="sd">        Este test comprueba que los participantes fueron</span>
+<span class="sd">        agregados correctamente en el gran premio, y</span>
+<span class="sd">        se comprueba la funcionalidad de extraer participantes</span>
+<span class="sd">        que se usa en otros modulos.</span>
+
+<span class="sd">        :param p1: Piloto de la escuderia e1</span>
+<span class="sd">        :param p2: Piloto de la escuderia e1</span>
+<span class="sd">        :param p3: Piloto de la escuderia e2</span>
+<span class="sd">        :param p4: Piloto de la escuderia e2</span>
+<span class="sd">        :param p5: Piloto de la escuderia e3</span>
+<span class="sd">        :param p6: Piloto de la escuderia e4</span>
+<span class="sd">        :param e1: Escuderia para agregar al circuito</span>
+<span class="sd">        :param e2: Escuderia para agregar al circuito</span>
+<span class="sd">        :param e3: Escuderia para agregar al circuito</span>
+<span class="sd">        :param c1: Circuito del gran premio</span>
+<span class="sd">        :param es: Diccionario de circuitos para crear el gran premio</span>
+<span class="sd">        :param gp: Gran premio para la prueba</span>
+<span class="sd">        :param participantes: Objeto que se usa para comprobar la funcionalidad</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;DDD&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto D&quot;</span><span class="p">)</span>
+        <span class="n">p5</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;EEE&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto E&quot;</span><span class="p">)</span>
+        <span class="n">p6</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;FFF&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto F&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 1&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 2&quot;</span><span class="p">)</span>
+        <span class="n">e3</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 3&quot;</span><span class="p">)</span>
+
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Circuito 1&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+        <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p5</span><span class="p">)</span>
+        <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p6</span><span class="p">)</span>
+
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e3</span><span class="p">}</span>
+
+        <span class="n">gp</span> <span class="o">=</span> <span class="n">GranPremio</span><span class="p">(</span><span class="s">&quot;Gran Premio 1&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;2014&quot;</span><span class="p">)</span>
+
+        <span class="n">participantes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">participantes</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">extraer_participantes</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>
+
+        <span class="k">print</span> <span class="n">participantes</span>
+
+        <span class="c"># self.assertDictContainsSubset(participantes, es, None)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">,</span> <span class="n">participantes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">,</span> <span class="n">participantes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">p3</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">,</span> <span class="n">participantes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">p4</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">,</span> <span class="n">participantes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">p5</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">,</span> <span class="n">participantes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">p6</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">,</span> <span class="n">participantes</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestGranPremio.test_extraer_participantes_2"><a class="viewcode-back" href="../../test_granpremio.html#tests.test_granPremio.TestGranPremio.test_extraer_participantes_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_extraer_participantes_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test extraer participantes no exitentes</span>
+
+<span class="sd">        Este test comprueba que no se extraigan participantes</span>
+<span class="sd">        que no se encuentran en el gran premio</span>
+
+<span class="sd">        :param p1: Piloto de la escuderia e1</span>
+<span class="sd">        :param p2: Piloto de la escuderia e1</span>
+<span class="sd">        :param p3: Piloto de la escuderia e2</span>
+<span class="sd">        :param p4: Piloto de la escuderia e2</span>
+<span class="sd">        :param p5: Piloto de la escuderia e3</span>
+<span class="sd">        :param p6: Piloto de la escuderia e4</span>
+<span class="sd">        :param p7: Participante que no pertenece en el gran premio, y que no debe aparecer en el diccionario</span>
+<span class="sd">        :param e1: Escuderia para agregar al circuito</span>
+<span class="sd">        :param e2: Escuderia para agregar al circuito</span>
+<span class="sd">        :param e3: Escuderia para agregar al circuito</span>
+<span class="sd">        :param c1: circuito del gran premio</span>
+<span class="sd">        :param es: Diccionario de circuitos para crear el gran premio</span>
+<span class="sd">        :param gp: Gran premio para la prueba</span>
+<span class="sd">        :param participantes: Diccionario que se usa para comprobar la funcionalidad</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;DDD&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto D&quot;</span><span class="p">)</span>
+        <span class="n">p5</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;EEE&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto E&quot;</span><span class="p">)</span>
+        <span class="n">p6</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;FFF&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto F&quot;</span><span class="p">)</span>
+        <span class="n">p7</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;GGG&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto G&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 1&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 2&quot;</span><span class="p">)</span>
+        <span class="n">e3</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 3&quot;</span><span class="p">)</span>
+
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Circuito 1&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+        <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p5</span><span class="p">)</span>
+        <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p6</span><span class="p">)</span>
+
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e3</span><span class="p">}</span>
+
+        <span class="n">gp</span> <span class="o">=</span> <span class="n">GranPremio</span><span class="p">(</span><span class="s">&quot;Gran Premio 1&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;2014&quot;</span><span class="p">)</span>
+
+        <span class="n">participantes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">participantes</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">extraer_participantes</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNot</span><span class="p">(</span><span class="n">p7</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">,</span> <span class="n">participantes</span><span class="p">)</span>
+</div>
+    <span class="nd">@patch</span><span class="p">(</span><span class="s">&#39;src.GranPremio.GranPremio.set_clasificacion&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="TestGranPremio.test_set_clasificacion"><a class="viewcode-back" href="../../test_granpremio.html#tests.test_granPremio.TestGranPremio.test_set_clasificacion">[docs]</a>    <span class="k">def</span> <span class="nf">test_set_clasificacion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">raw_input</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test set_clasificacion</span>
+
+<span class="sd">        Este test comprueba que se pueda  introducir</span>
+<span class="sd">        parametros por teclado segun el programa solicite al usuario.</span>
+<span class="sd">        Se hace uso de patch desde la libreria de mock</span>
+
+<span class="sd">        :param p1: Piloto de la escuderia e1</span>
+<span class="sd">        :param p2: Piloto de la escuderia e1</span>
+<span class="sd">        :param p3: Piloto de la escuderia e2</span>
+<span class="sd">        :param p4: Piloto de la escuderia e2</span>
+<span class="sd">        :param p5: Piloto de la escuderia e3</span>
+<span class="sd">        :param p6: Piloto de la escuderia e4</span>
+<span class="sd">        :param e1: Escuderia para agregar al circuito</span>
+<span class="sd">        :param e2: Escuderia para agregar al circuito</span>
+<span class="sd">        :param e3: Escuderia para agregar al circuito</span>
+<span class="sd">        :param c1: circuito del gran premio</span>
+<span class="sd">        :param es: Diccionario de circuitos para crear el gran premio</span>
+<span class="sd">        :param gp: Gran premio para realizar el test</span>
+<span class="sd">        :param participantes: Diccionario que se usa para comprobar la funcionalidad</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;DDD&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto D&quot;</span><span class="p">)</span>
+        <span class="n">p5</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;EEE&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto E&quot;</span><span class="p">)</span>
+        <span class="n">p6</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;FFF&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto F&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 1&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 2&quot;</span><span class="p">)</span>
+        <span class="n">e3</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 3&quot;</span><span class="p">)</span>
+
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Circuito 1&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+        <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p5</span><span class="p">)</span>
+        <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p6</span><span class="p">)</span>
+
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e3</span><span class="p">}</span>
+
+        <span class="n">ng</span> <span class="o">=</span> <span class="n">GranPremio</span><span class="p">(</span><span class="s">&quot;Gran Premio 1&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;2014&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNotNone</span><span class="p">(</span><span class="n">ng</span><span class="o">.</span><span class="n">set_clasificacion</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="TestGranPremio.test_set_vuelta_rapida"><a class="viewcode-back" href="../../test_granpremio.html#tests.test_granPremio.TestGranPremio.test_set_vuelta_rapida">[docs]</a>    <span class="k">def</span> <span class="nf">test_set_vuelta_rapida</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test set vuelta rapida</span>
+
+<span class="sd">        Este test comprueba que se pueda introducir una vuelta rapida</span>
+<span class="sd">        Se pasan los siguientes parametros</span>
+
+<span class="sd">        :param p1: Piloto de la escuderia e1</span>
+<span class="sd">        :param p2: Piloto de la escuderia e1</span>
+<span class="sd">        :param p3: Piloto de la escuderia e2</span>
+<span class="sd">        :param p4: Piloto de la escuderia e2</span>
+<span class="sd">        :param p5: Piloto de la escuderia e3</span>
+<span class="sd">        :param p6: Piloto de la escuderia e4</span>
+<span class="sd">        :param e1: Escuderia para agregar al circuito</span>
+<span class="sd">        :param e2: Escuderia para agregar al circuito</span>
+<span class="sd">        :param e3: Escuderia para agregar al circuito</span>
+<span class="sd">        :param c1: circuito del gran premio</span>
+<span class="sd">        :param es: Diccionario de circuitos para crear el gran premio</span>
+<span class="sd">        :param gp: Gran premio para realizar la prueba</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;AAA&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto A&quot;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;BBB&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto B&quot;</span><span class="p">)</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;CCC&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto C&quot;</span><span class="p">)</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;DDD&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto D&quot;</span><span class="p">)</span>
+        <span class="n">p5</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;EEE&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto E&quot;</span><span class="p">)</span>
+        <span class="n">p6</span> <span class="o">=</span> <span class="n">Piloto</span><span class="p">(</span><span class="s">&quot;FFF&quot;</span><span class="p">,</span> <span class="s">&quot;Piloto F&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 1&quot;</span><span class="p">)</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 2&quot;</span><span class="p">)</span>
+        <span class="n">e3</span> <span class="o">=</span> <span class="n">Escuderia</span><span class="p">(</span><span class="s">&quot;Escuderia 3&quot;</span><span class="p">)</span>
+
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">Circuito</span><span class="p">(</span><span class="s">&quot;Circuito 1&quot;</span><span class="p">)</span>
+
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span>
+        <span class="n">e2</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p4</span><span class="p">)</span>
+        <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p5</span><span class="p">)</span>
+        <span class="n">e3</span><span class="o">.</span><span class="n">agregar_piloto</span><span class="p">(</span><span class="n">p6</span><span class="p">)</span>
+
+        <span class="n">es</span> <span class="o">=</span> <span class="p">{</span><span class="n">e1</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="o">.</span><span class="n">nombre</span><span class="p">:</span> <span class="n">e3</span><span class="p">}</span>
+
+        <span class="n">gp</span> <span class="o">=</span> <span class="n">GranPremio</span><span class="p">(</span><span class="s">&quot;Gran Premio 1&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;2014&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">set_vuelta_rapida</span><span class="p">(</span><span class="s">&quot;1:14:123&quot;</span><span class="p">,</span> <span class="s">&quot;AAA&quot;</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

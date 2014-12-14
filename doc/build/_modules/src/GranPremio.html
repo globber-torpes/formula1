@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>src.GranPremio &mdash; Formula1 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Formula1 0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for src.GranPremio</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">Error</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">src.Circuito</span> <span class="kn">import</span> <span class="n">Circuito</span>
+
+
+<div class="viewcode-block" id="GranPremio"><a class="viewcode-back" href="../../granpremio.html#src.GranPremio.GranPremio">[docs]</a><span class="k">class</span> <span class="nc">GranPremio</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">puntuaciones</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">circuito</span><span class="p">,</span> <span class="n">escuderias</span><span class="p">,</span> <span class="n">pais</span><span class="p">,</span> <span class="n">fecha</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clase GranPremio</span>
+
+<span class="sd">        Esta clase contiene el circuito, escuderias, pais y fecha donde se va a realizar</span>
+<span class="sd">        el gran premio, este objeto posterioemente sera utilizado por un campeonato</span>
+<span class="sd">        mundial y agregado a la formula 1. Para que el granPremio sea creado de forma correcta</span>
+<span class="sd">        se comprueba la coherencia de los datos.</span>
+
+<span class="sd">        :param nombre:  Nombre del gran premio</span>
+<span class="sd">        :param circuito: Circuito en el que se realiza la competicion</span>
+<span class="sd">        :param escuderias: Diccionario de escuderias que participan en el Gran premio</span>
+<span class="sd">        :param pais: Pais donde se realiza el Gran Premio</span>
+<span class="sd">        :param fecha: Fecha de la competicion</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">circuito</span><span class="p">,</span> <span class="n">Circuito</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pais</span> <span class="o">=</span> <span class="n">pais</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fecha</span> <span class="o">=</span> <span class="n">fecha</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">circuito</span> <span class="o">=</span> <span class="n">circuito</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clasificacion</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">puntuacionFinal</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vueltaRapida</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extraer_participantes</span><span class="p">(</span><span class="n">escuderias</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">Error</span><span class="o">.</span><span class="n">TipoException</span><span class="p">(</span><span class="s">&quot;circuito&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GranPremio.extraer_participantes"><a class="viewcode-back" href="../../granpremio.html#src.GranPremio.GranPremio.extraer_participantes">[docs]</a>    <span class="k">def</span> <span class="nf">extraer_participantes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">escuderias</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extraer Participantes</span>
+
+<span class="sd">        Metodo que cumple la funcionalidad de devolver los participantes</span>
+<span class="sd">        del diccionario de  escuderias que son pasadas por paramentro. Para</span>
+<span class="sd">        su buen funcionamiento se comprueba la coherencia de los datos.</span>
+
+<span class="sd">        :param escuderias: Diccionario de escuderias de donde se extraeran los participantes</span>
+<span class="sd">        :return participantes: Diccionario con los participantes de las escuderias</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">escuderia</span> <span class="ow">in</span> <span class="n">escuderias</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">escuderia</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="n">escuderia</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="p">[</span><span class="n">escuderia</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">[</span><span class="n">piloto</span><span class="p">]</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s">&quot;Piloto&quot;</span><span class="p">:</span> <span class="n">escuderia</span><span class="o">.</span><span class="n">pilotosActivos</span><span class="p">[</span><span class="n">piloto</span><span class="p">]</span><span class="o">.</span><span class="n">idPiloto</span><span class="p">,</span> <span class="s">&quot;Escuderia&quot;</span><span class="p">:</span> <span class="n">escuderia</span><span class="o">.</span><span class="n">nombre</span><span class="p">}</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">Error</span><span class="o">.</span><span class="n">ActivosException</span><span class="p">(</span><span class="n">escuderia</span><span class="o">.</span><span class="n">nombre</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span>
+</div>
+<div class="viewcode-block" id="GranPremio.set_clasificacion"><a class="viewcode-back" href="../../granpremio.html#src.GranPremio.GranPremio.set_clasificacion">[docs]</a>    <span class="k">def</span> <span class="nf">set_clasificacion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set Clasificacion</span>
+
+<span class="sd">        Este metodo permite recoger los datos introdicidos por un usuario</span>
+<span class="sd">        y validarlos. los datos introducidos por el usuario son las posiciones</span>
+<span class="sd">        de los participantes, tambien se pude introcudir el tiempo de la vuelta</span>
+<span class="sd">        rapida de un participante. lso datos se gusrdaran en diccionarios de la clase.</span>
+
+<span class="sd">        :param puntuaciones_pilotos: Diccionario donde se agregan los pilotos</span>
+<span class="sd">        :param puntuaciones_escuderias: Diccionario donde se agregan las escuerias.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">puntuaciones_pilotos</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">puntuaciones_escuderias</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Editor de clasificaciones.&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Se mostraran los participantes por pantalla. Introduzca la posicion para cada piloto:&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Piloto: &quot;</span> <span class="o">+</span> <span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Piloto&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;. Escuderia: &quot;</span> <span class="o">+</span> <span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Escuderia&quot;</span><span class="p">])</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> \
+                            <span class="n">pos</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="p">)</span> <span class="ow">or</span> \
+                            <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> \
+                            <span class="n">pos</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">clasificacion</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error. Posicion repetida o no admitida.&quot;</span><span class="p">)</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clasificacion</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">piloto</span>
+            <span class="k">if</span> <span class="n">pos</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">puntuaciones</span><span class="p">:</span>
+                <span class="n">puntuaciones_pilotos</span><span class="p">[</span><span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Piloto&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">puntuaciones</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Escuderia&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">puntuaciones_escuderias</span><span class="p">:</span>
+                    <span class="n">puntuaciones_escuderias</span><span class="p">[</span><span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Escuderia&quot;</span><span class="p">]]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">puntuaciones</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">puntuaciones_escuderias</span><span class="p">[</span><span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Escuderia&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">puntuaciones</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">puntuaciones_pilotos</span><span class="p">[</span><span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Piloto&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Escuderia&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">puntuaciones_escuderias</span><span class="p">:</span>
+                    <span class="n">puntuaciones_escuderias</span><span class="p">[</span><span class="n">piloto</span><span class="p">[</span><span class="s">&quot;Escuderia&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Desea ahora definir la vuelta rapida? (s/n).&quot;</span><span class="p">)</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="n">res</span> <span class="o">!=</span> <span class="s">&quot;s&quot;</span> <span class="ow">and</span> <span class="n">res</span> <span class="o">!=</span> <span class="s">&quot;n&quot;</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error. Respuesta no valida.&quot;</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">res</span> <span class="o">==</span> <span class="s">&quot;s&quot;</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Introduzca el codigo de piloto que ha realizado la vuelta rapida.&quot;</span><span class="p">)</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+            <span class="k">while</span> <span class="n">p</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error. Piloto no encontrado.&quot;</span><span class="p">)</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Introduzca el tiempo de la vuelta rapida. Formato recomendado &#39;1:16.182&#39;.&quot;</span><span class="p">)</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+            <span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;([0-9]+:[0-6][0-9].[0-9][0-9][0-9])&quot;</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="k">while</span> <span class="n">r</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Error. Formato de tiempo incorrecto&quot;</span><span class="p">)</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_vuelta_rapida</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">puntuacionFinal</span> <span class="o">=</span> <span class="p">[</span><span class="n">puntuaciones_pilotos</span><span class="p">,</span> <span class="n">puntuaciones_escuderias</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="GranPremio.print_clasificacion"><a class="viewcode-back" href="../../granpremio.html#src.GranPremio.GranPremio.print_clasificacion">[docs]</a>    <span class="k">def</span> <span class="nf">print_clasificacion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imprimir</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print Clasificacion</span>
+
+<span class="sd">        Muestra por pantalla la clasificiacion del gran premio.</span>
+
+<span class="sd">        :param imprimir: Boolean que indica si imprimir o no el gran premio.</span>
+<span class="sd">        :return strcclasificacion: String que se mostrara por pantalla</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">strclasificacion</span> <span class="o">=</span> <span class="s">&quot;Clasificacion &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span>
+        <span class="k">for</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">clasificacion</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">strclasificacion</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\t</span><span class="s">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">piloto</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; -&gt; &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">clasificacion</span><span class="p">[</span><span class="n">piloto</span><span class="p">][</span><span class="s">&quot;Piloto&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot; (&quot;</span> <span class="o">+</span> \
+                                <span class="bp">self</span><span class="o">.</span><span class="n">clasificacion</span><span class="p">[</span><span class="n">piloto</span><span class="p">][</span><span class="s">&quot;Escuderia&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span>
+        <span class="k">if</span> <span class="n">imprimir</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">strclasificacion</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">strclasificacion</span>
+</div>
+<div class="viewcode-block" id="GranPremio.print_participantes"><a class="viewcode-back" href="../../granpremio.html#src.GranPremio.GranPremio.print_participantes">[docs]</a>    <span class="k">def</span> <span class="nf">print_participantes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imprimir</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print Participantes</span>
+
+<span class="sd">        Muestra por pantalla los participantes del gran premio, los datos solo seran</span>
+<span class="sd">        el nombre y la escuderia a la que pertenece</span>
+
+<span class="sd">        :param imprimir: Boolean que indica si imprimir o no los datos</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">strparticipantes</span> <span class="o">=</span> <span class="s">&quot;Lista de participantes &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span>
+        <span class="k">for</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">strparticipantes</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\t</span><span class="s">Piloto: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="p">[</span><span class="n">piloto</span><span class="p">][</span><span class="s">&quot;Piloto&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;. Escuderia: &quot;</span> <span class="o">+</span> \
+                                <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="p">[</span><span class="n">piloto</span><span class="p">][</span><span class="s">&quot;Escuderia&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">imprimir</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">strparticipantes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">strparticipantes</span>
+</div>
+<div class="viewcode-block" id="GranPremio.set_vuelta_rapida"><a class="viewcode-back" href="../../granpremio.html#src.GranPremio.GranPremio.set_vuelta_rapida">[docs]</a>    <span class="k">def</span> <span class="nf">set_vuelta_rapida</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tiempo</span><span class="p">,</span> <span class="n">piloto</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set Vuelta Rapida</span>
+
+<span class="sd">        El metodo permite indicar la vuelta rapida de un piloto.</span>
+
+<span class="sd">        :param tiempo: String que indica el tiempo de la vuelta rapida</span>
+<span class="sd">        :param piloto: Piloto que realiza la vuelta rapida</span>
+<span class="sd">        :return True: si la vuelta rapida es agregada con exito</span>
+<span class="sd">        :return False: si la vuelta rapida no es agregada</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">piloto</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vueltaRapida</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Tiempo&quot;</span><span class="p">:</span> <span class="n">tiempo</span><span class="p">,</span> <span class="s">&quot;Piloto&quot;</span><span class="p">:</span> <span class="n">piloto</span><span class="p">}</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vueltaRapida</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Tiempo&quot;</span><span class="p">:</span> <span class="n">tiempo</span><span class="p">}</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="GranPremio.print_vuelta_rapida"><a class="viewcode-back" href="../../granpremio.html#src.GranPremio.GranPremio.print_vuelta_rapida">[docs]</a>    <span class="k">def</span> <span class="nf">print_vuelta_rapida</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imprimir</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print Vuelta Rapida</span>
+
+<span class="sd">        El metodo permite la funcionalidad de mostras los datos de una vuelta</span>
+<span class="sd">         rapida por pantalla devlviendo un String</span>
+
+<span class="sd">        :param imprimir: Boolean que indica si se debe imprimir</span>
+<span class="sd">        :return: String con los datos que se van a mostrar por pantalla</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">vuelta_rapida_string</span> <span class="o">=</span> <span class="s">&quot;Vuelta rapida &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">+</span> <span class="s">&quot;:</span><span class="se">\n\t</span><span class="s">Tiempo: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">vueltaRapida</span><span class="p">[</span><span class="s">&quot;Tiempo&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vueltaRapida</span><span class="p">[</span><span class="s">&quot;Piloto&quot;</span><span class="p">]:</span>
+            <span class="n">vuelta_rapida_string</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\t</span><span class="s">Piloto: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">vueltaRapida</span><span class="p">[</span><span class="s">&quot;Piloto&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">imprimir</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">vuelta_rapida_string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">vuelta_rapida_string</span>
+</div>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo privado ToString</span>
+
+<span class="sd">        Se redefine el metodo toString para que muetre los datos</span>
+<span class="sd">        del gran premio por pantalla siguiendo un estilo propio.</span>
+
+<span class="sd">        :return: String que se mostrara por pantalla</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tostring</span> <span class="o">=</span> <span class="s">&quot;Datos del Gran Premio: </span><span class="se">\n</span><span class="s">Nombre: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pais</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Pais: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pais</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fecha</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Fecha de celebracion: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">fecha</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuito</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Circuito: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuito</span><span class="o">.</span><span class="n">nombre</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clasificacion</span><span class="p">:</span>
+            <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_clasificacion</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vueltaRapida</span><span class="p">:</span>
+                <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_vuelta_rapida</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">participantes</span><span class="p">:</span>
+                <span class="n">tostring</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_participantes</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tostring</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../index.html">Formula1 0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, GlobberTorpes.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
